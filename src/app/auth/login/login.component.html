@@ -1,0 +1,35 @@
+<div class="container">
+        <div class="card">
+            
+            <div class="bgimg">
+                <img clas="bgimgclass" src="assts/1.jpg" alt="">
+            </div>
+
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" formControlName="username" class="form-control" />
+                        <div  class="invalid-feedback">
+                            <div >Username is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" formControlName="password" class="form-control"  />
+                        <div  class="invalid-feedback">
+                            <div >Password is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">
+                            <!--<span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>-->
+                            Login
+                        </button>
+                        <a routerLink="../register" class="btn btn-link">Register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+</div>

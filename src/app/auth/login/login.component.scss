@@ -1,0 +1,35 @@
+.container {
+    display: grid;
+    max-width: 1000px;
+  }
+
+.card{
+    top: 50%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    height: 500px;
+    
+    
+  }
+.bgimg{
+    width: 100;
+    height: auto;
+    background-color: #ff5500;
+}
+
+.bgimgclass{
+    width: 100;
+    height: auto;
+}
+
+.card-body{
+    grid-template-columns: 95%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.bg{
+    display: block;
+}
+
