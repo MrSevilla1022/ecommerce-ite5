@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,7 @@ import { OrderstatusComponent } from './user/orderstatus/orderstatus.component';
 import { CheckoutComponent } from './user/checkout/checkout.component';
 import { ChangecredentialsComponent } from './user/changecredentials/changecredentials.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     OrderstatusComponent,
     CheckoutComponent,
     ChangecredentialsComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     BrowserAnimationsModule,
     NgbModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,12 +8,11 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ServiceService {
   baseURL: string = "http://localhost/ecommerce-ite5/gearup-api/";
-
   constructor(private http: HttpClient) { }
 
   sendApiRequest(method: any, data: any) {
     return <any>(
-      this.http.post(this.baseURL + method, btoa(JSON.stringify(data)))
+      this.http.post(this.baseURL + method, (JSON.stringify(data)))
     );
   }
 

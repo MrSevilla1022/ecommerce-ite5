@@ -11,6 +11,9 @@
 
 			$this->sql = "SELECT * FROM $table";
 
+      if($filter_data != null && $table == "tbl_user") {
+				$this->sql .= " WHERE user_uname=$filter_data";
+			}
 
 			$data = array(); $code = 0; $msg= ""; $remarks = "";
 			try {
@@ -24,32 +27,37 @@
 			return $this->sendPayload($data, $remarks, $msg, $code);
 		}
 
-		public function insert($table, $data){
-			$i = 0; $fields=[]; $values=[];
-			foreach ($data as $key => $value) {
-				array_push($fields, $key);
-				array_push($values, $value);
-			}
-			try {
-				$ctr = 0;
-				$sqlstr="INSERT INTO $table (";
-				foreach ($fields as $value) {
-					$sqlstr.=$value; $ctr++;
-					if($ctr<count($fields)) {
-						$sqlstr.=", ";
-					}
-				}
-				$sqlstr.=") VALUES (".str_repeat("?, ", count($values)-1)."?)";
+    public function insert($table, $data)
+    {
+      $i = 0;
+      $fields = [];
+      $values = [];
 
-				$sql = $this->pdo->prepare($sqlstr);
-				$sql->execute($values);
-				return array("code"=>200, "remarks"=>"success");
-			} catch (\PDOException $e) {
-				$errmsg = $e->getMessage();
-				$code = 403;
-			}
-			return array("code"=>$code, "errmsg"=>$errmsg);
-		}
+      foreach ($data as $key => $value) {
+
+        array_push($fields, $key);
+        array_push($values, $value);
+      }
+      try {
+        $ctr = 0;
+        $sqlstr = "INSERT INTO $table(";
+        foreach ($fields as $value) {
+          $sqlstr .= $value;
+          $ctr++;
+          if ($ctr < count($fields)) {
+            $sqlstr .= ", ";
+          }
+        }
+        $sqlstr .= ") VALUES (" . str_repeat("?, ", count($values) - 1) . "?)";
+        $sql = $this->pdo->prepare($sqlstr);
+        $sql->execute($values);
+        return $this->exec_query("$table", null);
+      } catch (\PDOException $e) {
+        $errmsg = $e->getMessage();
+        $code = 403;
+      }
+      return array("code" => $code, "errmsg" => $errmsg, "data" => $data, "values" => $values);
+    }
 
 		public function update($table, $data, $conditionStringPassed){
 			$fields=[]; $values=[];

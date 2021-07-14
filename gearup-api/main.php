@@ -37,11 +37,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 
         //INSERT sample
-      case 'createTask':
+      case 'addProduct':
         $d = json_decode(file_get_contents("php://input"));
-        echo json_encode($gm->insert("task_tbl", $d), JSON_PRETTY_PRINT);
+        echo json_encode($gm->insert("tbl_products", $d), JSON_PRETTY_PRINT);
         return array("data" => $d);
         break;
+
 
 
         //UPDATE sample
