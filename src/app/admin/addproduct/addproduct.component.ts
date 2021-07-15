@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 import { Products } from '../../model/products'
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
@@ -64,6 +65,13 @@ export class AddproductComponent implements OnInit {
             console.log(result);
         });
       console.log(this.product)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'This product has been added!',
+        showConfirmButton: false,
+        timer: 1500
+      })
   }
 
   imgSrc: string = "../../assets/gear.png"
