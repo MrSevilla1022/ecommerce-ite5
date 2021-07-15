@@ -100,23 +100,25 @@
 <div class="container">
   <h3 class="fw-bolder pb-3">Helmets</h3>
   <div class="d-flex flex-row justify-content-between my-flex-container">
-  <div *ngFor="let prod of helmet" class="card mr-3 mb-3  my-flex-item"  style="width: 500px; height:auto;">
+  <div *ngFor="let prod of products" class="card mr-3 mb-3  my-flex-item"  style="width: 500px; height:auto;">
       <img class="img card-img-top embed-responsive-item" src={{prod.product_img}} alt="Card image cap">
       <div class="card-body">
+        <a href="#" class="btn stretched-link"></a>
         <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{prod.product_name}}</h5>
         <p class="card-text" style="color: orange;"><span>&#8369;</span>{{prod.price}}</p>
       </div>
   </div>
-</div> 
+</div>
 
 <h3 class="fw-bolder">Headlights</h3>
 
 <div class="d-flex flex-row justify-content-between my-flex-container">
-  <div *ngFor="let prod of headlight" class="card p-2 mr-3 my-flex-item"  style="width: 500px; height:auto;">
-    <img class="img card-img-top embed-responsive-item" src={{prod.product_img}} alt="Card image cap">
+  <div *ngFor="let hl of headlight" class="card p-2 mr-3 my-flex-item"  style="width: 500px; height:auto;">
+    <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{prod.product_name}}</h5>
-      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{prod.price}}</p>
+      <a href="#" class="btn stretched-link"></a>
+      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
+      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
     </div>
 </div>
 </div>
