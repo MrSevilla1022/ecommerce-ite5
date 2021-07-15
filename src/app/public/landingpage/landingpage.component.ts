@@ -22,6 +22,4 @@ export class LandingpageComponent implements OnInit {
       this.products = data.payload
     })
   }
-
-  
 }
