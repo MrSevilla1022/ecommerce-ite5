@@ -26,6 +26,27 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($gm->exec_query('tbl_' . $req[0], null), JSON_PRETTY_PRINT);
         }
         break;
+      case 'category':
+        if (count($req) > 1) {
+          echo json_encode($gm->exec_query('tbl_' . $req[0], $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($gm->exec_query('tbl_' . $req[0], null), JSON_PRETTY_PRINT);
+        }
+        break;
+      case 'brand':
+        if (count($req) > 1) {
+          echo json_encode($gm->exec_query('tbl_' . $req[0], $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($gm->exec_query('tbl_' . $req[0], null), JSON_PRETTY_PRINT);
+        }
+        break;
+      case 'products':
+        if (count($req) > 1) {
+          echo json_encode($gm->exec_query('tbl_' . $req[0], $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($gm->exec_query('tbl_' . $req[0], null), JSON_PRETTY_PRINT);
+        }
+        break;
 
         // case 'showCollabJoin':
         //   if (count($req) > 1) {

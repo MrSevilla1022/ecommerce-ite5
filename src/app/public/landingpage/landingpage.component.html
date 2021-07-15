@@ -12,7 +12,7 @@
       <ul class="navbar-nav list-group-horizontal">
         <input style="max-width:300px; margin-top: 5px;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
         aria-describedby="search-addon" />
-       
+
 
 
        <!--Liked Icon-->
@@ -60,7 +60,7 @@
           <button type="button" class="btn px-5 btn-outline-danger" style="font-size: 30px;">Get Started</button>
         </div>
       </div>
-  
+
   </div>
   </div>
 </div>
@@ -97,25 +97,25 @@
 </ngb-carousel>-->
 <div class="container">
   <div class="d-flex flex-row justify-content-between my-flex-container">
+  <div *ngFor="let prod of products" class="card p-2 mx-3 my-flex-item" >
+      <img class="imgsz card-img-top" src={{prod.product_img}} alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text">{{prod.product_name}}</p>
+      </div>
+  </div>
+<!--
   <div class="card p-2 mx-3 my-flex-item" >
       <img class="card-img-top" src="assets/1.jpg" alt="Card image cap">
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
   </div>
-
   <div class="card p-2 mx-3 my-flex-item" >
       <img class="card-img-top" src="assets/1.jpg" alt="Card image cap">
       <div class="card-body">
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
-  </div>
-  <div class="card p-2 mx-3 my-flex-item" >
-      <img class="card-img-top" src="assets/1.jpg" alt="Card image cap">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-  </div>
+  </div> -->
 </div>
 </div>
 

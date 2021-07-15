@@ -19,10 +19,26 @@ export class AddproductComponent implements OnInit {
   pdesc:any;
   price:any;
   quantity:any;
-
+  types:any[]=[];
+  brands:any[]=[];
 
   ngOnInit(): void {
     this.apitest()
+    this.getTypes();
+    this.getBrands();
+  }
+  getBrands(){
+    this.ds.sendApiRequest("brand/", null ).subscribe((data: any) => {
+      console.log(data.payload);
+      this.brands = data.payload
+    })
+  }
+
+  getTypes(){
+    this.ds.sendApiRequest("category/", null ).subscribe((data: any) => {
+      console.log(data.payload);
+      this.types = data.payload
+    })
   }
 
   apitest(){

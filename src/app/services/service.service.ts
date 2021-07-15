@@ -18,7 +18,7 @@ export class ServiceService {
 
   sendApiRequest2(method: string, data: any, condition: string) {
     return <any>(
-      this.http.post(this.baseURL + method + condition, btoa(JSON.stringify(data)))
+      this.http.post(this.baseURL + method + condition, (JSON.stringify(data)))
     );
   }
 }

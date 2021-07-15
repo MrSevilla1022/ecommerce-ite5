@@ -56,10 +56,11 @@
         <img [src]="imgSrc" style="width: 128px; margin-left: 16px;" alt="Product image">
         <input (change)="onUploadHandler($event)" [ngModelOptions]="{standalone: true}" [(ngModel)]="img" type="file" class="mb-3 form-control-file" id="exampleFormControlFile1">
         <select [ngModelOptions]="{standalone: true}" [(ngModel)]="brand" class="form-control mb-3 form-control-sm">
-          <option value="1">Brand</option>
+          <option *ngFor="let brand of brands" value={{brand.brand_id}}>{{brand.brand}}</option>
         </select>
         <select [ngModelOptions]="{standalone: true}" [(ngModel)]="type" class="form-control mb-3 form-control-sm">
-          <option value="1">Type</option>
+ 
+          <option *ngFor="let type of types" value={{type.category_id}}>{{type.category}}</option>
         </select>
         <input [ngModelOptions]="{standalone: true}" [(ngModel)]="pname" class="form-control mb-3 form-control-sm" type="text" placeholder="product name">
         <input [ngModelOptions]="{standalone: true}" [(ngModel)]="pdesc" class="form-control mb-3 form-control-sm" type="text" placeholder="product description">
@@ -68,7 +69,7 @@
       </div>
       <button (click)="upload()" type="button" class="btn mb-3 btn-primary">Add product</button>
 
-    
+
   </div>
 
 </div>
