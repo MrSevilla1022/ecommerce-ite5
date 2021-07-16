@@ -19,6 +19,7 @@ import { CheckoutComponent } from './user/checkout/checkout.component';
 import { ChangecredentialsComponent } from './user/changecredentials/changecredentials.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { NavbarComponent } from './navigation-bar/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AddproductComponent } from './admin/addproduct/addproduct.component';
     CheckoutComponent,
     ChangecredentialsComponent,
     DashboardComponent,
-    AddproductComponent
+    AddproductComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

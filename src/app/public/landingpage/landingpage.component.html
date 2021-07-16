@@ -2,51 +2,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <main>
-<nav class="navbar navbar-default navbar-fixed-top navbar-dark" style="background-color: #011627;">
-  <div class="container">
-    <a class="navbar-brand" href="#" >
-      <img style="max-width:150px; margin-top: -7px;"
-      src="assets/logo.png">
-    </a>
 
-      <ul class="navbar-nav list-group-horizontal">
-        <input style="max-width:300px; margin-top: 5px;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-        aria-describedby="search-addon" />
-
-
-
-       <!--Liked Icon
-        <li class="nav-item px-3">
-          <a class="nav-link" href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                </svg>
-          <span class="sr-only">(current)</span>
-      </a>
-      </li>-->
-
-      <!--Cart Icon-->
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
-        <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <!--Profile icon-->
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-              </svg>
-              <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      </ul>
-
-  </div>
-</nav>
+<app-navbar></app-navbar>
 
 <div class="jumbotron" style="background-color: #FDFFFC;">
   <div class="container">
@@ -66,71 +23,38 @@
   </div>
 </div>
 
-<div class="container d-flex align-items-center flex-column" style="max-width:1000px">
-<!--<ngb-carousel *ngIf="images">
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[0]" alt="Random first slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[1]" alt="Random second slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img [src]="images[2]" alt="Random third slide">
-    </div>
-    <div class="carousel-caption">
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </div>
-  </ng-template>
-</ngb-carousel>-->
 
-<div class="container">
-  <h3 class="fw-bolder pb-3">Helmets</h3>
-  <div class="d-flex flex-row justify-content-between my-flex-container">
-  <div *ngFor="let prod of products" class="card mr-3 mb-3  my-flex-item"  style="width: 500px; height:auto;">
-      <img class="img card-img-top embed-responsive-item" src={{prod.product_img}} alt="Card image cap">
-      <div class="card-body">
-        <a href="#" class="btn stretched-link"></a>
-        <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{prod.product_name}}</h5>
-        <p class="card-text" style="color: orange;"><span>&#8369;</span>{{prod.price}}</p>
-      </div>
-  </div>
-</div>
+    <div class="container">
+      <!--Helmets-->
+        <h3 class="fw-bolder pb-3">Helmets</h3>
+        <div class="row row-cols-5">
+                  <div *ngFor="let hel of helmet" class="card mr-3 mb-3">
+                      <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
+                      <div class="card-body">
+                        <a href="#" class="btn stretched-link"></a>
+                        <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
+                        <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
+                      </div>
+                  </div>
+        </div>
+        <!--End of Helmets-->
 
-<h3 class="fw-bolder">Headlights</h3>
+        <!--Headlights-->
+        <h3 class="fw-bolder pb-3">Headlights</h3>
+          <div class="row row-cols-5">
+                  <div *ngFor="let hl of headlight" class="card mr-3 mb-3">
+                      <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
+                      <div class="card-body">
+                      <a href="#" class="btn stretched-link"></a>
+                      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
+                      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
+                    </div>
+            </div>
+          </div>
+    
+        <!--End of headlights-->
 
-<div class="d-flex flex-row justify-content-between my-flex-container">
-  <div *ngFor="let hl of headlight" class="card p-2 mr-3 my-flex-item"  style="width: 500px; height:auto;">
-    <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
-    <div class="card-body">
-      <a href="#" class="btn stretched-link"></a>
-      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
-      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
-    </div>
-</div>
-</div>
-  <!--
-  <div class="card p-2 mx-3 my-flex-item" >
-      <img class="card-img-top" src="assets/1.jpg" alt="Card image cap">
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-  </div> -->
+    </div><!--end of container-->
 
-</div>
 
-</div>
 </main>
