@@ -1,1 +1,139 @@
-<p>cart works!</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<main>
+<nav class="navbar navbar-default navbar-fixed-top navbar-dark" style="background-color: #011627;">
+  <div class="container">
+    <a class="navbar-brand" href="#" >
+      <img style="max-width:150px; margin-top: -7px;"
+      src="assets/logo.png">
+    </a>
+
+      <ul class="navbar-nav list-group-horizontal">
+        <input style="max-width:300px; margin-top: 5px;" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+        aria-describedby="search-addon" />
+       
+
+
+       <!--Liked Icon-->
+        <li class="nav-item px-3">
+          <a class="nav-link" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+          <span class="sr-only">(current)</span>
+      </a>
+      </li>
+      <!--Cart Icon-->
+      <li class="nav-item pr-3">
+        <a class="nav-link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg>
+        <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <!--Profile icon-->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+              </svg>
+              <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      </ul>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-11 mx-auto">
+            <div class="row mt-5 gx-3">
+                <!----left side div-->
+                <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
+                    <div class="card p-4">
+                        <h4 class="py-2 font-weight-bold">
+                            Cart (ITEM COUNT)
+                        </h4>
+                        <div class="row">
+                            <!---item thumbnail-->
+                            <div class="col-md-2 col-6 mx-auto bg-white
+                            d-flex justify-content-center align-items-center shadow product_img">
+                                <img src="assets/silentbaffle.jpg" alt="item" class="img-fluid">
+                            </div>
+
+                            <!-- cart product details -->
+                            <div class="col-md-10 col-12 mx-auto px-4 mt-2">
+                                <div class="row">
+                                    <!-- item name -->
+                                    <div class="col-6">
+                                        <h4 class="mb-4 product_name">MORIWAKI	Silent Baffle</h4>
+                                        <p>Size: Φ28.6</p>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <ul class="pagination d-flex justify-content-end set_quantity">
+                                            <li class="page-item">
+                                                <button class="page-link" onclick="decrementQuantity()"><i class="fas fa-minus" style="color: #E71D36;"></i></button>
+                                            </li>
+                                            <li class="page-item">
+                                                <input type="text" name class="page-link" href="#" value="1"
+                                                id="textbox" style="color: #011627;">
+                                            </li>
+                                            <li class="page-item">
+                                                <button class="page-link" onclick="incrementQuantity()"><i class="fas fa-plus" style="color: #E71D36;"></i></button>
+                                            </li>
+                                          </ul>
+                                    </div>
+                                </div>
+                                <!-- remove item & price -->
+                                <div class="row">
+                                    <div class="col-8 d-flex remove_item">
+                                        <p><i class="fas fa-trash-alt btn"></i>REMOVE ITEM</p>
+                                    </div>
+                                    <div class="col-4 d-flex justify-content-end item_price">
+                                        <h3>₱<span id="productprice">0.00</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- right side div -->
+                <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+                    <div class="right_side p-3 shadow bg-white">
+                        <h5 class="order_summary mb-5">Location</h5>
+                        <div class="location_div d-flex justify-content-between">
+                            <p><i class="fas fa-map-marker-alt"></i> Customer's Location</p>
+                        </div>
+                        <hr>
+                        <h4 class="order_summary mb-5">Order Summary</h4>
+                        <div class="price_div d-flex justify-content-between">
+                            <p>Subtotal</p>
+                            <p>₱<span id="subtotal">0.00</span></p>
+                        </div>
+                        <div class="price_div d-flex justify-content-between">
+                            <p>Shipping Fee</p>
+                            <p>₱<span id="shippingfee">0.00</span></p>
+                        </div>
+                        <hr>
+                        <div class="totalamt_div d-flex justify-content-between font-weight-bold">
+                            <p>Total</p>
+                            <p>₱<span id="totalamt">0.00</span></p>
+                        </div>
+                        <div class="checkoutbtn_div">
+                            <button type="button" class="btn btn-sm btn-block checkout_btn">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
