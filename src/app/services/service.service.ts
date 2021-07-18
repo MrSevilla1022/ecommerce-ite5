@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
+  category_id:any
   baseURL: string = "http://localhost/ecommerce-ite5/gearup-api/";
   constructor(private http: HttpClient) { }
 

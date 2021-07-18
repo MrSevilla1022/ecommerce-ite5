@@ -27,7 +27,7 @@
     <div class="container">
       <!--Helmets-->
         <h3 class="fw-bolder pb-3">Helmets</h3>
-        <div class="row row-cols-5">
+        <div class="row row-cols-6">
                   <div *ngFor="let hel of helmet" class="card mr-3 mb-3">
                       <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
                       <div class="card-body">
@@ -36,6 +36,15 @@
                         <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
                       </div>
                   </div>
+
+                  <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">
+
+                      <a class="btn stretched-link">
+                        <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" (click)="seeMore(1)">See more</h5>
+                      </a>
+
+                  </div>
+
         </div>
         <!--End of Helmets-->
 
@@ -49,9 +58,18 @@
                       <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
                       <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
                     </div>
+
+
             </div>
+            <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">
+
+              <a class="btn stretched-link">
+                <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" (click)="seeMore(2)">See more</h5>
+              </a>
+
           </div>
-    
+          </div>
+
         <!--End of headlights-->
 
     </div><!--end of container-->

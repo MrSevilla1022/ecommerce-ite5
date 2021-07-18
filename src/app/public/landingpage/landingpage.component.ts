@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-landingpage',
   templateUrl: './landingpage.component.html',
@@ -12,10 +13,17 @@ export class LandingpageComponent implements OnInit {
   products:any[] = []
   helmet:any[] = []
   headlight:any[] = []
-  constructor(public ds: ServiceService) { }
+  constructor(public ds: ServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  seeMore(category_id:any){
+    console.log(category_id)
+    this.ds.category_id = category_id;
+    sessionStorage.setItem('category_id', category_id);
+    this.router.navigate(['/public/products']);
   }
 
   getProducts(){
@@ -23,11 +31,15 @@ export class LandingpageComponent implements OnInit {
       console.log(data.payload);
       this.products = data.payload
       for(let prods of this.products){
-        if(prods.category_id == 1){
-          this.helmet.push(prods)
+        if(this.helmet.length < 4){
+          if(prods.category_id == 1){
+            this.helmet.push(prods)
+          }
         }
-        if(prods.category_id == 2){
-          this.headlight.push(prods)
+        if(this.headlight.length < 4){
+          if(prods.category_id == 2){
+            this.headlight.push(prods)
+          }
         }
       }
     })
