@@ -2,7 +2,7 @@ main {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background-image: linear-gradient(to right, #C11E38, black);
+    background-image: linear-gradient(to left, #C11E38, black);
     background-repeat: no-repeat
   }
 
@@ -59,7 +59,7 @@ button:focus {
 
 .card2 {
   width: 50%;
-  background-color: red;
+  background-color: #C11E38;
   background-image: url('/src/assets/2.jpg');
   background-repeat: no-repeat;
   color: white;
