@@ -4,64 +4,76 @@
     <div class="card card0">
         <div class="d-flex flex-lg-row flex-column-reverse">
             <div class="card card1">
+              <a routerLink="/auth/login">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#C11E38" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                </svg>
+              </a>
               <div class="p-5">
-                <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
+                <h3 class="fw-normal mb-5" style="color: black;">General Infomation</h3>
 
 
                 <div class="row">
-                  <div class="col-md-6 mb-4 pb-2">
+                  <div class="col">
 
-                    <div class="form-outline">
-                      <input type="text" id="form3Examplev2" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplev2">First name</label>
-                    </div>
-
+                    <div class="form-group">
+                      <label class="form-control-label text-muted">First name</label>
+                      <input type="text" id="fname" name="fname" placeholder="Last name" class="form-control">
+                      </div>
+  
                   </div>
-                  <div class="col-md-6 mb-4 pb-2">
-
-                    <div class="form-outline">
-                      <input type="text" id="form3Examplev3" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplev3">Last name</label>
+                  <div class="col">
+                    <div class="form-group">
+                    <label class="form-control-label text-muted">Last name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Last name" class="form-control">
                     </div>
-
                   </div>
+
                 </div>
 
                 <div class="mb-4 pb-2">
-                  <div class="form-outline">
-                    <input type="text" id="form3Examplev4" class="form-control form-control-lg" />
-                    <label class="form-label" for="form3Examplev4">Position</label>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-
-                    <div class="form-outline">
-                      <input type="text" id="form3Examplev5" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplev5">Bussines Arena</label>
+                    <label class="form-control-label text-muted">Phone number</label>
+                      <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon3">+63</span>
                     </div>
-
-                  </div>
- 
+                  <input type="text" id="pnum" name="pnum" placeholder="Please enter your phone number" class="form-control" aria-describedby="basic-addon3">
                 </div>
+                </div>
+
+                
+                <!--<form class="form-inline">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp" [(ngModel)]="model" ngbDatepicker [footerTemplate]="footerTemplate" #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>-->
+                
 
               </div>
             </div>
+            <!--Card 1 Ends here-->
+
+            <!--Card 2 starts here-->
             <div class="card card2 shadow-lg">
                 <div class="p-5">
                   <h3 class="fw-normal mb-5">Contact Details</h3>
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea2" class="form-control" />
                       <label class="form-label" for="form3Examplea2">Street + Nr</label>
                     </div>
                   </div>
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea3" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea3" class="form-control" />
                       <label class="form-label" for="form3Examplea3">Additional Information</label>
                     </div>
                   </div>
@@ -70,7 +82,7 @@
                     <div class="col-md-5 mb-4 pb-2">
 
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea4" class="form-control form-control-lg" />
+                        <input type="text" id="form3Examplea4" class="form-control" />
                         <label class="form-label" for="form3Examplea4">Zip Code</label>
                       </div>
 
@@ -78,7 +90,7 @@
                     <div class="col-md-7 mb-4 pb-2">
 
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea5" class="form-control form-control-lg" />
+                        <input type="text" id="form3Examplea5" class="form-control" />
                         <label class="form-label" for="form3Examplea5">Place</label>
                       </div>
 
@@ -87,7 +99,7 @@
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea6" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea6" class="form-control" />
                       <label class="form-label" for="form3Examplea6">Country</label>
                     </div>
                   </div>
@@ -96,7 +108,7 @@
                     <div class="col-md-5 mb-4 pb-2">
 
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea7" class="form-control form-control-lg" />
+                        <input type="text" id="form3Examplea7" class="form-control" />
                         <label class="form-label" for="form3Examplea7">Code +</label>
                       </div>
 
@@ -104,7 +116,7 @@
                     <div class="col-md-7 mb-4 pb-2">
 
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea8" class="form-control form-control-lg" />
+                        <input type="text" id="form3Examplea8" class="form-control" />
                         <label class="form-label" for="form3Examplea8">Phone Number</label>
                       </div>
 
@@ -113,7 +125,7 @@
 
                   <div class="mb-4">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea9" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea9" class="form-control" />
                       <label class="form-label" for="form3Examplea9">Your Email</label>
                     </div>
                   </div>

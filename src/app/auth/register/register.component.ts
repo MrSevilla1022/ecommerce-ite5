@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbCalendar, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private calendar: NgbCalendar) { }
+
+ // model: NgbDateStruct;
+  today = this.calendar.getToday();
 
   ngOnInit(): void {
   }
