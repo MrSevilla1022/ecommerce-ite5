@@ -1,2 +1,91 @@
+<main>
 <app-navbar></app-navbar>
-<p>cart works!</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-11 mx-auto">
+            <div class="row mt-5 gx-3">
+                <!----left side div-->
+                <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5 shadow">
+                    <div class="card p-4">
+                        <h4 class="py-2 font-weight-bold">
+                            Cart (ITEM COUNT)
+                        </h4>
+                        <div class="row">
+                            <!---item thumbnail-->
+                            <div class="col-md-2 col-6 mx-auto bg-white
+                            d-flex justify-content-center align-items-center shadow product_img">
+                                <img src="assets/silentbaffle.jpg" alt="item" class="img-fluid">
+                            </div>
+
+                            <!-- cart product details -->
+                            <div class="col-md-10 col-12 mx-auto px-4 mt-2">
+                                <div class="row">
+                                    <!-- item name -->
+                                    <div class="col-6">
+                                        <h4 class="mb-4 product_name">MORIWAKI	Silent Baffle</h4>
+                                        <p>Size: Φ28.6</p>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <ul class="pagination d-flex justify-content-end set_quantity">
+                                            <li class="page-item">
+                                                <button class="page-link" onclick="decrementQuantity()"><i class="fas fa-minus" style="color: #E71D36;"></i></button>
+                                            </li>
+                                            <li class="page-item">
+                                                <input type="text" name class="page-link" href="#" value="1"
+                                                id="textbox" style="color: #011627;">
+                                            </li>
+                                            <li class="page-item">
+                                                <button class="page-link" onclick="incrementQuantity()"><i class="fas fa-plus" style="color: #E71D36;"></i></button>
+                                            </li>
+                                          </ul>
+                                    </div>
+                                </div>
+                                <!-- remove item & price -->
+                                <div class="row">
+                                    <div class="col-8 d-flex remove_item">
+                                        <p><i class="fas fa-trash-alt btn"></i>REMOVE ITEM</p>
+                                    </div>
+                                    <div class="col-4 d-flex justify-content-end item_price">
+                                        <h3>₱<span id="productprice">0.00</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- right side div -->
+                <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+                    <div class="right_side p-3 shadow bg-white">
+                        <h5 class="order_summary mb-5">Location</h5>
+                        <div class="location_div d-flex justify-content-between">
+                            <p><i class="fas fa-map-marker-alt"></i> Customer's Location</p>
+                        </div>
+                        <hr>
+                        <h4 class="order_summary mb-5">Order Summary</h4>
+                        <div class="price_div d-flex justify-content-between">
+                            <p>Subtotal</p>
+                            <p>₱<span id="subtotal">0.00</span></p>
+                        </div>
+                        <div class="price_div d-flex justify-content-between">
+                            <p>Shipping Fee</p>
+                            <p>₱<span id="shippingfee">0.00</span></p>
+                        </div>
+                        <hr>
+                        <div class="totalamt_div d-flex justify-content-between font-weight-bold">
+                            <p>Total</p>
+                            <p>₱<span id="totalamt">0.00</span></p>
+                        </div>
+                        <div class="checkoutbtn_div">
+                            <button type="button" class="btn btn-sm btn-block checkout_btn">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
