@@ -5,6 +5,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LandingpageComponent } from './public/landingpage/landingpage.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component'
 import { CartComponent } from './public/cart/cart.component'
+import { NavbarComponent } from './navigation-bar/navbar/navbar.component'
 import { ProductsComponent } from './public/products/products.component'
 
 const routes: Routes = [
@@ -16,10 +17,11 @@ const routes: Routes = [
   { path:'public/landingpage', component: LandingpageComponent },
   { path:'public/cart', component: CartComponent },
   { path:'public/products', component: ProductsComponent },
+  { path:'public/products', component: ProductsComponent },
 
 
 //ADMIN
-  { path:'admin/addproduct', component: AddproductComponent },
+  { path:'navigation-bar/navbar', component: NavbarComponent },
 ];
 
 @NgModule({
