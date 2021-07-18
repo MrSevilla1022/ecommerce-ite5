@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private calendar: NgbCalendar) { }
 
- // model: NgbDateStruct;
+  model:any;
   today = this.calendar.getToday();
 
   ngOnInit(): void {
