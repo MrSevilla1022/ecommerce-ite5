@@ -5,12 +5,12 @@
         <div class="d-flex flex-lg-row flex-column-reverse">
             <div class="card card1">
               <a routerLink="/auth/login">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#C11E38" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#de0f0f" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                 <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                 </svg>
               </a>
               <div class="p-5">
-                <h3 class="fw-normal mb-5" style="color: black;">General Infomation</h3>
+                <h3 class="fw-normal" style="color: black;">General Infomation</h3>
 
 
                 <div class="row">
@@ -31,7 +31,7 @@
 
                 </div>
 
-                <div class="mb-4 pb-2">
+                <div class="pb-2">
                     <label class="form-control-label text-muted">Phone number</label>
                       <div class="input-group mb-3">
                       <div class="input-group-prepend">
@@ -44,7 +44,7 @@
                 <div class="mb-4 pb-2">
                   <label class="form-control-label text-muted">Birthdate</label>
                   <div class="input-group">
-                    <input class="form-control" placeholder="yyyy-mm-dd"
+                    <input class="form-control" placeholder="Please enter your Birth date (yyyy-mm-dd)"
                            name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
@@ -56,6 +56,35 @@
                   </div>
                 </div>
 
+                <div class="form-check d-flex justify-content-start">
+                  <input
+                    class="form-check-input me-3"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3c"/>
+                  <label class="form-check-label" for="form2Example3">
+                    I do accept the <a href="#!"><u>Terms and Conditions</u></a> of your site.
+                  </label>
+                </div>
+                <div class="row justify-content-center my-3 px-3">
+                  <button routerLink="/public/landingpage" class="btn-block btn-color">Sign up</button>
+                </div>
+               
+                <p href="" style="text-align: center;">Or login using</p>
+                <div class="row">
+                  
+                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <button class="btn-block btn-color loginBtn loginBtn--facebook" style="font-size: small;">
+                      Login with Facebook
+                    </button>
+                    
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <button class="btn-block btn-color loginBtn loginBtn--google" style="font-size: small;">
+                      Login with Google
+                    </button>
+                  </div>
+              </div>
 
 
               </div>
@@ -64,94 +93,10 @@
 
             <!--Card 2 starts here-->
             <div class="card card2 shadow-lg">
-                <div class="p-5">
-                  <h3 class="fw-normal mb-5">Contact Details</h3>
-
-                  <div class="mb-4 pb-2">
-                    <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea2" class="form-control" />
-                      <label class="form-label" for="form3Examplea2">Street + Nr</label>
-                    </div>
-                  </div>
-
-                  <div class="mb-4 pb-2">
-                    <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea3" class="form-control" />
-                      <label class="form-label" for="form3Examplea3">Additional Information</label>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-5 mb-4 pb-2">
-
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea4" class="form-control" />
-                        <label class="form-label" for="form3Examplea4">Zip Code</label>
-                      </div>
-
-                    </div>
-                    <div class="col-md-7 mb-4 pb-2">
-
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea5" class="form-control" />
-                        <label class="form-label" for="form3Examplea5">Place</label>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="mb-4 pb-2">
-                    <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea6" class="form-control" />
-                      <label class="form-label" for="form3Examplea6">Country</label>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-5 mb-4 pb-2">
-
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea7" class="form-control" />
-                        <label class="form-label" for="form3Examplea7">Code +</label>
-                      </div>
-
-                    </div>
-                    <div class="col-md-7 mb-4 pb-2">
-
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea8" class="form-control" />
-                        <label class="form-label" for="form3Examplea8">Phone Number</label>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <div class="mb-4">
-                    <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea9" class="form-control" />
-                      <label class="form-label" for="form3Examplea9">Your Email</label>
-                    </div>
-                  </div>
-
-
-
-                  <div class="form-check d-flex justify-content-start mb-4 pb-3">
-                    <input
-                      class="form-check-input me-3"
-                      type="checkbox"
-                      value=""
-                      id="form2Example3c"
-                    />
-                    <label class="form-check-label text-white" for="form2Example3">
-                      I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your site.
-                    </label>
-                  </div>
-
-                  <button type="button" class="btn btn-light btn-lg" data-mdb-ripple-color="dark">Register</button>
-
-                </div>
-
-            </div>
+              <div class="my-auto mx-md-5 px-md-5 right">
+                  <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small>
+              </div>
+          </div>
         </div>
     </div>
 </div>
