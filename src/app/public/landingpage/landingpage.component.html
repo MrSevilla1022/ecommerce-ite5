@@ -4,6 +4,15 @@
 <main>
 
 <app-navbar></app-navbar>
+    <!-- Test -->
+    <div class=" mb-4">
+      <img [src]="userDetails?.photoUrl" alt="" class="user-avatar">
+    </div>
+
+    <div class=" mb-4">
+      <span class="font-weight-bold">Name:</span>{{userDetails?.name}}
+    </div>
+
 
     <div class="jumbotron" style="background-color: #FDFFFC;">
       <div class="container">
@@ -23,6 +32,7 @@
       </div>
     </div>
 
+    
 
     <div class="container">
       <!--Helmets-->

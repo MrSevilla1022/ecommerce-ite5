@@ -42,7 +42,7 @@
             <button ngbDropdownItem>Manage my account</button>
             <button ngbDropdownItem>Wishlist</button>
             <button ngbDropdownItem>My orders</button>
-            <button ngbDropdownItem routerLink="/auth/login">Logout</button>
+            <button ngbDropdownItem (click)="signOut()">Logout</button>
           </div>
         </div>
 

@@ -13,10 +13,24 @@ export class LandingpageComponent implements OnInit {
   products:any[] = []
   helmet:any[] = []
   headlight:any[] = []
+  userDetails:any;
   constructor(public ds: ServiceService,private router:Router) { }
 
   ngOnInit(): void {
+    const storage = localStorage.getItem('google_auth')
+
+    if(storage){
+      this.userDetails = JSON.parse(storage)
+    }else{
+
+    }
+
     this.getProducts();
+  }
+
+  signOut(){
+    localStorage.removeItem('google_auth');
+    this.router.navigateByUrl('/auth/login').then()
   }
 
   seeMore(category_id:any){

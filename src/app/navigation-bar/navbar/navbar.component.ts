@@ -9,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  signOut(){
+    localStorage.removeItem('google_auth');
+    this.router.navigateByUrl('/auth/login').then()
   }
 
 }
