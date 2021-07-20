@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    
+
 
     <div class="container">
       <!--Helmets-->
@@ -41,10 +41,35 @@
                   <div *ngFor="let hel of helmet" class="card mr-3 mb-3">
                       <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
                       <div class="card-body">
-                        <a href="#" class="btn stretched-link"></a>
+                        <a (click)="open(content)" class="btn stretched-link"></a>
                         <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
                         <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
                       </div>
+                      <!--Modal for adding products-->
+                      <ng-template #content let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Add to cart</h4>
+
+                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!--Adding of products starts here-->
+                                <div class="form-group">
+                                  <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
+                                  <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
+                                  <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
+
+                              </div>
+
+                          <!--adding of product ends here-->
+                        </div>
+                        <div class="modal-footer">
+                          <button  type="button" class="btn mb-3 btn-primary">Add product</button>
+                        </div>
+                      </ng-template>
+                      <!--Modal for adding products ends here-->
                   </div>
 
                   <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">

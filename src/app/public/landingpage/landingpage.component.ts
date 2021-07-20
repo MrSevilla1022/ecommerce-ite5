@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 import { Router } from '@angular/router';
+
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 @Component({
   selector: 'app-landingpage',
   templateUrl: './landingpage.component.html',
@@ -14,7 +17,7 @@ export class LandingpageComponent implements OnInit {
   helmet:any[] = []
   headlight:any[] = []
   userDetails:any;
-  constructor(public ds: ServiceService,private router:Router) { }
+  constructor(public ds: ServiceService,private router:Router, config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     const storage = localStorage.getItem('google_auth')
@@ -28,6 +31,11 @@ export class LandingpageComponent implements OnInit {
 
     this.getProducts();
   }
+
+  open(content:any) {
+    this.modalService.open(content);
+  }
+
 
   signOut(){
     localStorage.removeItem('google_auth');

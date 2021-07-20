@@ -14,8 +14,8 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
   providers: [NgbModalConfig, NgbModal]
 })
 export class AddproductComponent implements OnInit {
- 
 
+  products:any[] = []
   constructor(public ds: ServiceService, config: NgbModalConfig, private modalService: NgbModal) {
 
      // customize default values of modals used by this component tree
@@ -39,6 +39,14 @@ export class AddproductComponent implements OnInit {
     this.apitest()
     this.getTypes();
     this.getBrands();
+    this.getProducts();
+  }
+
+  getProducts(){
+    this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
+      console.log(data.payload);
+      this.products = data.payload
+    })
   }
 
   open(content:any) {
