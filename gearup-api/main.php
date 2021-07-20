@@ -63,6 +63,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
         echo json_encode($gm->insert("tbl_products", $d), JSON_PRETTY_PRINT);
         return array("data" => $d);
         break;
+      case 'registerGmail':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->insert("tbl_user", $d), JSON_PRETTY_PRINT);
+        return array("data" => $d);
+        break;
 
 
 

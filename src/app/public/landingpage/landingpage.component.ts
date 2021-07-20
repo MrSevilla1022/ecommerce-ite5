@@ -21,6 +21,7 @@ export class LandingpageComponent implements OnInit {
 
     if(storage){
       this.userDetails = JSON.parse(storage)
+      console.log(this.userDetails)
     }else{
 
     }
