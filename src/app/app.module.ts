@@ -22,6 +22,7 @@ import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { NavbarComponent } from './navigation-bar/navbar/navbar.component';
 import { ProductsComponent } from './public/products/products.component';
 import { GoogleLoginProvider, SocialAuthService, SocialLoginModule } from 'angularx-social-login';
+import { AdminNavComponent } from './navigation-bar/admin-nav/admin-nav.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { GoogleLoginProvider, SocialAuthService, SocialLoginModule } from 'angul
     DashboardComponent,
     AddproductComponent,
     NavbarComponent,
-    ProductsComponent
+    ProductsComponent,
+    AdminNavComponent
   ],
   imports: [
     BrowserModule,

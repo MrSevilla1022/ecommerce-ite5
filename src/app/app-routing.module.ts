@@ -22,6 +22,7 @@ const routes: Routes = [
 
 //ADMIN
   { path:'navigation-bar/navbar', component: NavbarComponent },
+  { path:'admin/addproduct', component: AddproductComponent },
 ];
 
 @NgModule({

@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 import { Products } from '../../model/products'
 import Swal from 'sweetalert2';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
+
+
+
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.scss']
+  styleUrls: ['./addproduct.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class AddproductComponent implements OnInit {
+ 
 
-  constructor(public ds: ServiceService) { }
+  constructor(public ds: ServiceService, config: NgbModalConfig, private modalService: NgbModal) {
+
+     // customize default values of modals used by this component tree
+     config.backdrop = 'static';
+     config.keyboard = false;
+   }
 
   product = new Products(0,0,'','','',0,0)
 
@@ -28,6 +40,11 @@ export class AddproductComponent implements OnInit {
     this.getTypes();
     this.getBrands();
   }
+
+  open(content:any) {
+    this.modalService.open(content);
+  }
+
   getBrands(){
     this.ds.sendApiRequest("brand/", null ).subscribe((data: any) => {
       console.log(data.payload);
@@ -89,5 +106,47 @@ export class AddproductComponent implements OnInit {
     reader.readAsDataURL(this.imageToUpload);
   }
 
+  countries = COUNTRIES
 
 }
+
+interface Country {
+  name: string;
+  flag: string;
+  area: number;
+  population: number;
+}
+
+interface Country {
+  name: string;
+  flag: string;
+  area: number;
+  population: number;
+}
+
+const COUNTRIES: Country[] = [
+  {
+    name: 'Russia',
+    flag: 'f/f3/Flag_of_Russia.svg',
+    area: 17075200,
+    population: 146989754
+  },
+  {
+    name: 'Canada',
+    flag: 'c/cf/Flag_of_Canada.svg',
+    area: 9976140,
+    population: 36624199
+  },
+  {
+    name: 'United States',
+    flag: 'a/a4/Flag_of_the_United_States.svg',
+    area: 9629091,
+    population: 324459463
+  },
+  {
+    name: 'China',
+    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
+    area: 9596960,
+    population: 1409517397
+  }
+];
