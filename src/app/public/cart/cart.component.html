@@ -12,11 +12,11 @@
                         <h4 class="py-2 font-weight-bold">
                             Cart (ITEM COUNT)
                         </h4>
-                        <div class="row">
+                        <div class="row" *ngFor="let prod of cart">
                             <!---item thumbnail-->
                             <div class="col-md-2 col-6 mx-auto bg-white
                             d-flex justify-content-center align-items-center shadow product_img">
-                                <img src="assets/silentbaffle.jpg" alt="item" class="img-fluid">
+                                <img src={{prod.product_img}} alt="item" class="img-fluid">
                             </div>
 
                             <!-- cart product details -->
@@ -24,7 +24,7 @@
                                 <div class="row">
                                     <!-- item name -->
                                     <div class="col-6">
-                                        <h4 class="mb-4 product_name">MORIWAKI	Silent Baffle</h4>
+                                        <h4 class="mb-4 product_name">src={{prod.product_name}}</h4>
                                         <p>Size: Φ28.6</p>
                                     </div>
 
@@ -49,12 +49,12 @@
                                         <p><i class="fas fa-trash-alt btn"></i>REMOVE ITEM</p>
                                     </div>
                                     <div class="col-4 d-flex justify-content-end item_price">
-                                        <h3>₱<span id="productprice">0.00</span></h3>
+                                        <h3>₱<span id="productprice">{{prod.price}}</span></h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
 

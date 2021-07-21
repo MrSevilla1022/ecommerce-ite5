@@ -32,6 +32,10 @@ export class LandingpageComponent implements OnInit {
     this.getProducts();
   }
 
+  addToCart(product:any){
+    this.ds.sendMsg(product)
+  }
+
   open(content:any) {
     this.modalService.open(content);
   }
