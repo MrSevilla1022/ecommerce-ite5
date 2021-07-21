@@ -76,6 +76,19 @@ switch ($_SERVER['REQUEST_METHOD']) {
         return array("data" => $d);
         break;
 
+      case 'addBrand':
+          $d = json_decode(file_get_contents("php://input"));
+          echo json_encode($gm->insert("tbl_brand", $d), JSON_PRETTY_PRINT);
+          return array("data" => $d);
+          break; 
+      
+      case 'addCategory':
+          $d = json_decode(file_get_contents("php://input"));
+          echo json_encode($gm->insert("tbl_category", $d), JSON_PRETTY_PRINT);
+          return array("data" => $d);
+          break;  
+  
+
 
 
         //UPDATE sample

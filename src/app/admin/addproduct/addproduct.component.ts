@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 import { Products } from '../../model/products'
+import { Branding } from '../../model/branding'
+import { Categories } from '../../model/categories'
 import Swal from 'sweetalert2';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
@@ -23,8 +25,12 @@ export class AddproductComponent implements OnInit {
      config.keyboard = false;
    }
 
-  product = new Products(0,0,'','','',0,0)
+  product = new Products(0,0,'','','',0,0);
+  branding = new Branding('');
+  categories = new Categories('');
 
+  prodcategory:any;
+  brandname:any;
   img:any;
   brand:any;
   type:any;
@@ -80,6 +86,42 @@ export class AddproductComponent implements OnInit {
       console.log(data);
     })
   }
+
+
+
+  UploadBrand(){
+    this.branding.brand = this.brandname;
+    this.ds.sendApiRequest("addBrand/", this.branding)
+          .subscribe((result: any)=>{
+            console.log(result);
+        });
+      console.log(this.branding)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'This Brand has been added!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+  }
+
+  
+  UploadCategory(){
+    this.categories.category = this.prodcategory;
+    this.ds.sendApiRequest("addCategory/", this.categories)
+          .subscribe((result: any)=>{
+            console.log(result);
+        });
+      console.log(this.categories)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'This Product has been added to categories!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+  }
+  
 
 
   toUpload:any = {};

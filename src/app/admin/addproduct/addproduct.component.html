@@ -80,13 +80,13 @@
       <!--Adding of brand starts here-->
                 <div class="form-group">
                   <label class="form-control-label text-muted">Add a brand name</label>
-                  <input class="form-control mb-3 form-control-sm" type="text" placeholder="Brand Name">
+                  <input [ngModelOptions]="{standalone: true}" [(ngModel)]="brandname" class="form-control mb-3 form-control-sm" type="text" placeholder="Brand Name">
                </div>
       <!--adding of brand ends here-->
     </div>
     <div class="modal-footer">
       <button type="button" class="btn mb-3 btn-outline-dark" (click)="d('Cross click')">Cancel</button>
-      <button type="button" class="btn mb-3 btn-primary">Add Brand</button>
+      <button type="button" (click)="UploadBrand()" class="btn mb-3 btn-primary">Add Brand</button>
     </div>
   </ng-template>
   <!--Modal for adding Brand ends here-->
@@ -103,13 +103,13 @@
         <!--Adding of brand starts here-->
                   <div class="form-group">
                     <label class="form-control-label text-muted">Add product type</label>
-                    <input class="form-control mb-3 form-control-sm" type="text" placeholder="Product type">
+                    <input [ngModelOptions]="{standalone: true}" [(ngModel)]="prodcategory" class="form-control mb-3 form-control-sm" type="text" placeholder="Product type">
                  </div>
         <!--adding of product type ends here-->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn mb-3 btn-outline-dark" (click)="d('Cross click')">Cancel</button>
-        <button type="button" class="btn mb-3 btn-primary">Add Brand</button>
+        <button type="button" (click)="UploadCategory()" class="btn mb-3 btn-primary">Add Brand</button>
       </div>
     </ng-template>
     <!--Modal for adding Brand ends here-->
