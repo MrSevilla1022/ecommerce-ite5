@@ -13,7 +13,8 @@ export class CartComponent implements OnInit {
   cartItems:any = []
   cart:any = []
   ngOnInit(): void {
-    this.cart = this.ds.cart
+    this.cartItems = sessionStorage.getItem('cart')
+    this.cart = JSON.parse(this.cartItems)
     // this.ds.getMsg().subscribe((product:any) =>{
     //   this.cartItems.push({
     //     product_name: product.product_name,

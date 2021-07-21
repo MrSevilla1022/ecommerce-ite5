@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,AfterViewInit } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 import { Router } from '@angular/router';
 
@@ -12,11 +12,21 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 
 export class LandingpageComponent implements OnInit {
+  closeResult: string = '';
+  @ViewChild('content') content: any ;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   products:any[] = []
   helmet:any[] = []
   headlight:any[] = []
   userDetails:any;
+
+  ngAfterViewInit() {
+    this.openModal();
+  }
+  openModal(){
+    this.modalService.open(this.content, { centered: true });
+  }
+
   constructor(public ds: ServiceService,private router:Router, config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -34,6 +44,8 @@ export class LandingpageComponent implements OnInit {
 
   addToCart(product:any){
     this.ds.sendMsg(product)
+
+
   }
 
   open(content:any) {

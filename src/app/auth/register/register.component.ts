@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   }
   registerCred:any = {};
   userDetails:any
+  users:any [] =[]
 
   registerNewUser(){
     const storage  = localStorage.getItem('google_auth')
@@ -37,10 +38,25 @@ export class RegisterComponent implements OnInit {
     }else{
 
     }
+    let isUser = false
     this.registerCred.email = this.userDetails.email
-    console.log(this.registerCred.email)
-    this.ds.sendApiRequest('registerGmail/',this.registerCred).subscribe((result: any)=>{
-      console.log(result);
+    this.ds.sendApiRequest('checkUser/',this.registerCred)
+    .subscribe((result: any)=>{
+      console.log('Check: '+result);
+      this.users = result.payload
+      for(let user of this.users){
+        if(user.email == this.registerCred.email){
+          isUser = true
+          break;
+        }
+      }
+      if(isUser == false){
+        this.ds.sendApiRequest('registerGmail/',this.registerCred).subscribe((result: any)=>{
+          console.log(result);
+      });
+      }
   });
+
+
   }
 }
