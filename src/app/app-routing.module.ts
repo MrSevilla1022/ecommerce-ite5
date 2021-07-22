@@ -5,6 +5,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LandingpageComponent } from './public/landingpage/landingpage.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component'
 import { CartComponent } from './public/cart/cart.component'
+import { NavbarComponent } from './navigation-bar/navbar/navbar.component'
+import { ProductsComponent } from './public/products/products.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'public/landingpage', pathMatch: 'full'},
@@ -14,8 +16,12 @@ const routes: Routes = [
 //PUBLIC
   { path:'public/landingpage', component: LandingpageComponent },
   { path:'public/cart', component: CartComponent },
+  { path:'public/products', component: ProductsComponent },
+  { path:'public/products', component: ProductsComponent },
+
 
 //ADMIN
+  { path:'navigation-bar/navbar', component: NavbarComponent },
   { path:'admin/addproduct', component: AddproductComponent },
 ];
 

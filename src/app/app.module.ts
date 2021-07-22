@@ -20,6 +20,9 @@ import { ChangecredentialsComponent } from './user/changecredentials/changecrede
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AddproductComponent } from './admin/addproduct/addproduct.component';
 import { NavbarComponent } from './navigation-bar/navbar/navbar.component';
+import { ProductsComponent } from './public/products/products.component';
+import { GoogleLoginProvider, SocialAuthService, SocialLoginModule } from 'angularx-social-login';
+import { AdminNavComponent } from './navigation-bar/admin-nav/admin-nav.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { NavbarComponent } from './navigation-bar/navbar/navbar.component';
     ChangecredentialsComponent,
     DashboardComponent,
     AddproductComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductsComponent,
+    AdminNavComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +47,25 @@ import { NavbarComponent } from './navigation-bar/navbar/navbar.component';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:'SocialAuthServiceConfig',
+      useValue:{
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '237531944564-68fc8c817nipe67bcvhk0s01tb1bnsp8.apps.googleusercontent.com'
+            )
+          }
+        ]
+      } as unknown as SocialAuthService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

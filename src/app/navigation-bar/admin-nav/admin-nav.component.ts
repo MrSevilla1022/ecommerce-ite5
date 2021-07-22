@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../../services/service.service'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-admin-nav',
+  templateUrl: './admin-nav.component.html',
+  styleUrls: ['./admin-nav.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class AdminNavComponent implements OnInit {
 
   constructor(private router:Router) { }
 

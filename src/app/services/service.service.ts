@@ -7,8 +7,22 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
+  category_id:any
   baseURL: string = "http://localhost/ecommerce-ite5/gearup-api/";
+  subject = new Subject()
+  cart:any = []
   constructor(private http: HttpClient) { }
+
+
+  sendMsg(product:any){
+    console.log(product)
+    this.subject.next(product)
+    this.cart.push(product)
+    sessionStorage.setItem('cart',JSON.stringify(this.cart))
+  }
+  getMsg(){
+    return this.subject.asObservable()
+  }
 
   sendApiRequest(method: any, data: any) {
     return <any>(

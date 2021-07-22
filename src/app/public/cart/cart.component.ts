@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../../services/service.service'
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ds: ServiceService) { }
 
+  cartItems:any = []
+  cart:any = []
   ngOnInit(): void {
+    this.cartItems = sessionStorage.getItem('cart')
+    this.cart = JSON.parse(this.cartItems)
+    // this.ds.getMsg().subscribe((product:any) =>{
+    //   this.cartItems.push({
+    //     product_name: product.product_name,
+    //     product_img: product.product_img,
+    //     price: product.price
+    //   })
+    //   console.log(product)
+    // })
   }
+
 
 }

@@ -1,18 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 import { Products } from '../../model/products'
+import { Branding } from '../../model/branding'
+import { Categories } from '../../model/categories'
 import Swal from 'sweetalert2';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
+
+
+
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.scss']
+  styleUrls: ['./addproduct.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class AddproductComponent implements OnInit {
 
-  constructor(public ds: ServiceService) { }
+  products:any[] = []
+  constructor(public ds: ServiceService, config: NgbModalConfig, private modalService: NgbModal) {
 
-  product = new Products(0,0,'','','',0,0)
+     // customize default values of modals used by this component tree
+     config.backdrop = 'static';
+     config.keyboard = false;
+   }
 
+  product = new Products(0,0,'','','',0,0);
+  branding = new Branding('');
+  categories = new Categories('');
+
+  prodcategory:any;
+  brandname:any;
   img:any;
   brand:any;
   type:any;
@@ -27,7 +45,28 @@ export class AddproductComponent implements OnInit {
     this.apitest()
     this.getTypes();
     this.getBrands();
+    this.getProducts();
   }
+
+  getProducts(){
+    this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
+      console.log(data.payload);
+      this.products = data.payload
+    })
+  }
+
+  open(content:any) {
+    this.modalService.open(content);
+  }
+
+  openAddBrand(branding:any) {
+    this.modalService.open(branding);
+  }
+
+  openPtype(ptype:any){
+    this.modalService.open(ptype);
+  }
+
   getBrands(){
     this.ds.sendApiRequest("brand/", null ).subscribe((data: any) => {
       console.log(data.payload);
@@ -47,6 +86,42 @@ export class AddproductComponent implements OnInit {
       console.log(data);
     })
   }
+
+
+
+  UploadBrand(){
+    this.branding.brand = this.brandname;
+    this.ds.sendApiRequest("addBrand/", this.branding)
+          .subscribe((result: any)=>{
+            console.log(result);
+        });
+      console.log(this.branding)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'This Brand has been added!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+  }
+
+  
+  UploadCategory(){
+    this.categories.category = this.prodcategory;
+    this.ds.sendApiRequest("addCategory/", this.categories)
+          .subscribe((result: any)=>{
+            console.log(result);
+        });
+      console.log(this.categories)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'This Product has been added to categories!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+  }
+  
 
 
   toUpload:any = {};
@@ -88,6 +163,7 @@ export class AddproductComponent implements OnInit {
     }
     reader.readAsDataURL(this.imageToUpload);
   }
+
 
 
 }

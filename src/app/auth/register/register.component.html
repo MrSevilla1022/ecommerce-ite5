@@ -1,145 +1,130 @@
-<section class="h-100 h-custom gradient-custom-2">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12">
-          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-            <div class="card-body p-0">
-              <div class="row g-0">
-                <div class="col-lg-6">
-                  <div class="p-5">
-                    <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
-  
-  
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev2" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplev2">First name</label>
-                        </div>
-  
+<main>
+
+  <div class="container px-4 py-5 mx-auto">
+    <div class="card card0">
+        <div class="d-flex flex-lg-row flex-column-reverse">
+            <div class="card card1">
+              <a routerLink="/auth/login">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#de0f0f" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                </svg>
+              </a>
+              <div class="p-5">
+                <h3 class="fw-normal" style="color: black;">General Infomation</h3>
+
+
+                <div class="row">
+                  <div class="col">
+
+                    <div class="form-group">
+                      <label class="form-control-label text-muted">First name</label>
+                      <input type="text" id="fname" name="fname" placeholder="Last name" class="form-control">
                       </div>
-                      <div class="col-md-6 mb-4 pb-2">
-  
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev3" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplev3">Last name</label>
-                        </div>
-  
-                      </div>
+
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                    <label class="form-control-label text-muted">Last name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Last name" class="form-control">
                     </div>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline">
-                        <input type="text" id="form3Examplev4" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplev4">Position</label>
-                      </div>
+                  </div>
+
+                </div>
+
+                <div class="pb-2">
+                    <label class="form-control-label text-muted">Phone number</label>
+                      <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon3">+63</span>
                     </div>
-  
-                    <div class="row">
-                      <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-  
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplev5" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplev5">Bussines Arena</label>
-                        </div>
-  
-                      </div>
-     
+                  <input type="text" id="pnum" name="pnum" placeholder="Please enter your phone number" class="form-control" aria-describedby="basic-addon3">
+                </div>
+                </div>
+
+                <div class="mb-4 pb-2">
+                  <label class="form-control-label text-muted">Birthdate</label>
+                  <div class="input-group">
+                    <input class="form-control" placeholder="Please enter your Birth date (yyyy-mm-dd)"
+                           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                        </svg>
+                      </button>
                     </div>
-  
                   </div>
                 </div>
-                <div class="col-lg-6 bg-indigo text-white">
-                  <div class="p-5">
-                    <h3 class="fw-normal mb-5">Contact Details</h3>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea2">Street + Nr</label>
-                      </div>
-                    </div>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea3" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea3">Additional Information</label>
-                      </div>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-5 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea4" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplea4">Zip Code</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-7 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea5" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplea5">Place</label>
-                        </div>
-  
-                      </div>
-                    </div>
-  
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea6" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea6">Country</label>
-                      </div>
-                    </div>
-  
-                    <div class="row">
-                      <div class="col-md-5 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea7" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplea7">Code +</label>
-                        </div>
-  
-                      </div>
-                      <div class="col-md-7 mb-4 pb-2">
-  
-                        <div class="form-outline form-white">
-                          <input type="text" id="form3Examplea8" class="form-control form-control-lg" />
-                          <label class="form-label" for="form3Examplea8">Phone Number</label>
-                        </div>
-  
-                      </div>
-                    </div>
-  
-                    <div class="mb-4">
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea9" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea9">Your Email</label>
-                      </div>
-                    </div>
-  
-                    <div class="form-check d-flex justify-content-start mb-4 pb-3">
-                      <input
-                        class="form-check-input me-3"
-                        type="checkbox"
-                        value=""
-                        id="form2Example3c"
-                      />
-                      <label class="form-check-label text-white" for="form2Example3">
-                        I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your site.
-                      </label>
-                    </div>
-  
-                    <button type="button" class="btn btn-light btn-lg" data-mdb-ripple-color="dark">Register</button>
-  
-                  </div>
+
+                <div class="form-check d-flex justify-content-start">
+                  <input
+                    class="form-check-input me-3"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3c"/>
+                  <label class="form-check-label" for="form2Example3">
+                    I do accept the <a href="#!"><u>Terms and Conditions</u></a> of your site.
+                  </label>
                 </div>
+                <div class="row justify-content-center my-3 px-3">
+                  <button routerLink="/public/landingpage" class="btn-block btn-color">Sign up</button>
+                </div>
+
+                <p href="" style="text-align: center;">Or login using</p>
+                <div class="row">
+
+                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <button class="btn-block btn-color loginBtn loginBtn--facebook" style="font-size: small;">
+                      Login with Facebook
+                    </button>
+
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                    <button class="btn-block btn-color loginBtn loginBtn--google" (click)="signinGoogle()" style="font-size: small;">
+                      Login with Google
+                    </button>
+                  </div>
+              </div>
+
+
               </div>
             </div>
+            <!--Card 1 Ends here-->
+
+            <!--  -->
+
+            <!--Modal for adding products-->
+            <ng-template #content let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Add a product</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--Adding of products starts here-->
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1">Example file input</label>
+
+                    </div>
+
+                <!--adding of product ends here-->
+              </div>
+              <div class="modal-footer">
+                <button  type="button" class="btn mb-3 btn-primary">Add product</button>
+              </div>
+            </ng-template>
+            <!--Modal for adding products ends here-->
+
+            <!--  -->
+
+            <!--Card 2 starts here-->
+            <div class="card card2 shadow-lg">
+              <div class="my-auto mx-md-5 px-md-5 right">
+                  <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small>
+              </div>
           </div>
         </div>
-      </div>
     </div>
-  </section>
+</div>
+</main>

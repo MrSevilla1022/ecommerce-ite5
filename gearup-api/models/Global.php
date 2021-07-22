@@ -15,6 +15,10 @@
 				$this->sql .= " WHERE user_uname=$filter_data";
 			}
 
+      if($filter_data != null && $table == "tbl_products") {
+				$this->sql .= " WHERE category_id=$filter_data";
+			}
+
 			$data = array(); $code = 0; $msg= ""; $remarks = "";
 			try {
 				if ($res = $this->pdo->query($this->sql)->fetchAll()) {
