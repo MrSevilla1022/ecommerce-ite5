@@ -9,6 +9,9 @@ import { CartComponent } from './public/cart/cart.component'
 import { NavbarComponent } from './navigation-bar/navbar/navbar.component'
 import { ProductsComponent } from './public/products/products.component'
 
+import { TransactionsComponent } from './admin/transactions/transactions.component'
+import { UsersComponent } from './admin/users/users.component'
+
 const routes: Routes = [
   { path: '', redirectTo: 'public/landingpage', pathMatch: 'full'},
   { path:'auth/login', component: LoginComponent },
@@ -25,6 +28,9 @@ const routes: Routes = [
 //ADMIN
   { path:'navigation-bar/navbar', component: NavbarComponent },
   { path:'admin/addproduct', component: AddproductComponent },
+  // test route for transactions and users table
+  { path:'admin/transactions', component: TransactionsComponent },
+  { path:'admin/users', component: UsersComponent },
 ];
 
 @NgModule({

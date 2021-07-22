@@ -24,6 +24,9 @@ import { ProductsComponent } from './public/products/products.component';
 import { GoogleLoginProvider, SocialAuthService, SocialLoginModule } from 'angularx-social-login';
 import { AdminNavComponent } from './navigation-bar/admin-nav/admin-nav.component';
 import { AdminloginComponent } from './auth/adminlogin/adminlogin.component';
+//transactions and users
+import { TransactionsComponent } from './admin/transactions/transactions.component';
+import { UsersComponent } from './admin/users/users.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { AdminloginComponent } from './auth/adminlogin/adminlogin.component';
     NavbarComponent,
     ProductsComponent,
     AdminNavComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    TransactionsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
