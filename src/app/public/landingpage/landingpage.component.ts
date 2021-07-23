@@ -12,6 +12,7 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 
 export class LandingpageComponent implements OnInit {
+  active = 1;
   closeResult: string = '';
   @ViewChild('content') content: any ;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);

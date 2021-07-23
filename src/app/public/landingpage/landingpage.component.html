@@ -1,114 +1,108 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-<main>
-
 <app-navbar></app-navbar>
-    <!-- Test -->
-    <div class=" mb-4">
-      <img [src]="userDetails?.photoUrl" alt="" class="user-avatar">
-    </div>
+<app-jumbotron></app-jumbotron>
 
-    <div class=" mb-4">
-      <span class="font-weight-bold">Name:</span>{{userDetails?.name}}
-    </div>
+    <div class="container cardcontainer">
 
-
-    <div class="jumbotron" style="background-color: #FDFFFC;">
-      <div class="container">
-        <div class="d-flex flex-row justify-content-between my-flex-container">
-          <div class="p-2 my-flex-item">
-            <img src="assets/logo2.png" alt="...">
-          </div>
-
-          <div class="p-2 my-flex-item">
-            <div class="landing" style="margin-top: 50%;">
-              <h1>Gear up with us!</h1>
-              <button type="button" class="btn px-5 btn-outline-danger" style="font-size: 30px;">Get Started</button>
-            </div>
-          </div>
-
-      </div>
-      </div>
-    </div>
-
-
-
-    <div class="container">
-      <!--Helmets-->
-        <h3 class="fw-bolder pb-3">Helmets</h3>
-        <div class="row row-cols-6">
-                  <div *ngFor="let hel of helmet" class="card mr-3 mb-3">
-                      <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
-                      <div class="card-body">
-                        <a (click)="open(content)" class="btn stretched-link"></a>
-                        <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
-                        <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
+      <h1>POPULAR PRODUCTS</h1>
+      <p>Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+      <div class="card p-4">
+      <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs p-4 justify-content-center">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Helmets</a>
+          <ng-template ngbNavContent>
+            <!--Helmets-->
+            <div class="row row-cols-6">
+                      <div *ngFor="let hel of helmet" class="card mr-3 mb-3">
+                          <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
+                          <div class="card-body">
+                            <a (click)="open(content)" class="btn stretched-link"></a>
+                            <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
+                            <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
+                          </div>
+                          <!--Modal for adding products-->
+                          <ng-template #content let-c="close" let-d="dismiss">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">Add to cart</h4>
+    
+                              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <!--Adding of products starts here-->
+                                    <div class="form-group">
+                                      <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
+                                      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
+                                      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
+    
+                                  </div>
+    
+                              <!--adding of product ends here-->
+                            </div>
+                            <div class="modal-footer">
+                              <button  type="button" class="btn mb-3 btn-primary " (click)="addToCart(hel)">Add product</button>
+                            </div>
+                          </ng-template>
+                          <!--Modal for adding products ends here-->
                       </div>
-                      <!--Modal for adding products-->
-                      <ng-template #content let-c="close" let-d="dismiss">
-                        <div class="modal-header">
-                          <h4 class="modal-title" id="modal-basic-title">Add to cart</h4>
-
-                          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <!--Adding of products starts here-->
-                                <div class="form-group">
-                                  <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
-                                  <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
-                                  <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
-
-                              </div>
-
-                          <!--adding of product ends here-->
-                        </div>
-                        <div class="modal-footer">
-                          <button  type="button" class="btn mb-3 btn-primary " (click)="addToCart(hel)">Add product</button>
-                        </div>
-                      </ng-template>
-                      <!--Modal for adding products ends here-->
-                  </div>
-
-                  <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">
-
-                      <a class="btn">
-                        <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" (click)="seeMore(1)">See more</h5>
-                      </a>
-
-                  </div>
-
-        </div>
-        <!--End of Helmets-->
-
-        <!--Headlights-->
-        <h3 class="fw-bolder pb-3">Headlights</h3>
-          <div class="row row-cols-5">
-                  <div *ngFor="let hl of headlight" class="card mr-3 mb-3">
-                      <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
-                      <div class="card-body">
-                      <a href="#" class="btn stretched-link"></a>
-                      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
-                      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
-                    </div>
-
+    
             </div>
-            <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">
+            <!--End of Helmets-->
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Headlights</a>
+          <ng-template ngbNavContent>
+            <!--Headlights-->
+                <h3 class="fw-bolder pb-3">Headlights</h3>
+                <div class="row row-cols-5">
+                        <div *ngFor="let hl of headlight" class="card mr-3 mb-3">
+                            <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
+                            <div class="card-body">
+                            <a href="#" class="btn stretched-link"></a>
+                            <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
+                            <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
+                          </div>
+                  </div>
+                  <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">
+                 
+                </div>
+                </div>
+            <!--End of headlights-->
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <a ngbNavLink>Brakes</a>
+          <ng-template ngbNavContent>
+            <p>No products to show.</p>
+          </ng-template>
+        </li>
 
-              <a class="btn">
-                <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;" (click)="seeMore(2)">See more</h5>
-              </a>
+        <li [ngbNavItem]="4">
+          <a ngbNavLink>Jackets</a>
+          <ng-template ngbNavContent>
+            <p>No products to show.</p>
+          </ng-template>
+        </li>
 
-          </div>
-          </div>
-        <!--End of headlights-->
+        <li [ngbNavItem]="5">
+          <a ngbNavLink>Seats</a>
+          <ng-template ngbNavContent>
+            <p>No products to show.</p>
+          </ng-template>
+        </li>
+      </ul>
+      
+      
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      <p>
+        <button class="btn btn-outline-dark" routerLink="/public/products">See more!</button>
+      </p>
     </div>
+    </div>
+    
     <!--end of container-->
 
-
-    <!--  -->
 
     <ng-template #content let-modal>
       <div class="modal-header">
@@ -138,5 +132,3 @@
       </div>
     </ng-template>
 
-    <!--  -->
-</main>

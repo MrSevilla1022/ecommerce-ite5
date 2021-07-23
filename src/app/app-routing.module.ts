@@ -1,3 +1,4 @@
+import { JumbotronComponent } from './landingpage/jumbotron/jumbotron.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
 
 //ADMIN
   { path:'navigation-bar/navbar', component: NavbarComponent },
+  { path:'landingpage/jumbotron', component: JumbotronComponent },
   { path:'admin/addproduct', component: AddproductComponent },
   // test route for transactions and users table
   { path:'admin/transactions', component: TransactionsComponent },

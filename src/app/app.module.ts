@@ -27,6 +27,7 @@ import { AdminloginComponent } from './auth/adminlogin/adminlogin.component';
 //transactions and users
 import { TransactionsComponent } from './admin/transactions/transactions.component';
 import { UsersComponent } from './admin/users/users.component';
+import { JumbotronComponent } from './landingpage/jumbotron/jumbotron.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UsersComponent } from './admin/users/users.component';
     AdminNavComponent,
     AdminloginComponent,
     TransactionsComponent,
-    UsersComponent
+    UsersComponent,
+    JumbotronComponent
   ],
   imports: [
     BrowserModule,
