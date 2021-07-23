@@ -28,6 +28,7 @@ import { AdminloginComponent } from './auth/adminlogin/adminlogin.component';
 import { TransactionsComponent } from './admin/transactions/transactions.component';
 import { UsersComponent } from './admin/users/users.component';
 import { JumbotronComponent } from './landingpage/jumbotron/jumbotron.component';
+import { FooterComponent } from './navigation-bar/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { JumbotronComponent } from './landingpage/jumbotron/jumbotron.component'
     AdminloginComponent,
     TransactionsComponent,
     UsersComponent,
-    JumbotronComponent
+    JumbotronComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
