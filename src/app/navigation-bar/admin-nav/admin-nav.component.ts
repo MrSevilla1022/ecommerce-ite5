@@ -15,7 +15,7 @@ export class AdminNavComponent implements OnInit {
 
   signOut(){
     localStorage.removeItem('google_auth');
-    this.router.navigateByUrl('/auth/login').then()
+    this.router.navigateByUrl('/auth/adminlogin').then()
   }
 
 }

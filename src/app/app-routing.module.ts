@@ -12,6 +12,7 @@ import { ProductsComponent } from './public/products/products.component'
 
 import { TransactionsComponent } from './admin/transactions/transactions.component'
 import { UsersComponent } from './admin/users/users.component'
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'public/landingpage', pathMatch: 'full'},
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path:'navigation-bar/navbar', component: NavbarComponent },
   { path:'landingpage/jumbotron', component: JumbotronComponent },
   { path:'admin/addproduct', component: AddproductComponent },
+  { path:'admin/dashboard', component: DashboardComponent },
   // test route for transactions and users table
   { path:'admin/transactions', component: TransactionsComponent },
   { path:'admin/users', component: UsersComponent },
