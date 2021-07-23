@@ -1,2 +1,38 @@
+<script src="node_modules/chart.js/Chart.min.js"></script>
+<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 <app-admin-nav></app-admin-nav>
-<p>dashboard works!</p>
+<div class="container">
+    <div class="row">
+        <div class="four col-md-3">
+            <div class="counter-box colored"> <i class="fa fa-thumbs-o-up"></i> <span class="counter">2147</span>
+                <p>Number of Users</p>
+            </div>
+        </div>
+        <div class="four col-md-3">
+            <div class="counter-box"> <i class="fa fa-group"></i> <span class="counter">3275</span>
+                <p>Number of products sold</p>
+            </div>
+        </div>
+        <div class="four col-md-3">
+            <div class="counter-box"> <i class="fa fa-shopping-cart"></i> <span class="counter">289</span>
+                <p>Total sales</p>
+            </div>
+        </div>
+        <div class="four col-md-3">
+            <div class="counter-box"> <i class="fa fa-user"></i> <span class="counter">1563</span>
+                <p>Page visitors</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card">
+        <div style="display: block;">
+            <canvas baseChart>
+       
+          </canvas>
+          </div>
+    </div>
+
+
+</div>
