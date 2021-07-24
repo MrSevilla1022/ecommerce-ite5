@@ -20,10 +20,10 @@ export class LandingpageComponent implements OnInit {
   helmet:any[] = []
   headlight:any[] = []
   userDetails:any;
-
-  ngAfterViewInit() {
-    this.openModal();
-  }
+  user:any;
+  // ngAfterViewInit() {
+  //   this.openModal();
+  // }
   openModal(){
     this.modalService.open(this.content, { centered: true });
   }
@@ -31,6 +31,11 @@ export class LandingpageComponent implements OnInit {
   constructor(public ds: ServiceService,private router:Router, config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    const user_id = localStorage.getItem('user_id')
+    if(user_id){
+      this.user = JSON.parse(user_id)
+      console.log(this.user)
+    }
     const storage = localStorage.getItem('google_auth')
 
     if(storage){

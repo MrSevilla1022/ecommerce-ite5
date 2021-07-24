@@ -5,13 +5,31 @@
             <div class="card card1">
                 <div class="row justify-content-center my-auto">
                     <div class="col-md-8 col-10 my-5">
-                        <div class="row justify-content-center px-3 mb-3"> 
+                        <div class="row justify-content-center px-3 mb-3">
                             <img id="logo" src="assets/logo.png"> </div>
                         <h6 class="msg-info">Please login to your account</h6>
                         <div class="form-group"> <label class="form-control-label text-muted">Username</label> <input type="text" id="email" name="email" placeholder="Phone number or Email Address" class="form-control"> </div>
                         <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="psw" placeholder="Password" class="form-control"> </div>
                         <div class="row justify-content-center my-3 px-3"> <button routerLink="/public/landingpage" class="btn-block btn-color">Login</button> </div>
                         <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot Password?</small></a> </div>
+
+                        <p href="" style="text-align: center;">Or login using</p>
+                        <div class="row">
+
+                          <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                            <button class="btn-block btn-color loginBtn loginBtn--facebook" style="font-size: small;">
+                              Login with Facebook
+                            </button>
+
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                            <button class="btn-block btn-color loginBtn loginBtn--google" (click)="signinGoogle()" style="font-size: small;">
+                              Login with Google
+                            </button>
+                          </div>
+                      </div>
+
+
                     </div>
                 </div>
                 <div class="bottom text-center mb-5">
