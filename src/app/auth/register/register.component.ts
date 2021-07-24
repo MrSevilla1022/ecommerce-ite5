@@ -18,53 +18,22 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  regCred :any = {}
-  checked: boolean = false
-  register(){
-    if(this.checked){
-      this.router.navigateByUrl('/public/landingpage').then();
-    }else{
-      alert("Please agree!")
-    }
-  }
 
   signinGoogle(){
     this.authservice.signIn(GoogleLoginProvider.PROVIDER_ID).then((data:any) =>{
-      localStorage.setItem('auth',JSON.stringify(data));
-      this.check();
-
+      localStorage.setItem('google_auth',JSON.stringify(data));
+      this.registerNewUser();
+      this.router.navigateByUrl('/public/landingpage').then();
     })
   }
   registerCred:any = {};
   userDetails:any
   users:any [] =[]
 
-
-  check(){
-    const storage  = localStorage.getItem('auth')
-    if(storage){
-      this.userDetails = JSON.parse(storage)
-      console.log("User Details: ")
-      console.log(this.userDetails)
-    }else{
-
-    }
-    let isUser = false
-    this.registerCred.email = this.userDetails.email
-    this.ds.sendApiRequest('login/',this.registerCred)
-    .subscribe((result: any)=>{
-      console.log(result);
-      this.users = result.payload
-
-
-        })
-      }
-
   registerNewUser(){
-    const storage  = localStorage.getItem('auth')
+    const storage  = localStorage.getItem('google_auth')
     if(storage){
       this.userDetails = JSON.parse(storage)
-      console.log("User Details: ")
       console.log(this.userDetails)
     }else{
 
@@ -78,14 +47,12 @@ export class RegisterComponent implements OnInit {
       for(let user of this.users){
         if(user.email == this.registerCred.email){
           isUser = true
-          alert('Already registered')
           break;
         }
       }
       if(isUser == false){
         this.ds.sendApiRequest('registerGmail/',this.registerCred).subscribe((result: any)=>{
           console.log(result);
-          this.router.navigateByUrl('/public/landingpage').then();
       });
       }
   });
