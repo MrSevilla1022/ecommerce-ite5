@@ -12,6 +12,8 @@ import { ProductsComponent } from './public/products/products.component'
 
 import { TransactionsComponent } from './admin/transactions/transactions.component'
 import { UsersComponent } from './admin/users/users.component'
+import { ChangecredentialsComponent } from './user/changecredentials/changecredentials.component'
+import { WishlistComponent } from './user/wishlist/wishlist.component'
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -35,7 +37,13 @@ const routes: Routes = [
   // test route for transactions and users table
   { path:'admin/transactions', component: TransactionsComponent },
   { path:'admin/users', component: UsersComponent },
+
+//USER
+  { path:'user/changecredentials', component: ChangecredentialsComponent },
+  { path:'user/wishlist', component: WishlistComponent },
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

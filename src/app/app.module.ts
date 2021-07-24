@@ -29,6 +29,7 @@ import { TransactionsComponent } from './admin/transactions/transactions.compone
 import { UsersComponent } from './admin/users/users.component';
 import { JumbotronComponent } from './landingpage/jumbotron/jumbotron.component';
 import { FooterComponent } from './navigation-bar/footer/footer.component';
+import { WishlistComponent } from './user/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FooterComponent } from './navigation-bar/footer/footer.component';
     TransactionsComponent,
     UsersComponent,
     JumbotronComponent,
-    FooterComponent
+    FooterComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
