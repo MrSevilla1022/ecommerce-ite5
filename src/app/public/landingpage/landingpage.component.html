@@ -1,18 +1,18 @@
 <app-navbar></app-navbar>
 <app-jumbotron></app-jumbotron>
 
-    <div class="container cardcontainer">
-
+    <div class="container cardcontainer" id="trying">
+      <div class="inner-container">
       <h1>POPULAR PRODUCTS</h1>
       <p>Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
-      <div class="card p-4">
+      <div class="card p-4 popcontainer shadow-lg">
       <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs p-4 justify-content-center">
         <li [ngbNavItem]="1">
           <a ngbNavLink>Helmets</a>
           <ng-template ngbNavContent>
             <!--Helmets-->
-            <div class="row row-cols-6 justify-content-center">
-                      <div *ngFor="let hel of helmet" class="card mr-3 mb-3">
+            <div class="row row-cols-5 justify-content-center">
+                      <div *ngFor="let hel of helmet" class="card mr-3 mb-3 shadow-sm">
                           <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
                           <div class="card-body">
                             <a (click)="open(content)" class="btn stretched-link"></a>
@@ -54,8 +54,8 @@
           <a ngbNavLink>Headlights</a>
           <ng-template ngbNavContent>
             <!--Headlights-->
-                <div class="row row-cols-6 justify-content-center">
-                        <div *ngFor="let hl of headlight" class="card mr-3 mb-3">
+                <div class="row row-cols-5 justify-content-center">
+                        <div *ngFor="let hl of headlight" class="card mr-3 mb-3 shadow-sm">
                             <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
                             <div class="card-body">
                             <a href="#" class="btn stretched-link"></a>
@@ -95,10 +95,40 @@
         <button class="btn btn-outline-dark" routerLink="/public/products">See more!</button>
       </p>
     </div>
+  </div>
     </div>
     
     <!--end of container-->
 
+ 
+    
+    <!--ad here-->
+      <div class="ad"></div>
+    <!--ad-->
+
+
+    <!--New products-->
+    <div class="new-products">
+      <img src="/assets/hottest1.png" class="rounded mx-auto d-block" alt="...">  
+    </div>
+    <!--New products ends here-->
+
+    <!--logos here-->
+    <div class="logos">
+      <div class="container">
+      <h1>Delivery partners</h1>
+        <div>
+          <img class="logoimg" src="/assets/logistics/lbc.png"  alt="...">  
+        </div>
+        <div>
+          <img class="logoimg" src="/assets/logistics/jnt.png"  alt="...">  
+        </div>
+        <div>
+          <img class="logoimg" src="/assets/logistics/nv.png"  alt="...">  
+        </div>
+        </div>
+      </div>
+    <!--End logos-->
 
     <ng-template #content let-modal>
       <div class="modal-header">
