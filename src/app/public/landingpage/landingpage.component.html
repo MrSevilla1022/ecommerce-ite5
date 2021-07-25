@@ -23,7 +23,7 @@
                           <ng-template #content let-c="close" let-d="dismiss">
                             <div class="modal-header">
                               <h4 class="modal-title" id="modal-basic-title">Add to cart</h4>
-    
+
                               <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -34,9 +34,9 @@
                                       <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
                                       <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
                                       <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
-    
+
                                   </div>
-    
+
                               <!--adding of product ends here-->
                             </div>
                             <div class="modal-footer">
@@ -45,7 +45,7 @@
                           </ng-template>
                           <!--Modal for adding products ends here-->
                       </div>
-    
+
             </div>
             <!--End of Helmets-->
           </ng-template>
@@ -63,6 +63,9 @@
                             <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
                           </div>
                   </div>
+                  <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">
+
+                </div>
                 </div>
             <!--End of headlights-->
           </ng-template>
@@ -88,8 +91,8 @@
           </ng-template>
         </li>
       </ul>
-      
-      
+
+
       <div [ngbNavOutlet]="nav" class="mt-2"></div>
       <p>
         <button class="btn btn-outline-dark" routerLink="/public/products">See more!</button>
@@ -97,11 +100,11 @@
     </div>
   </div>
     </div>
-    
+
     <!--end of container-->
 
- 
-    
+
+
     <!--ad here-->
       <div class="ad"></div>
     <!--ad-->
@@ -109,7 +112,7 @@
 
     <!--New products-->
     <div class="new-products">
-      <img src="/assets/hottest1.png" class="rounded mx-auto d-block" alt="...">  
+      <img src="/assets/hottest1.png" class="rounded mx-auto d-block" alt="...">
     </div>
     <!--New products ends here-->
 
@@ -118,13 +121,13 @@
       <div class="container">
       <h1>Delivery partners</h1>
         <div>
-          <img class="logoimg" src="/assets/logistics/lbc.png"  alt="...">  
+          <img class="logoimg" src="/assets/logistics/lbc.png"  alt="...">
         </div>
         <div>
-          <img class="logoimg" src="/assets/logistics/jnt.png"  alt="...">  
+          <img class="logoimg" src="/assets/logistics/jnt.png"  alt="...">
         </div>
         <div>
-          <img class="logoimg" src="/assets/logistics/nv.png"  alt="...">  
+          <img class="logoimg" src="/assets/logistics/nv.png"  alt="...">
         </div>
         </div>
       </div>

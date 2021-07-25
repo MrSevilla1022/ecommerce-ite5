@@ -18,14 +18,14 @@
 
                     <div class="form-group">
                       <label class="form-control-label text-muted">First name</label>
-                      <input type="text" id="fname" name="fname" placeholder="Last name" class="form-control">
+                      <input type="text" id="fname" name="fname" placeholder="First name" [(ngModel)]="regCred.fname" class="form-control">
                       </div>
 
                   </div>
                   <div class="col">
                     <div class="form-group">
                     <label class="form-control-label text-muted">Last name</label>
-                    <input type="text" id="lname" name="lname" placeholder="Last name" class="form-control">
+                    <input type="text" id="lname" name="lname" placeholder="Last name" [(ngModel)]="regCred.lname" class="form-control">
                     </div>
                   </div>
 
@@ -37,15 +37,15 @@
                       <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon3">+63</span>
                     </div>
-                  <input type="text" id="pnum" name="pnum" placeholder="Please enter your phone number" class="form-control" aria-describedby="basic-addon3">
+                  <input type="number" id="pnum" name="pnum" [(ngModel)]="regCred.phone_no" maxlength="10"  placeholder="Please enter your phone number" class="form-control" aria-describedby="basic-addon3">
                 </div>
                 </div>
 
                 <div class="mb-4 pb-2">
                   <label class="form-control-label text-muted">Birthdate</label>
                   <div class="input-group">
-                    <input class="form-control" placeholder="Please enter your Birth date (yyyy-mm-dd)"
-                           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                    <input class="form-control" readonly placeholder="Birth date (yyyy-mm-dd)"
+                           name="dp" [(ngModel)]="regCred.birthdate" ngbDatepicker #d="ngbDatepicker">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
@@ -60,63 +60,23 @@
                   <input
                     class="form-check-input me-3"
                     type="checkbox"
-                    value=""
+                    [(ngModel)]="checked"
+                    [checked]="checked"
                     id="form2Example3c"/>
                   <label class="form-check-label" for="form2Example3">
-                    I do accept the <a href="#!"><u>Terms and Conditions</u></a> of your site.
+                    I do accept the <a href="x#!"><u>Terms and Conditions</u></a> of your site.
                   </label>
                 </div>
                 <div class="row justify-content-center my-3 px-3">
-                  <button routerLink="/public/landingpage" class="btn-block btn-color">Sign up</button>
+                  <button (click)="register()" class="btn-block btn-color">Sign up</button>
                 </div>
-
-                <p href="" style="text-align: center;">Or login using</p>
-                <div class="row">
-
-                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-                    <button class="btn-block btn-color loginBtn loginBtn--facebook" style="font-size: small;">
-                      Login with Facebook
-                    </button>
-
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-                    <button class="btn-block btn-color loginBtn loginBtn--google" (click)="signinGoogle()" style="font-size: small;">
-                      Login with Google
-                    </button>
-                  </div>
-              </div>
+                
 
 
               </div>
             </div>
             <!--Card 1 Ends here-->
 
-            <!--  -->
-
-            <!--Modal for adding products-->
-            <ng-template #content let-c="close" let-d="dismiss">
-              <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Add a product</h4>
-                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!--Adding of products starts here-->
-                      <div class="form-group">
-                        <label for="exampleFormControlFile1">Example file input</label>
-
-                    </div>
-
-                <!--adding of product ends here-->
-              </div>
-              <div class="modal-footer">
-                <button  type="button" class="btn mb-3 btn-primary">Add product</button>
-              </div>
-            </ng-template>
-            <!--Modal for adding products ends here-->
-
-            <!--  -->
 
             <!--Card 2 starts here-->
             <div class="card card2 shadow-lg">

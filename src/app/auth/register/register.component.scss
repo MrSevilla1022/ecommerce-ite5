@@ -22,7 +22,7 @@ textarea {
 
 h3{
   color: white;
-  
+
 }
 
 input:focus,
@@ -44,7 +44,7 @@ button:focus {
 
 .card {
   border-radius:0;
-  border: none; 
+  border: none;
 }
 
 .card > label{
@@ -249,3 +249,14 @@ a:hover {
   }
 }
 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
