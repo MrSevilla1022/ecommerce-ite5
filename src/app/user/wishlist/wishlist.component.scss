@@ -1,13 +1,42 @@
-.btn{
+.atc_btn{
+    background-color: #FF9F1C;
+    border: none;
+    border-radius: 3px;
+}
+
+.add_all{
     background-color: transparent;
+    border: none;
+    color: #FF9F1C;
+    font-weight: bold;
+}
+
+.remove_btn{
+    background-color: #E71D36;
+    border: none;
+    border-radius: 3px;
+}
+
+.fa-cart-plus{
+    color: white;
+}
+
+.fa-trash{
+    color: white;
+}
+
+.item_list{
     border: none;
 }
 
-.list li {
-    list-style: none;
-    padding: 10px;
-    border: 1px solid #e3dada;
-    margin-top: 12px;
-    border-radius: 5px;
-    background: #fff
+.nav_head{
+    color: #011627;
+}
+
+.nav_head:hover{
+    text-decoration: none;
+}
+
+ul li a{
+    color: #7e7d7d;
 }
