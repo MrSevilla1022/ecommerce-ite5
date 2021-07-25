@@ -18,22 +18,94 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  regCred :any = {}
+  checked: boolean = false
+  register(){
+    if(this.checked){
+      this.checkReg()
+      // this.router.navigateByUrl('/public/landingpage').then();
+    }else{
+      alert("Please agree!")
+    }
+  }
+
+  checkReg(){
+    if(this.regCred.birthdate != null && this.regCred.fname != null && this.regCred.lname != null && this.regCred.phone_no){
+      this.regCred.birthdate = this.regCred.birthdate.toString()
+      this.regCred.phone_no = this.regCred.phone_no.toString()
+      console.log(this.regCred.phone_no.length)
+      if(this.regCred.phone_no[0] == "9" && this.regCred.phone_no.length == 10){
+        let isUser = false
+        this.ds.sendApiRequest('checkUser/',this.registerCred)
+            .subscribe((result: any)=>{
+              console.log('Check: '+result);
+              this.users = result.payload
+              for(let user of this.users){
+                if(user.phone_no == this.regCred.phone_no){
+                  isUser = true
+                  alert('Phone Number already used')
+                  break;
+                }
+              }
+              if(isUser == false){
+                this.ds.sendApiRequest('register/',this.regCred).subscribe((result: any)=>{
+
+                  this.router.navigateByUrl('/public/landingpage').then();
+              });
+              }
+          });
+      }else{
+        alert("Invalid Number!")
+      }
+
+      
+      
+      
+
+    }else{
+      alert("Please fill all the fields!")
+      
+    }
+
+  }
 
   signinGoogle(){
     this.authservice.signIn(GoogleLoginProvider.PROVIDER_ID).then((data:any) =>{
-      localStorage.setItem('google_auth',JSON.stringify(data));
+      localStorage.setItem('auth',JSON.stringify(data));
       this.registerNewUser();
-      this.router.navigateByUrl('/public/landingpage').then();
+
     })
   }
   registerCred:any = {};
   userDetails:any
   users:any [] =[]
 
-  registerNewUser(){
-    const storage  = localStorage.getItem('google_auth')
+
+  check(){
+    const storage  = localStorage.getItem('auth')
     if(storage){
       this.userDetails = JSON.parse(storage)
+      console.log("User Details: ")
+      console.log(this.userDetails)
+    }else{
+
+    }
+    let isUser = false
+    this.registerCred.email = this.userDetails.email
+    this.ds.sendApiRequest('login/',this.registerCred)
+    .subscribe((result: any)=>{
+      console.log(result);
+      this.users = result.payload
+
+
+        })
+      }
+
+  registerNewUser(){
+    const storage  = localStorage.getItem('auth')
+    if(storage){
+      this.userDetails = JSON.parse(storage)
+      console.log("User Details: ")
       console.log(this.userDetails)
     }else{
 
@@ -47,12 +119,14 @@ export class RegisterComponent implements OnInit {
       for(let user of this.users){
         if(user.email == this.registerCred.email){
           isUser = true
+          alert('Already registered')
           break;
         }
       }
       if(isUser == false){
         this.ds.sendApiRequest('registerGmail/',this.registerCred).subscribe((result: any)=>{
           console.log(result);
+          this.router.navigateByUrl('/public/landingpage').then();
       });
       }
   });

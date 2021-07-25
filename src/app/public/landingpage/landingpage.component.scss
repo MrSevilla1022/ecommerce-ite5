@@ -11,13 +11,52 @@ h1{
 }
 
 .cardcontainer{
-    padding-top: 30px;
     text-align: center;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.cardcontainer>h1{
+.inner-container>h1{
     font-size: 50px;
     font-family: 'Bebas Neue';
-
 }
+
+.popcontainer{
+    
+}
+
+
+
+.new-products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logos{
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image:linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.5) ),url("/assets/22.jpg");
+}
+
+.logoimg{
+    width: 500px;
+}
+
+.ad{
+    height: 40vh;
+    background-size: cover;
+    width: 100%;
+    background-image:url("/assets/banner.gif");
+}
+
+.inner-container{
+    align-self: center;
+}
+

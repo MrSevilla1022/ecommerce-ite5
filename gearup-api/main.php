@@ -33,6 +33,19 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($post->checkUser('tbl_user', null), JSON_PRETTY_PRINT);
         }
         break;
+      case 'checkPhone':
+        if (count($req) > 1) {
+          echo json_encode($post->checkPhone('tbl_user', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($post->checkPhone('tbl_user', null), JSON_PRETTY_PRINT);
+        }
+        break;
+
+      case 'login':
+        $d = json_decode((file_get_contents("php://input")));
+        echo json_encode($post->login($d));
+      break;
+
       case 'category':
         if (count($req) > 1) {
           echo json_encode($gm->exec_query('tbl_' . $req[0], $req[1]), JSON_PRETTY_PRINT);
@@ -75,19 +88,24 @@ switch ($_SERVER['REQUEST_METHOD']) {
         echo json_encode($gm->insert("tbl_user", $d), JSON_PRETTY_PRINT);
         return array("data" => $d);
         break;
+      case 'register':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->insert("tbl_user", $d), JSON_PRETTY_PRINT);
+        return array("data" => $d);
+        break;
 
       case 'addBrand':
           $d = json_decode(file_get_contents("php://input"));
           echo json_encode($gm->insert("tbl_brand", $d), JSON_PRETTY_PRINT);
           return array("data" => $d);
-          break; 
-      
+          break;
+
       case 'addCategory':
           $d = json_decode(file_get_contents("php://input"));
           echo json_encode($gm->insert("tbl_category", $d), JSON_PRETTY_PRINT);
           return array("data" => $d);
-          break;  
-  
+          break;
+
 
 
 
