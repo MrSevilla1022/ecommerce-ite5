@@ -47,10 +47,35 @@ export class LandingpageComponent implements OnInit {
 
     this.getProducts();
   }
-
+  cart:any = []
+  checkCart:any =[]
+  addCartBtn = "Add to Cart"
+  disableBtn: boolean = false
   addToCart(product:any){
-    this.ds.sendMsg(product)
+    let cart = sessionStorage.getItem('cart')
+    if(cart){
+      this.checkCart = JSON.parse(cart)
+    }else{
 
+    }
+
+    let alrdCart = false
+    for(let item of this.checkCart){
+      if(product.product_id == item.product_id){
+        alrdCart = true
+        this.addCartBtn = "On cart"
+        alert("Already on cart!")
+      }
+    }
+    if(!alrdCart){
+
+      this.cart.push(product)
+      alert("Added to cart!")
+      sessionStorage.setItem('cart',JSON.stringify(this.cart))
+    }
+
+    //Delete all cart where user_id = user_id
+    //Insert new cart
 
   }
 

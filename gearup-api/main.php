@@ -105,6 +105,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($gm->insert("tbl_category", $d), JSON_PRETTY_PRINT);
           return array("data" => $d);
           break;
+      case 'toCart':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->insert("tbl_cart", $d), JSON_PRETTY_PRINT);
+        return array("data" => $d);
+        break;
 
 
 

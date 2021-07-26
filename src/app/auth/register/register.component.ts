@@ -30,41 +30,55 @@ export class RegisterComponent implements OnInit {
   }
 
   checkReg(){
-    if(this.regCred.birthdate != null && this.regCred.fname != null && this.regCred.lname != null && this.regCred.phone_no){
+    if(this.regCred.birthdate != null && this.regCred.fname != null && this.regCred.lname != null && this.regCred.phone_no && this.regCred.user_pword){
+
+
       this.regCred.birthdate = this.regCred.birthdate.toString()
       this.regCred.phone_no = this.regCred.phone_no.toString()
-      console.log(this.regCred.phone_no.length)
       if(this.regCred.phone_no[0] == "9" && this.regCred.phone_no.length == 10){
-        let isUser = false
-        this.ds.sendApiRequest('checkUser/',this.registerCred)
-            .subscribe((result: any)=>{
-              console.log('Check: '+result);
-              this.users = result.payload
-              for(let user of this.users){
-                if(user.phone_no == this.regCred.phone_no){
-                  isUser = true
-                  alert('Phone Number already used')
-                  break;
+        if(this.regCred.user_pword.length >= 8){
+          let isUser = false
+          this.regCred.phone_no = '0' + this.regCred.phone_no
+          this.ds.sendApiRequest('checkUser/',this.registerCred)
+              .subscribe((result: any)=>{
+                console.log('Check: '+result);
+                this.users = result.payload
+                for(let user of this.users){
+                  if(user.phone_no == this.regCred.phone_no){
+                    isUser = true
+                    alert('Phone Number already used')
+                    break;
+                  }
                 }
-              }
-              if(isUser == false){
-                this.ds.sendApiRequest('register/',this.regCred).subscribe((result: any)=>{
+                if(isUser == false){
+                  this.ds.sendApiRequest('register/',this.regCred).subscribe((result: any)=>{
+                    let users = result.payload
+                    console.log(result.payload)
+                    for(let user of users){
+                      if(user.phone_no == this.regCred.phone_no && user.user_pword == this.regCred.user_pword){
+                        localStorage.setItem('user_id',JSON.stringify(user));
 
-                  this.router.navigateByUrl('/public/landingpage').then();
-              });
-              }
-          });
+                        this.router.navigateByUrl('/public/landingpage').then();
+                      }
+                    }
+                });
+                }
+            });
+        }else{
+          alert("Password too short")
+        }
+
       }else{
         alert("Invalid Number!")
       }
 
-      
-      
-      
+
+
+
 
     }else{
       alert("Please fill all the fields!")
-      
+
     }
 
   }
@@ -125,8 +139,15 @@ export class RegisterComponent implements OnInit {
       }
       if(isUser == false){
         this.ds.sendApiRequest('registerGmail/',this.registerCred).subscribe((result: any)=>{
-          console.log(result);
-          this.router.navigateByUrl('/public/landingpage').then();
+          let users = result.payload
+          console.log(result.payload)
+          for(let user of users){
+            if(user.phone_no == this.registerCred.phone_no && user.user_pword == this.registerCred.user_pword){
+              localStorage.setItem('user_id',JSON.stringify(user));
+
+              this.router.navigateByUrl('/public/landingpage').then();
+            }
+          }
       });
       }
   });

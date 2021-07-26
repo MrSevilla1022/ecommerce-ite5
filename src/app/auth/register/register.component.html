@@ -41,6 +41,14 @@
                 </div>
                 </div>
 
+                <div class="pb-2">
+                  <label class="form-control-label text-muted">Password</label>
+                    <div class="input-group mb-3">
+
+                <input type="password" id="pnum" name="pnum" [(ngModel)]="regCred.user_pword" maxlength="10"  placeholder="Please enter your password" class="form-control" aria-describedby="basic-addon3">
+              </div>
+              </div>
+
                 <div class="mb-4 pb-2">
                   <label class="form-control-label text-muted">Birthdate</label>
                   <div class="input-group">
@@ -70,7 +78,7 @@
                 <div class="row justify-content-center my-3 px-3">
                   <button (click)="register()" class="btn-block btn-color">Sign up</button>
                 </div>
-                
+
 
 
               </div>

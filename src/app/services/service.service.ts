@@ -17,8 +17,8 @@ export class ServiceService {
   sendMsg(product:any){
     console.log(product)
     this.subject.next(product)
-    this.cart.push(product)
-    sessionStorage.setItem('cart',JSON.stringify(this.cart))
+    // this.cart.push(product)
+    // sessionStorage.setItem('cart',JSON.stringify(this.cart))
   }
   getMsg(){
     return this.subject.asObservable()
