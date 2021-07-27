@@ -44,19 +44,26 @@ export class LandingpageComponent implements OnInit {
     }else{
 
     }
-
+    this.ds.sendApiRequest("cart/"+this.user.user_id, null ).subscribe((data: any) => {
+      sessionStorage.setItem('cart',JSON.stringify(data.payload))
+      this.cart = data.payload
+      this.checkCart = data.payload
+    })
     this.getProducts();
   }
   cart:any = []
   checkCart:any =[]
   addCartBtn = "Add to Cart"
   disableBtn: boolean = false
+  toCart:any = {}
   addToCart(product:any){
+
+    //get cart from db
+
     let cart = sessionStorage.getItem('cart')
     if(cart){
       this.checkCart = JSON.parse(cart)
     }else{
-
     }
 
     let alrdCart = false
@@ -70,9 +77,20 @@ export class LandingpageComponent implements OnInit {
     if(!alrdCart){
 
       this.cart.push(product)
+      console.log(product.product_id)
+      this.toCart.product_id = product.product_id
+      this.toCart.user_id = this.user.user_id
+      console.log(this.toCart)
       alert("Added to cart!")
+      this.ds.sendApiRequest("addCart/", this.toCart)
+          .subscribe((result: any)=>{
+            console.log(result);
+        });
       sessionStorage.setItem('cart',JSON.stringify(this.cart))
     }
+
+
+
 
     //Delete all cart where user_id = user_id
     //Insert new cart

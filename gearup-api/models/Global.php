@@ -14,6 +14,9 @@
       if($filter_data != null && $table == "tbl_user") {
 				$this->sql .= " WHERE user_uname=$filter_data";
 			}
+      if($filter_data != null && $table == "tbl_cart") {
+				$this->sql .= " WHERE user_id=$filter_data";
+			}
 
       if($filter_data != null && $table == "tbl_products") {
 				$this->sql .= " WHERE category_id=$filter_data";

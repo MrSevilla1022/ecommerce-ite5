@@ -11,23 +11,21 @@ export class NavbarComponent implements OnInit {
 
   public isMenuCollapsed = true;
 
-  userDetails:any;
+  user:any;
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
-    const storage = localStorage.getItem('google_auth')
-
-    if(storage){
-      this.userDetails = JSON.parse(storage)
-      console.log(this.userDetails)
-    }else{
-
+    const user_id = localStorage.getItem('user_id')
+    if(user_id){
+      this.user = JSON.parse(user_id)
+      console.log(this.user)
     }
   }
 
   signOut(){
-    localStorage.removeItem('google_auth');
+    localStorage.removeItem('user_id');
+    sessionStorage.removeItem('cart');
     this.router.navigateByUrl('/auth/login').then()
   }
 

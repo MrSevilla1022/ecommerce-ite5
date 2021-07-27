@@ -33,6 +33,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($post->checkUser('tbl_user', null), JSON_PRETTY_PRINT);
         }
         break;
+      case 'cart':
+        if (count($req) > 1) {
+          echo json_encode($post->cart('tbl_cart', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($post->cart('tbl_cart', null), JSON_PRETTY_PRINT);
+        }
+        break;
       case 'checkPhone':
         if (count($req) > 1) {
           echo json_encode($post->checkPhone('tbl_user', $req[1]), JSON_PRETTY_PRINT);
@@ -99,6 +106,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($gm->insert("tbl_brand", $d), JSON_PRETTY_PRINT);
           return array("data" => $d);
           break;
+      case 'addCart':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->insert("tbl_cart", $d), JSON_PRETTY_PRINT);
+        return array("data" => $d);
+        break;
 
       case 'addCategory':
           $d = json_decode(file_get_contents("php://input"));

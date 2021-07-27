@@ -9,7 +9,7 @@
       <img style="max-width:130px;"
       src="assets/gearup-white.png">
     </a>
-    
+
     <!--Hamburger menu-->
       <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
         &#9776;
@@ -34,7 +34,7 @@
           </svg>
         </a>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <span ngbDropdownItem class="font-weight-bold text-muted" style="cursor: default;">Hi there, {{userDetails?.firstName}}</span>
+          <span ngbDropdownItem class="font-weight-bold text-muted" style="cursor: default;">Hi there, {{user.fname}}</span>
           <li class="nav-item">
           <button ngbDropdownItem>Manage my account</button>
           </li>
