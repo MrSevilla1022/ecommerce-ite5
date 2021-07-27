@@ -127,9 +127,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 
         //UPDATE sample
-      case 'acceptCollab':
+      case 'updateQty':
         $d = json_decode(file_get_contents("php://input"));
-        echo json_encode($gm->update("collab_member_tbl", $d, 'member_rec_id=' . $req[1]), JSON_PRETTY_PRINT);
+        echo json_encode($gm->update("tbl_cart", $d, 'cart_id=' . $req[1]), JSON_PRETTY_PRINT);
         break;
 
 

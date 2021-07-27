@@ -34,14 +34,14 @@
                                                 <div class="col-6">
                                                     <ul class="pagination d-flex justify-content-end set_quantity">
                                                         <li class="page-item">
-                                                            <button class="page-link" onclick="decrementQuantity()"><i class="fas fa-minus" style="color: #E71D36;"></i></button>
+                                                            <button class="page-link" (click)="decrementqty(prod)"><i class="fas fa-minus" style="color: #E71D36;"></i></button>
                                                         </li>
                                                         <li class="page-item">
-                                                            <input type="text" name class="page-link quantity" href="#" value="1"
+                                                            <input readonly type="text" name class="page-link quantity" href="#" value="{{prod.qty}}"
                                                              style="color: #011627;">
                                                         </li>
                                                         <li class="page-item">
-                                                            <button class="page-link" onclick="incrementQuantity()"><i class="fas fa-plus" style="color: #E71D36;"></i></button>
+                                                            <button  class="page-link" (click)="incrementqty(prod)"><i class="fas fa-plus" style="color: #E71D36;"></i></button>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -59,27 +59,27 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="list-group-item row p-4">
+                                <!-- <li class="list-group-item row p-4">
                                     <div class="row">
-                                        <!-- thumbnail -->
+
                                         <div class="col-md-2 col-6 mx-auto bg-white
                                         d-flex justify-content-center align-items-center product_img">
                                             <img src="assets/silentbaffle.jpg" alt="item" style="width: 100px;">
                                         </div>
-                                        <!-- cart product details -->
+
                                         <div class="col-md-10 col-12 mx-auto px-4 align-items-start">
                                             <div class="row">
-                                                <!-- item name -->
+
                                                 <div class="col-lg-4 col-sm-10">
                                                     <h4 class="product_name">Silent Baffle</h4>
                                                     <p>Desc: Φ28.6</p>
 
                                                 </div>
-                                                <!-- item price -->
+
                                                 <div class="col-lg-4 col-sm-10 d-flex align-items-start justify-content-center">
                                                     <h5>350.00</h5>
                                                 </div>
-                                                <!-- add to cart & remove buttons -->
+
                                                 <div class="col-lg-4 col-sm-10 d-flex align-items-start justify-content-end">
                                                     <button type="button" class="atc_btn px-4 py-2 mr-2"><i class="fas fa-cart-plus"></i></button>
                                                     <button type="button" class="remove_btn px-4 py-2"><i class="fas fa-trash"></i></button>
@@ -87,7 +87,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li>
+                                </li> -->
                               </ul>
                         </div>
 
@@ -161,7 +161,7 @@
                         <hr>
                         <div class="totalamt_div d-flex justify-content-between font-weight-bold">
                             <p>Total</p>
-                            <p>₱<span id="totalamt">0.00</span></p>
+                            <p>₱<span id="totalamt">{{total}}.00</span></p>
                         </div>
                         <div class="checkoutbtn_div">
                             <button type="button" class="btn btn-sm btn-block checkout_btn">Proceed to Checkout</button>

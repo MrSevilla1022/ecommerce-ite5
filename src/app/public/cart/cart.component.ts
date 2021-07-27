@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 
@@ -13,6 +14,7 @@ export class CartComponent implements OnInit {
   cartItems:any = []
   cart:any = []
   user:any;
+  total:any = 0
   ngOnInit(): void {
     const user_id = localStorage.getItem('user_id')
     if(user_id){
@@ -26,6 +28,8 @@ export class CartComponent implements OnInit {
 
     this.cartItems = sessionStorage.getItem('cart')
     this.cart = JSON.parse(this.cartItems)
+
+    this.computeTotal()
     // this.ds.getMsg().subscribe((product:any) =>{
     //   this.cartItems.push({
     //     product_name: product.product_name,
@@ -35,6 +39,51 @@ export class CartComponent implements OnInit {
     //   console.log(product)
     // })
   }
+
+  computeTotal(){
+    for(let i in this.cart){
+        this.total+=this.cart[i].qty*this.cart[i].price
+        console.log("item "+ i +" "+this.total)
+    }
+  }
+
+  updateQty:any = {}
+
+  async decrementqty(cart:any){
+    if(cart.qty != 1){
+      for(let i in this.cart){
+
+        if(this.cart[i].cart_id === cart.cart_id){
+          this.cart[i].qty--
+          this.updateQty.qty=this.cart[i].qty
+          this.updateQuantity(cart.cart_id)
+          break;
+        }
+      }
+    }
+
+  }
+
+  updateQuantity(cart_id:any){
+    this.ds.sendApiRequest2("updateQty/", this.updateQty, cart_id).subscribe((data:any) => {
+
+    });
+  }
+
+  async incrementqty(cart:any){
+    for(let i in this.cart){
+
+      if(this.cart[i].cart_id === cart.cart_id){
+        this.cart[i].qty++
+        this.updateQty.qty=this.cart[i].qty
+        this.updateQuantity(cart.cart_id)
+        break;
+      }
+    }
+
+  }
+
+
   acart:any []= []
   async removeItem(cartId:any){
     console.log(cartId)
