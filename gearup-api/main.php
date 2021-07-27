@@ -135,14 +135,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 
 
-        //DELETE sample
-        // case 'deleteTask':
-        //   if (count($req) > 1) {
-        //     echo json_encode($gm->delete('task_tbl', $req[1]), JSON_PRETTY_PRINT);
-        //   } else {
-        //     echo json_encode($gm->delete('task_tbl', null), JSON_PRETTY_PRINT);
-        //   }
-
+      //DELETE sample
+      case 'deleteCart':
+        if (count($req) > 1) {
+          echo json_encode($gm->delete('tbl_cart', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($gm->delete('tbl_cart', null), JSON_PRETTY_PRINT);
+        }
+        break;
         //LOGIN
       case 'login':
         $d = json_decode(base64_decode(file_get_contents("php://input")));
