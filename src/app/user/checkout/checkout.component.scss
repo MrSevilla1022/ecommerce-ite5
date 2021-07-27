@@ -1,0 +1,51 @@
+.item_list{
+    border: none;
+}
+
+h1{
+    font-family: 'Bebas Neue';
+
+}
+
+p{
+    font-family: 'Nunito', sans-serif;
+    font-size: smaller;
+}
+
+h4{
+    font-family: 'Lato', sans-serif;
+}
+
+.column_headers{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: gray;
+}
+
+.placeorder_btn{
+    background-color: #FF9F1C;
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+}
+
+.jnt_btn{
+    background-color: transparent;
+    font-size: large;
+    color: gray;
+    font-weight: bold;
+    text-align: left !important;
+    padding-left: 0;
+    border-radius: 7px;
+    border: solid gray 2px;
+}
+
+
+.courier_name, .shipping_fee, .receive_by{
+    margin-left: 7px;
+}
+
+.receive_by{
+    margin-top: -12px;
+}

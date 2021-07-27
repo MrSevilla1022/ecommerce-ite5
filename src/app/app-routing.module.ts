@@ -14,6 +14,7 @@ import { TransactionsComponent } from './admin/transactions/transactions.compone
 import { UsersComponent } from './admin/users/users.component'
 import { ChangecredentialsComponent } from './user/changecredentials/changecredentials.component'
 import { WishlistComponent } from './user/wishlist/wishlist.component'
+import { CheckoutComponent } from './user/checkout/checkout.component'
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
 //USER
   { path:'user/changecredentials', component: ChangecredentialsComponent },
   { path:'user/wishlist', component: WishlistComponent },
+  { path:'user/checkout', component: CheckoutComponent },
 ];
 
 

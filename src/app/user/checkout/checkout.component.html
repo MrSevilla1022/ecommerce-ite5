@@ -1,1 +1,209 @@
-<p>checkout works!</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<main>
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-11 mx-auto">
+            <div class="row mt-5 gx-3">
+                <!----left side div-->
+                <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5">
+                    <div class="card p-4 item_list">
+                        <h1 class="py-2 font-weight-bold">
+                            2 ITEMS
+                        </h1>
+                        
+                        <!-- Shipping Mode Modal -->
+                        <ng-template #content let-modal>
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">Select Shipping Option</h4>
+                              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-check">
+                                    <input class="form-check-input p-3" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <div class="name_price d-flex justify-content-between">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            J&T Express
+                                          </label>
+                                        <h5>₱100</h5>
+                                    </div>
+                                    <div class="receive_date">
+                                        <p>Receive by 1 Aug - 5 Aug</p>
+                                    </div> 
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                    <div class="name_price d-flex justify-content-between">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            LBC
+                                          </label>
+                                        <h5>₱100</h5>
+                                    </div>
+                                    <div class="receive_date">
+                                        <p>Receive by 1 Aug - 5 Aug</p>
+                                    </div> 
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                    <div class="name_price d-flex justify-content-between">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Ninja Van
+                                          </label>
+                                        <h5>₱100</h5>
+                                    </div>
+                                    <div class="receive_date">
+                                        <p>Receive by 1 Aug - 5 Aug</p>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                            </div>
+                          </ng-template>
+                          
+                          <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Select Shipping Options</button>
+                          
+                          <hr>
+                          
+                          <pre>{{ closeResult }}</pre>
+                        <!-- End Shipping Mode Modal -->
+                          
+                        <!-- Item List Starts Here -->
+                        <div class="item_container">
+                            <ul class="list-group list-group-flush" >
+                                <li class="list-group-item row p-4">
+                                    <div class="row column_headers mb-5">
+                                        <!-- headers -->
+                                        <div class="col-6">
+                                            Ordered Products
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            Unit Price
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            Quantity
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            Item Subtotal
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <!-- item thumbnail -->
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-md-2 col-sm-11 col-lg-4 mx-auto bg-white d-flex justify-content-center align-items-center product_img">
+                                                    <img src="assets/silentbaffle.jpg" alt="item" class="img-fluid">
+                                                </div>
+                                                <!-- cart product details -->
+                                                <div class="col-md-10 col-sm-11 col-lg-8 mx-auto px-4 mt-2">
+                                                    <div class="row">
+                                                        <!-- item name -->
+                                                        <div class="col-11">
+                                                            <h4 class="product_name">Product Name</h4>
+                                                            <p>Item description/variation</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            ₱30
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            2
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            ₱60
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item row p-4">
+                                    <div class="row mt-4">
+                                        <!-- item thumbnail -->
+                                        <div class="col-6">
+                                            <div class="row">
+                                                <div class="col-md-2 col-sm-11 col-lg-4 mx-auto bg-white d-flex justify-content-center align-items-center product_img">
+                                                    <img src="assets/silentbaffle.jpg" alt="item" class="img-fluid">
+                                                </div>
+                                                <!-- cart product details -->
+                                                <div class="col-md-10 col-sm-11 col-lg-8 mx-auto px-4 mt-2">
+                                                    <div class="row">
+                                                        <!-- item name -->
+                                                        <div class="col-11">
+                                                            <h4 class="product_name">Product Name</h4>
+                                                            <p>Item description/variation</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            ₱30
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            2
+                                        </div>
+                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                            ₱60
+                                        </div>
+                                    </div>
+                                </li>
+                              </ul> 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- right side div -->
+                <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+                    <div class="right_side p-3" style="background-color: #f6f6f6; border-radius: 3px;">
+                        <h5 class="order_summary mb-5">Shipping & Billing</h5>
+                        <div class="location_div">
+                            <div class="cname d-flex justify-content-between">
+                                <p><i class="fas fa-map-marker-alt"></i> Customer's Name</p>
+                                <a href="#">Edit</a>
+                            </div>
+                            <p class="ml-3">Customer's Address</p>
+                        </div>
+                        <div class="phonenum_div d-flex justify-content-between">
+                            <p><i class="fas fa-phone-alt"></i> Customer's Phone Number</p>
+                            <a href="#">Edit</a>
+                        </div>
+                        <div class="cemail_div d-flex justify-content-between">
+                            <p><i class="fas fa-envelope"></i> Customer's Email</p>
+                            <a href="#">Edit</a>
+                        </div>
+                        <hr>
+                        <h4 class="order_summary mb-5">Order Summary</h4>
+                        <div class="price_div d-flex justify-content-between">
+                            <p>Subtotal</p>
+                            <p>₱<span id="subtotal">0.00</span></p>
+                        </div>
+                        <div class="price_div d-flex justify-content-between">
+                            <p>Shipping Fee</p>
+                            <p>₱<span id="shippingfee">0.00</span></p>
+                        </div>
+                        <hr>
+                        <div class="totalamt_div d-flex justify-content-between font-weight-bold">
+                            <p>Total</p>
+                            <p>₱<span id="totalamt">00</span></p>
+                        </div>
+                        <div class="checkoutbtn_div">
+                            <button type="button" class="btn btn-sm btn-block placeorder_btn">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
