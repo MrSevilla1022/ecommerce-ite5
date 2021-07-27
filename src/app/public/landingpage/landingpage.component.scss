@@ -36,18 +36,29 @@ h1{
 }
 
 .logos{
-    color: white;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: nowrap;
+    text-align: center;
     background-size: cover;
     background-attachment: fixed;
     background-image:linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.5) ),url("/assets/22.jpg");
 }
 
-.logoimg{
-    width: 500px;
+.logos>h1{
+    font-family: 'Bebas Neue';
+    color: white;
+    font-size: 50px;
 }
+
+
+.logoimg{
+    padding-top:10px;
+    width: 300px;
+}
+
+
+.logolbc{
+    width: 100px;
+}
+
 
 .ad{
     height: 40vh;
