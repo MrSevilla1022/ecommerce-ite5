@@ -1,1 +1,55 @@
-<p>changepw works!</p>
+<main>
+    <app-navbar></app-navbar>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-11 mx-auto">
+                <!-- <div class="mt-10">
+                    <h4 class="p-5 font-weight-bold">
+                        My Profile
+                    </h4>
+                </div> -->
+                <div class="row mt-5 gx-3">
+                    <!----left side div-->
+                    <app-sidemenu></app-sidemenu>
+    
+                    <!-- right side div -->
+                    <div class="col-md-12 col-lg-10 col-11 mx-auto mt-lg-0 mt-md-5">
+                        <div class="right_side p-4 shadow bg-white">
+                            <h5 class="my_profile">Account and Security</h5>
+                            <p>Change Password</p>
+                            <hr>
+                            <div class="mt-5 ml-5 credentials">
+                                <form>
+                                    <div class="form-group row">
+                                      <label for="username" class="col-sm-2 col-form-label">Email</label>
+                                      <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="username">
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="current" class="col-sm-2 col-form-label">Current Password</label>
+                                        <div class="col-sm-6">
+                                          <input type="password" class="form-control" id="currentpw">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="newpw" class="col-sm-2 col-form-label">New Password</label>
+                                        <div class="col-sm-6">
+                                          <input type="password" class="form-control" id="newpw">
+                                        </div>
+                                    </div>
+                                  </form>
+                            </div>
+                            
+                            <div class="checkoutbtn_div">
+                                <button type="button" class="btn btn-sm btn-block p-2 mt-5 btn-warning" style="color: white;">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    
