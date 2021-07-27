@@ -15,6 +15,7 @@ import { UsersComponent } from './admin/users/users.component'
 import { ChangecredentialsComponent } from './user/changecredentials/changecredentials.component'
 import { WishlistComponent } from './user/wishlist/wishlist.component'
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { OrderstatusComponent } from './user/orderstatus/orderstatus.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'public/landingpage', pathMatch: 'full'},
@@ -41,6 +42,7 @@ const routes: Routes = [
 //USER
   { path:'user/changecredentials', component: ChangecredentialsComponent },
   { path:'user/wishlist', component: WishlistComponent },
+  { path:'user/orderstatus', component: OrderstatusComponent },
 ];
 
 

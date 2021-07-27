@@ -30,6 +30,8 @@ import { UsersComponent } from './admin/users/users.component';
 import { JumbotronComponent } from './landingpage/jumbotron/jumbotron.component';
 import { FooterComponent } from './navigation-bar/footer/footer.component';
 import { WishlistComponent } from './user/wishlist/wishlist.component';
+import { PaymentformComponent } from './user/paymentform/paymentform.component';
+import { OrderstatComponent } from './templates/orderstat/orderstat.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { WishlistComponent } from './user/wishlist/wishlist.component';
     UsersComponent,
     JumbotronComponent,
     FooterComponent,
-    WishlistComponent
+    WishlistComponent,
+    PaymentformComponent,
+    OrderstatComponent
   ],
   imports: [
     BrowserModule,
