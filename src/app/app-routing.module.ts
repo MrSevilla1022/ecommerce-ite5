@@ -16,6 +16,9 @@ import { ChangecredentialsComponent } from './user/changecredentials/changecrede
 import { WishlistComponent } from './user/wishlist/wishlist.component'
 import { CheckoutComponent } from './user/checkout/checkout.component'
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { OrderstatusComponent } from './user/orderstatus/orderstatus.component';
+import { ChangepwComponent } from './user/changepw/changepw.component';
+import { AddressbookComponent } from './user/addressbook/addressbook.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'public/landingpage', pathMatch: 'full'},
@@ -43,6 +46,9 @@ const routes: Routes = [
   { path:'user/changecredentials', component: ChangecredentialsComponent },
   { path:'user/wishlist', component: WishlistComponent },
   { path:'user/checkout', component: CheckoutComponent },
+  { path:'user/orderstatus', component: OrderstatusComponent },
+  { path:'user/changepw', component: ChangepwComponent },
+  { path:'user/addressbook', component: AddressbookComponent },
 ];
 
 
