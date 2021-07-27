@@ -36,10 +36,10 @@
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <span ngbDropdownItem class="font-weight-bold text-muted" style="cursor: default;">Hi there, {{user.fname}}</span>
           <li class="nav-item">
-          <button ngbDropdownItem>Manage my account</button>
+          <button ngbDropdownItem routerLink="/user/changecredentials">Manage my account</button>
           </li>
           <li class="nav-item">
-          <button ngbDropdownItem>Wishlist</button>
+          <button ngbDropdownItem routerLink="/user/wishlist">Wishlist</button>
           </li>
           <li class="nav-item">
           <button ngbDropdownItem routerLink="/user/orderstatus">My orders</button>

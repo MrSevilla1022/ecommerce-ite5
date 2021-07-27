@@ -32,6 +32,10 @@ import { FooterComponent } from './navigation-bar/footer/footer.component';
 import { WishlistComponent } from './user/wishlist/wishlist.component';
 import { PaymentformComponent } from './user/paymentform/paymentform.component';
 import { OrderstatComponent } from './templates/orderstat/orderstat.component';
+import { SidemenuComponent } from './navigation-bar/sidemenu/sidemenu.component';
+import { AddressbookComponent } from './user/addressbook/addressbook.component';
+import { ChangepwComponent } from './user/changepw/changepw.component';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +59,11 @@ import { OrderstatComponent } from './templates/orderstat/orderstat.component';
     FooterComponent,
     WishlistComponent,
     PaymentformComponent,
-    OrderstatComponent
+    OrderstatComponent,
+    SidemenuComponent,
+    AddressbookComponent,
+    ChangepwComponent,
+
   ],
   imports: [
     BrowserModule,
