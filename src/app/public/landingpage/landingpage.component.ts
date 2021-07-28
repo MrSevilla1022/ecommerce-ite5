@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild,AfterViewInit } from '@angular/core';
+import { Component, OnInit,ViewChild,AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { ServiceService } from '../../services/service.service'
 import { Router } from '@angular/router';
 
@@ -9,7 +9,30 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-landingpage',
   templateUrl: './landingpage.component.html',
   styleUrls: ['./landingpage.component.scss'],
-  providers: [NgbCarouselConfig]
+  providers: [NgbCarouselConfig],
+  encapsulation: ViewEncapsulation.None,
+styles:[`
+  .carousel-item
+  {
+    display:block;
+    opacity:0;
+    transition: opacity .8s;
+  }
+  .carousel-item.active
+  {
+    display:block;
+    opacity:1;
+    transition: opacity .8s;
+
+  }
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+     filter: invert(1);
+  }
+  .carousel .carousel-indicators li {background-color: black;}
+  .carousel .carousel-indicators li.active {background-color:  #0275d8;}
+
+`]
 })
 
 
@@ -24,6 +47,7 @@ export class LandingpageComponent implements OnInit {
   headlight:any[] = []
   userDetails:any;
   user:any;
+  
 
 
   //stars hereeee
@@ -41,9 +65,9 @@ export class LandingpageComponent implements OnInit {
     config: NgbCarouselConfig
     ) { 
       config.interval = 10000;
+      config.pauseOnHover =true;
       config.wrap = false;
       config.keyboard = false;
-      config.pauseOnHover = false;
     }
   
 
