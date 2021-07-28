@@ -49,12 +49,13 @@ export class LandingpageComponent implements OnInit {
   userDetails:any;
   user:any;
 
-  toastItemCount=0;
+  
   
 
 
   //stars hereeee
   currentRate = 8;
+  ratingFive = 5;
 
   openModal(){
     this.modalService.open(this.content, {size:'xl', centered: true });

@@ -34,6 +34,7 @@
                                     <div class="form-group">
                                       <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
                                       <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
+                                      <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                                       <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
 
                                   </div>
@@ -78,6 +79,7 @@
                                     <div class="form-group">
                                       <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
                                       <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
+                                      <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                                       <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
 
                                   </div>
@@ -153,9 +155,9 @@
                             <div class="slidertext col-6 pt-4 pl-4">
                                 <h1>Icon Airflite Helmet</h1>
                                 <p>All around aggression distilled into a helmet that is potable for multiple rider types.</p>
-                                <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                                <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                                 <hr>
-                                <pre>Rate: <b>{{currentRate}}</b></pre>
+                                <pre>Rate: <b>{{ratingFive}}</b></pre>
                                 <p><span>&#8369;</span>13,780</p>
                                 <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
                                 <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
@@ -173,9 +175,9 @@
                         <div class="slidertext col-6 pt-4 pl-4">
                             <h1>Bell Qualifier Helmet</h1>
                             <p>Sleek, stylish look and reliable Bell build quality. The Qualifier is a no-frills helmet that looks good and performs like it should, every time.</p>
-                            <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                             <hr>
-                            <pre>Rate: <b>{{currentRate}}</b></pre>
+                            <pre>Rate: <b>{{ratingFive}}</b></pre>
                             <p><span>&#8369;</span>6,700</p>
                             <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
                             <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
@@ -191,9 +193,9 @@
                     <div class="slidertext col-6 pt-4 pl-4">
                         <h1>Biltwell Lane Splitter Helmet</h1>
                         <p>The Biltwell Lane Splitter contains all the style that you want without the costly gimmicks that weighs down your head and lightens your wallet.</p>
-                        <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                        <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                         <hr>
-                        <pre>Rate: <b>{{currentRate}}</b></pre>
+                        <pre>Rate: <b>{{ratingFive}}</b></pre>
                         <p><span>&#8369;</span>10,899</p>
                         <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
                         <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
@@ -209,9 +211,9 @@
                 <div class="slidertext col-6 pt-4 pl-4">
                     <h1>Simpson Ghost Bandit Helmet</h1>
                     <p>If hell-bent apocalyptic wild-west outlaws from the future raced dirt bike choppers in the wastelands, they would most likely do it in a Simpson. </p>
-                    <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                    <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                     <hr>
-                    <pre>Rate: <b>{{currentRate}}</b></pre>
+                    <pre>Rate: <b>{{ratingFive}}</b></pre>
                     <p><span>&#8369;</span>19,599</p>
                 
                     <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>

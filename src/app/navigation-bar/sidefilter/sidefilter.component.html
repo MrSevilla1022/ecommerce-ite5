@@ -56,26 +56,26 @@
         </div>
 
     <div class="col-sm-12">
-        <div class="checkbox">
-        <label for="onestar">
-            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
-        </label>
-       </div>
+        
+       <div class="rating">
+        <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
+        <pre><b>{{ratingFive}} Stars</b></pre>
+        </div>
         <div class="rating">
             <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFour"></ngb-rating>
-            <pre>Rate: <b>{{ratingFour}} Stars</b></pre>
+            <pre><b>{{ratingFour}} Stars and up</b></pre>
         </div>
         <div class="rating">
             <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingThree"></ngb-rating>
-            <pre>Rate: <b>{{ratingThree}} Stars</b></pre>
+            <pre><b>{{ratingThree}} Stars and up</b></pre>
         </div>
         <div class="rating">
             <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingTwo"></ngb-rating>
-            <pre>Rate: <b>{{ratingTwo}} Stars</b></pre>
+            <pre><b>{{ratingTwo}} Stars and up</b></pre>
         </div>
         <div class="rating">
             <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingOne"></ngb-rating>
-            <pre>Rate: <b>{{ratingOne}} Stars</b></pre>
+            <pre><b>{{ratingOne}} Stars and up</b></pre>
         </div>
     </div>
 
