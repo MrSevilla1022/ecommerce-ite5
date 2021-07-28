@@ -1,11 +1,12 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <app-navbar></app-navbar>
 <app-jumbotron></app-jumbotron>
 
     <div class="container cardcontainer" id="trying">
       <div class="inner-container">
       <h1>POPULAR PRODUCTS</h1>
-      <p>Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
-      <div class="card p-4 popcontainer shadow-lg">
+      <p style="font-size: 20px;">Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+      <div class="card p-4 popcontainer shadow">
       <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs p-4 justify-content-center">
         <li [ngbNavItem]="1">
           <a ngbNavLink>Helmets</a>
@@ -63,7 +64,7 @@
                             <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
                           </div>
                   </div>
-                  <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center ">
+                  <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center">
 
                 </div>
                 </div>
@@ -111,22 +112,96 @@
 
 
     <!--New products-->
-    <div class="new-products">
-      <img src="/assets/hottest1.png" class="rounded mx-auto d-block" alt="...">
-    </div>
+    <div class="card p-lg-4 mx-5 my-5 shadow">
+              <div class="new-products">
+                <!--<img src="/assets/hottest1.png" class="rounded mx-auto d-block" alt="...">-->
+                <ngb-carousel *ngIf="images" class="tryrow">
+                  <ng-template ngbSlide>
+                        <div class="row">
+                            <div class="col-4 p-4 mx-auto sliderimg">
+                                <img [src]="images[0]" alt="Random first slide" style="height: 500px; width: auto;">
+                            </div>
+                  
+                            <div class="slidertext col-6 pt-4 pl-4">
+                                <h1>Icon Airflite Helmet</h1>
+                                <p>All around aggression distilled into a helmet that is potable for multiple rider types.</p>
+                                <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                                <hr>
+                                <pre>Rate: <b>{{currentRate}}</b></pre>
+                                <p><span>&#8369;</span>13,780</p>
+                                <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+
+                            </div>
+                          </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="row">
+                        <div class="col-4 p-4 mx-auto sliderimg">
+                            <img [src]="images[1]" alt="Random first slide" style="height: 500px; width: auto;">
+                        </div>
+              
+                        <div class="slidertext col-6 pt-4 pl-4">
+                            <h1>Bell Qualifier Helmet</h1>
+                            <p>Sleek, stylish look and reliable Bell build quality. The Qualifier is a no-frills helmet that looks good and performs like it should, every time.</p>
+                            <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                            <hr>
+                            <pre>Rate: <b>{{currentRate}}</b></pre>
+                            <p><span>&#8369;</span>6,700</p>
+                            <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+                        </div>
+                      </div>
+              </ng-template>
+              <ng-template ngbSlide>
+                <div class="row">
+                    <div class="col-4 p-4 mx-auto sliderimg">
+                        <img [src]="images[2]" alt="Random first slide" style="height: 500px; width: auto;">
+                    </div>
+          
+                    <div class="slidertext col-6 pt-4 pl-4">
+                        <h1>Biltwell Lane Splitter Helmet</h1>
+                        <p>The Biltwell Lane Splitter contains all the style that you want without the costly gimmicks that weighs down your head and lightens your wallet.</p>
+                        <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                        <hr>
+                        <pre>Rate: <b>{{currentRate}}</b></pre>
+                        <p><span>&#8369;</span>10,899</p>
+                        <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+                    </div>
+                  </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="row">
+                <div class="col-4 p-4 mx-auto sliderimg">
+                    <img [src]="images[3]" alt="Random first slide" style="height: 500px; width: auto;">
+                </div>
+      
+                <div class="slidertext col-6 pt-4 pl-4">
+                    <h1>Simpson Ghost Bandit Helmet</h1>
+                    <p>If hell-bent apocalyptic wild-west outlaws from the future raced dirt bike choppers in the wastelands, they would most likely do it in a Simpson. </p>
+                    <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                    <hr>
+                    <pre>Rate: <b>{{currentRate}}</b></pre>
+                    <p><span>&#8369;</span>19,599</p>
+                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+                </div>
+              </div>
+      </ng-template>
+
+                </ngb-carousel>
+              </div>
+    </div><!--end of card-->
     <!--New products ends here-->
 
     <!--logos here-->
     <div class="logos">
       <h1 class="pt-4" >Delivery partners</h1>
-      <div class="row align-items-center px-4 pb-4 ">
-        <div class="col-lg">
+      <div class="row align-items-center pb-4 w-100">
+        <div class="col px-0">
           <img class="logolbc" src="/assets/logistics/lbc.png"  alt="...">
         </div>
-        <div class="col-lg">
+        <div class="col px-0">
           <img class="logoimg" src="/assets/logistics/jnt.png"  alt="...">
         </div>
-        <div class="col-lg">
+        <div class="col px-0">
           <img class="logoimg" src="/assets/logistics/nv.png"  alt="...">
         </div>
         </div>

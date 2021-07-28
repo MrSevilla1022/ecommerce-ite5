@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-landingpage',
   templateUrl: './landingpage.component.html',
-  styleUrls: ['./landingpage.component.scss']
+  styleUrls: ['./landingpage.component.scss'],
+  providers: [NgbCarouselConfig]
 })
 
 
@@ -15,20 +17,36 @@ export class LandingpageComponent implements OnInit {
   active = 1;
   closeResult: string = '';
   @ViewChild('content') content: any ;
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  //images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  images = ['/assets/cimages/1.jpg', '/assets/cimages/2.jpg', '/assets/cimages/3.jpg', '/assets/cimages/4.jpg']
   products:any[] = []
   helmet:any[] = []
   headlight:any[] = []
   userDetails:any;
   user:any;
-  // ngAfterViewInit() {
-  //   this.openModal();
-  // }
+
+
+  //stars hereeee
+  currentRate = 8;
+
   openModal(){
     this.modalService.open(this.content, { centered: true });
   }
 
-  constructor(public ds: ServiceService,private router:Router, config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(
+    public ds: ServiceService,
+    private router:Router,
+    
+    private modalService: NgbModal,
+    config: NgbCarouselConfig
+    ) { 
+      config.interval = 10000;
+      config.wrap = false;
+      config.keyboard = false;
+      config.pauseOnHover = false;
+    }
+  
+
 
   ngOnInit(): void {
     const user_id = localStorage.getItem('user_id')
