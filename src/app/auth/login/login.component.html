@@ -10,19 +10,19 @@
                         <h6 class="msg-info">Please login to your account</h6>
                         <div class="form-group"> <label class="form-control-label text-muted">Phone Number</label> <input type="text"  [(ngModel)]="logCred.phone_no" name="Phone_num" placeholder="Phone number" class="form-control"> </div>
                         <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" [(ngModel)]="logCred.user_pword" id="psw" name="psw" placeholder="Password" class="form-control"> </div>
-                        <div class="row justify-content-center my-3 px-3"> <button (click)="loginPhone()" class="btn-block btn-color">Login</button> </div>
+                        <div class="row justify-content-center my-3 px-3"> <button (click)="loginPhone()" class="btn-block btn-dark p-2 mt-2">Login</button> </div>
                         <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot Password?</small></a> </div>
 
                         <p href="" style="text-align: center;">Or login using</p>
                         <div class="row">
 
-                          <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                          <div class="col-9 mx-auto">
                             <button class="btn-block btn-color loginBtn loginBtn--facebook" style="font-size: small;">
                               Login with Facebook
                             </button>
 
                           </div>
-                          <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                          <div class="col-9 mx-auto">
                             <button class="btn-block btn-color loginBtn loginBtn--google" (click)="signinGoogle()" style="font-size: small;">
                               Login with Google
                             </button>
@@ -34,12 +34,12 @@
                 </div>
                 <div class="bottom text-center mb-5">
                     <p class="sm-text mx-auto mb-3">Don't have an account?</p>
-                    <button routerLink="/auth/register" class="btn btn-white ml-2">Create new</button>
+                    <button routerLink="/auth/register" class="btn btn-outline-dark btn-white ml-2">Create new</button>
                 </div>
             </div>
             <div class="card card2 shadow-lg">
                 <div class="my-auto mx-md-5 px-md-5 right">
-                    <h3 class="text-white">We are more than just a company</h3> <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small>
+                    
                 </div>
             </div>
         </div>

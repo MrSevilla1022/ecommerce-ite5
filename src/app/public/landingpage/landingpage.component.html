@@ -34,6 +34,7 @@
                                     <div class="form-group">
                                       <img class="img card-img-top embed-responsive-item" src={{hel.product_img}} alt="Card image cap">
                                       <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hel.product_name}}</h5>
+                                      <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                                       <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hel.price}}</p>
 
                                   </div>
@@ -41,7 +42,8 @@
                               <!--adding of product ends here-->
                             </div>
                             <div class="modal-footer">
-                              <button  type="button" class="btn mb-3 btn-primary " (click)="addToCart(hel)">{{addCartBtn}}</button>
+                              <button type="button" class="btn btn-outline-dark"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+                              <button  type="button" class="btn btn-warning" (click)="addToCart(hel)"><i class="bi bi-cart" ></i> {{addCartBtn}}</button>
                             </div>
                           </ng-template>
                           <!--Modal for adding products ends here-->
@@ -59,9 +61,37 @@
                         <div *ngFor="let hl of headlight" class="card mr-3 mb-3 shadow-sm">
                             <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
                             <div class="card-body">
-                            <a href="#" class="btn stretched-link"></a>
+                              <a (click)="open(headlight)" class="btn stretched-link"></a>
                             <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
                             <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
+
+                                    <!--Modal for adding products-->
+                          <ng-template #headlight let-c="close" let-d="dismiss">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">Add to cart</h4>
+
+                              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <!--Adding of products starts here-->
+                                    <div class="form-group">
+                                      <img class="img card-img-top embed-responsive-item" src={{hl.product_img}} alt="Card image cap">
+                                      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{hl.product_name}}</h5>
+                                      <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
+                                      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{hl.price}}</p>
+
+                                  </div>
+
+                              <!--adding of product ends here-->
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-dark"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+                              <button  type="button" class="btn btn-warning" (click)="addToCart(hl)"><i class="bi bi-cart" ></i> {{addCartBtn}}</button>
+                            </div>
+                          </ng-template>
+                          <!--Modal for adding products ends here-->
                           </div>
                   </div>
                   <div  class="d-flex flex-column min-vh-50 justify-content-center align-items-center">
@@ -125,11 +155,12 @@
                             <div class="slidertext col-6 pt-4 pl-4">
                                 <h1>Icon Airflite Helmet</h1>
                                 <p>All around aggression distilled into a helmet that is potable for multiple rider types.</p>
-                                <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                                <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                                 <hr>
-                                <pre>Rate: <b>{{currentRate}}</b></pre>
+                                <pre>Rate: <b>{{ratingFive}}</b></pre>
                                 <p><span>&#8369;</span>13,780</p>
-                                <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+                                <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
+                                <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
 
                             </div>
                           </div>
@@ -144,11 +175,12 @@
                         <div class="slidertext col-6 pt-4 pl-4">
                             <h1>Bell Qualifier Helmet</h1>
                             <p>Sleek, stylish look and reliable Bell build quality. The Qualifier is a no-frills helmet that looks good and performs like it should, every time.</p>
-                            <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                             <hr>
-                            <pre>Rate: <b>{{currentRate}}</b></pre>
+                            <pre>Rate: <b>{{ratingFive}}</b></pre>
                             <p><span>&#8369;</span>6,700</p>
-                            <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+                            <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
+                            <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
                         </div>
                       </div>
               </ng-template>
@@ -161,28 +193,31 @@
                     <div class="slidertext col-6 pt-4 pl-4">
                         <h1>Biltwell Lane Splitter Helmet</h1>
                         <p>The Biltwell Lane Splitter contains all the style that you want without the costly gimmicks that weighs down your head and lightens your wallet.</p>
-                        <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                        <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                         <hr>
-                        <pre>Rate: <b>{{currentRate}}</b></pre>
+                        <pre>Rate: <b>{{ratingFive}}</b></pre>
                         <p><span>&#8369;</span>10,899</p>
-                        <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+                        <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
+                        <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
                     </div>
                   </div>
           </ng-template>
           <ng-template ngbSlide>
             <div class="row">
-                <div class="col-4 p-4 mx-auto sliderimg">
+                <div class="col-4 p-4 mx-auto sliderimg" style="cursor:pointer;">
                     <img [src]="images[3]" alt="Random first slide" style="height: 500px; width: auto;">
                 </div>
       
                 <div class="slidertext col-6 pt-4 pl-4">
                     <h1>Simpson Ghost Bandit Helmet</h1>
                     <p>If hell-bent apocalyptic wild-west outlaws from the future raced dirt bike choppers in the wastelands, they would most likely do it in a Simpson. </p>
-                    <ngb-rating [(rate)]="currentRate"></ngb-rating>
+                    <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
                     <hr>
-                    <pre>Rate: <b>{{currentRate}}</b></pre>
+                    <pre>Rate: <b>{{ratingFive}}</b></pre>
                     <p><span>&#8369;</span>19,599</p>
-                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-cart"></i> Add to cart!</button>
+                
+                    <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
+                    <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
                 </div>
               </div>
       </ng-template>

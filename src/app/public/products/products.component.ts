@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class ProductsComponent implements OnInit {
  category_id:any
  products:any[] = []
+  helmet:any[] = []
+  headlight:any[] = []
  category_title:any
   constructor(public ds: ServiceService,private router:Router) { }
 
@@ -29,10 +31,25 @@ export class ProductsComponent implements OnInit {
       this.category_title ="Headlights"
     }
   }
+ 
 
+ 
   getProducts(){
-    this.ds.sendApiRequest2("products/", null,this.category_id ).subscribe((data: any) => {
+    this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
+      console.log(data.payload);
       this.products = data.payload
+      for(let prods of this.products){
+        if(this.helmet.length < 4){
+          if(prods.category_id == 1){
+            this.helmet.push(prods)
+          }
+        }
+        if(this.headlight.length < 4){
+          if(prods.category_id == 2){
+            this.headlight.push(prods)
+          }
+        }
+      }
     })
   }
 

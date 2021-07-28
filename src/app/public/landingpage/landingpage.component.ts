@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-landingpage',
   templateUrl: './landingpage.component.html',
@@ -47,14 +48,17 @@ export class LandingpageComponent implements OnInit {
   headlight:any[] = []
   userDetails:any;
   user:any;
+
+  
   
 
 
   //stars hereeee
   currentRate = 8;
+  ratingFive = 5;
 
   openModal(){
-    this.modalService.open(this.content, { centered: true });
+    this.modalService.open(this.content, {size:'xl', centered: true });
   }
 
   constructor(
@@ -113,7 +117,13 @@ export class LandingpageComponent implements OnInit {
       if(product.product_id == item.product_id){
         alrdCart = true
         this.addCartBtn = "On cart"
-        alert("Already on cart!")
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Item already on cart!',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     }
     if(!alrdCart){
@@ -123,7 +133,13 @@ export class LandingpageComponent implements OnInit {
       this.toCart.product_id = product.product_id
       this.toCart.user_id = this.user.user_id
       console.log(this.toCart)
-      alert("Added to cart!")
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Item added to cart!',
+        showConfirmButton: false,
+        timer: 1500
+      })
       this.ds.sendApiRequest("addCart/", this.toCart)
           .subscribe((result: any)=>{
             console.log(result);
@@ -140,7 +156,7 @@ export class LandingpageComponent implements OnInit {
   }
 
   open(content:any) {
-    this.modalService.open(content);
+    this.modalService.open(content,{size: 'xl'});
   }
 
 
