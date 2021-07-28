@@ -52,16 +52,14 @@ button:focus {
 }
 
 .card1 {
-  width: 50%;
+  width: 100%;
   padding: 40px 30px 10px 30px
 }
 
 .card2 {
-  width: 50%;
-  background-color: #C11E38;
-  background-image: url('/src/assets/2.jpg');
-  background-repeat: no-repeat;
-  color: white;
+  width: 100%;
+  background-image:linear-gradient( rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5) ), url('/assets/106.jpg');
+  background-size: cover;
 }
 
 #logo {
@@ -95,7 +93,6 @@ button:focus {
 .btn-color {
   border-radius: 0px;
   color: #fff;
-  background-color: #de0f0f;
   padding: 15px;
   cursor: pointer;
   border: none !important;
@@ -103,19 +100,6 @@ button:focus {
 }
 
 
-.btn-white {
-  border-radius: 50px;
-  color: #de0f0f;
-  background-color: #fff;
-  padding: 8px 40px;
-  cursor: pointer;
-  border: 2px solid #de0f0f;
-}
-
-.btn-white:hover {
-  color: #fff;
-  background-color: #de0f0f;
-}
 
 a {
   color: #000
