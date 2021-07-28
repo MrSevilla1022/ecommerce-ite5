@@ -131,6 +131,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $d = json_decode(file_get_contents("php://input"));
         echo json_encode($gm->update("tbl_cart", $d, 'cart_id=' . $req[1]), JSON_PRETTY_PRINT);
         break;
+      case 'updateUser':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->update("tbl_user", $d, 'user_id=' . $req[1]), JSON_PRETTY_PRINT);
+        break;
 
 
 
