@@ -1,0 +1,86 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container mt-5 p">
+    <div class="row">
+        <p>Sort products Categories</p>
+        <hr>
+        <div class="btn-group mr-3 pb-4 w-75">
+            <button type="button" class="btn btn-outline-dark">Categories</button>
+            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+              <button class="btn btn-dark dropdown-toggle-split" ngbDropdownToggle></button>
+              <div class="dropdown-menu" ngbDropdownMenu>
+                <button ngbDropdownItem>Helmets</button>
+                <button ngbDropdownItem>Jackets</button>
+                <button ngbDropdownItem>Gloves</button>
+                <button ngbDropdownItem>Seats</button>
+                <button ngbDropdownItem>Tires</button>
+                <button ngbDropdownItem>Brakes</button>
+                <button ngbDropdownItem>Headlights</button>
+                <button ngbDropdownItem>Cleaner</button>
+              </div>
+            </div>
+          </div>
+
+    <div class="pb-1">   
+    <p style="font-weight: bold;">Sort Products by Brand</p>
+    <hr>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="">
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                Spyder
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="">
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                Evo
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="">
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                N1
+            </label>
+        </div>
+    </div>
+
+    <div class="pb-1">   
+        <p style="font-weight: bold;">Sort Products by Rating</p>
+        <hr>
+        </div>
+
+    <div class="col-sm-12">
+        <div class="checkbox">
+        <label for="onestar">
+            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
+        </label>
+       </div>
+        <div class="rating">
+            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFour"></ngb-rating>
+            <pre>Rate: <b>{{ratingFour}} Stars</b></pre>
+        </div>
+        <div class="rating">
+            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingThree"></ngb-rating>
+            <pre>Rate: <b>{{ratingThree}} Stars</b></pre>
+        </div>
+        <div class="rating">
+            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingTwo"></ngb-rating>
+            <pre>Rate: <b>{{ratingTwo}} Stars</b></pre>
+        </div>
+        <div class="rating">
+            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingOne"></ngb-rating>
+            <pre>Rate: <b>{{ratingOne}} Stars</b></pre>
+        </div>
+    </div>
+
+
+ 
+            
+
+</div>

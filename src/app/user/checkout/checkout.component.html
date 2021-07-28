@@ -68,11 +68,10 @@
                             </div>
                           </ng-template>
                           
-                          <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Select Shipping Options</button>
+                        
                           
                           <hr>
                           
-                          <pre>{{ closeResult }}</pre>
                         <!-- End Shipping Mode Modal -->
                           
                         <!-- Item List Starts Here -->
@@ -189,6 +188,10 @@
                             <p>₱<span id="subtotal">0.00</span></p>
                         </div>
                         <div class="price_div d-flex justify-content-between">
+                            <p>Logistics partner:</p>
+                            <a (click)="open(content)" class="text-primary" style="cursor: pointer;">Edit</a>
+                        </div>
+                        <div class="price_div d-flex justify-content-between">
                             <p>Shipping Fee</p>
                             <p>₱<span id="shippingfee">0.00</span></p>
                         </div>
@@ -198,7 +201,8 @@
                             <p>₱<span id="totalamt">00</span></p>
                         </div>
                         <div class="checkoutbtn_div">
-                            <button type="button" class="btn btn-sm btn-block placeorder_btn">Place Order</button>
+                            
+                            <button type="button" class="btn btn-sm btn-warning btn-block opt_btn">Place Order</button>
                         </div>
                     </div>
                 </div>

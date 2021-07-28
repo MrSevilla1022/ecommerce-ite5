@@ -13,6 +13,12 @@ export class NavbarComponent implements OnInit {
 
   user:any;
 
+
+  itemnum = localStorage.length;
+  
+
+  
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -21,6 +27,7 @@ export class NavbarComponent implements OnInit {
       this.user = JSON.parse(user_id)
       console.log(this.user)
     }
+    
   }
 
   signOut(){

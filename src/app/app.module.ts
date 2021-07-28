@@ -35,6 +35,7 @@ import { OrderstatComponent } from './templates/orderstat/orderstat.component';
 import { SidemenuComponent } from './navigation-bar/sidemenu/sidemenu.component';
 import { AddressbookComponent } from './user/addressbook/addressbook.component';
 import { ChangepwComponent } from './user/changepw/changepw.component';
+import { SidefilterComponent } from './navigation-bar/sidefilter/sidefilter.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { ChangepwComponent } from './user/changepw/changepw.component';
     SidemenuComponent,
     AddressbookComponent,
     ChangepwComponent,
+    SidefilterComponent,
 
   ],
   imports: [
