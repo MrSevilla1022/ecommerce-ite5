@@ -17,11 +17,7 @@
                             2 ITEMS
                         </h1>
                         
-
-                        <!--Modal for hipping options products-->
-                        <div class="row justify-content-center">
-                            <button type="button" (click)="open(content)" class="col-6 btn btn-sm btn-block p-2 mt-3 save_btn" style="color: white;">Save</button>
-                        </div>
+                        <!--Modal for shipping options products-->
                         <ng-template #content let-c="close" let-d="dismiss">
                             <div class="modal-header">
                                 <h4 class="modal-title" id="modal-basic-title">Select Shipping Option</h4>
@@ -77,7 +73,6 @@
                           </ng-template>
                           
                           <hr>
-                          
                         <!-- End Shipping Mode Modal -->
                           
                         <!-- Item List Starts Here -->
@@ -216,4 +211,6 @@
         </div>
     </div>
 </div>
+
+<app-footer></app-footer>
 </main>
