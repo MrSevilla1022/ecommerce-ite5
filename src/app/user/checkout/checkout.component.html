@@ -12,9 +12,9 @@
                 <div class="col-md-12 col-lg-8 col-11 mx-auto main_cart mb-lg-0 mb-5">
                     <div class="card p-4 item_list">
                         <h1 class="py-2 font-weight-bold">
-                            2 ITEMS
+                            {{cart.length}} ITEMS
                         </h1>
-                        
+
                         <!--Modal for shipping options products-->
                         <ng-template #content let-c="close" let-d="dismiss">
                             <div class="modal-header">
@@ -25,32 +25,27 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <!--Options starts here-->
-                              <div class="form-check">
-                                <input class="form-check-input p-3" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+
+                              <div class="form-check" *ngFor="let partner of partners">
+                                <input
+                                class="form-check-input p-3"
+                                type="radio"
+                                name="logiPartner"
+                                value="{{partner}}"
+                                (change)="radiochange($event)">
                                 <div class="name_price d-flex justify-content-between">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        J&T Express
-                                      </label>
-                                    <h5>₱100</h5>
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    {{partner}}
+                                    </label>
+                                  <h5>₱100</h5>
                                 </div>
                                 <div class="receive_date">
                                     <p>Receive by 1 Aug - 5 Aug</p>
-                                </div> 
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                <div class="name_price d-flex justify-content-between">
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        LBC
-                                      </label>
-                                    <h5>₱100</h5>
                                 </div>
-                                <div class="receive_date">
-                                    <p>Receive by 1 Aug - 5 Aug</p>
-                                </div> 
-                            </div>
-                            <div class="form-check">
+                              </div>
+
+
+                            <!-- <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
                                 <div class="name_price d-flex justify-content-between">
                                     <label class="form-check-label" for="flexRadioDefault1">
@@ -60,8 +55,8 @@
                                 </div>
                                 <div class="receive_date">
                                     <p>Receive by 1 Aug - 5 Aug</p>
-                                </div> 
-                            </div>
+                                </div>
+                            </div> -->
 
                               <!--options ends here-->
                             </div>
@@ -69,15 +64,14 @@
                               <button  type="button" class="btn mb-3 btn-primary " (click)="d('Cross click')" >Save</button>
                             </div>
                           </ng-template>
-                          
+
                           <hr>
                         <!-- End Shipping Mode Modal -->
-                          
+
                         <!-- Item List Starts Here -->
                         <div class="item_container">
                             <ul class="list-group list-group-flush" >
-                                <li class="list-group-item row p-4">
-                                    <div class="row column_headers mb-5">
+                                    <div class="row column_headers mb-2">
                                         <!-- headers -->
                                         <div class="col-6">
                                             Ordered Products
@@ -92,71 +86,41 @@
                                             Item Subtotal
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <!-- item thumbnail -->
-                                        <div class="col-6">
-                                            <div class="row">
-                                                <div class="col-md-2 col-sm-11 col-lg-4 mx-auto bg-white d-flex justify-content-center align-items-center product_img">
-                                                    <img src="assets/silentbaffle.jpg" alt="item" class="img-fluid">
-                                                </div>
-                                                <!-- cart product details -->
-                                                <div class="col-md-10 col-sm-11 col-lg-8 mx-auto px-4 mt-2">
-                                                    <div class="row">
-                                                        <!-- item name -->
-                                                        <div class="col-11">
-                                                            <h4 class="product_name">Product Name</h4>
-                                                            <p class="desc">Item description/variation</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
-                                            ₱30
-                                        </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
-                                            2
-                                        </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
-                                            ₱60
-                                        </div>
-                                    </div>
-                                </li>
 
-                                <li class="list-group-item row p-4">
+
+                                <li class="list-group-item row p-4" *ngFor="let prod of cart">
                                     <div class="row mt-4">
                                         <!-- item thumbnail -->
                                         <div class="col-6">
                                             <div class="row">
                                                 <div class="col-md-2 col-sm-11 col-lg-4 mx-auto bg-white d-flex justify-content-center align-items-center product_img">
-                                                    <img src="assets/silentbaffle.jpg" alt="item" class="img-fluid">
+                                                    <img src={{prod.product_img}}  alt="item" class="img-fluid">
                                                 </div>
                                                 <!-- cart product details -->
                                                 <div class="col-md-10 col-sm-11 col-lg-8 mx-auto px-4 mt-2">
                                                     <div class="row">
                                                         <!-- item name -->
                                                         <div class="col-11">
-                                                            <h4 class="product_name">Product Name</h4>
-                                                            <p>Item description/variation</p>
+                                                            <h4 class="product_name">{{prod.product_name}}</h4>
+                                                            <p>{{prod.product_desc}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="col-2 d-flex justify-content-center align-items-center order_info">
-                                            ₱30
+                                          ₱{{prod.price}}
                                         </div>
                                         <div class="col-2 d-flex justify-content-center align-items-center order_info">
-                                            2
+                                          {{prod.qty}}
                                         </div>
                                         <div class="col-2 d-flex justify-content-center align-items-center order_info">
-                                            ₱60
+                                            ₱{{prod.price * prod.qty}}
                                         </div>
                                     </div>
                                 </li>
-                              </ul> 
+                              </ul>
                         </div>
                     </div>
                 </div>
@@ -166,41 +130,42 @@
                     <div class="right_side p-3" style="background-color: #f6f6f6; border-radius: 3px;">
                         <h5 class="order_summary mb-4">Shipping & Billing</h5>
                         <div class="location_div">
+
+                            <p class="ml-3"> <b>{{user.fname}} {{user.mname}} {{user.lname}} </b></p>
                             <div class="cname d-flex justify-content-between">
-                                <p><i class="fas fa-map-marker-alt"></i> Customer's Name</p>
-                                <a href="#">Edit</a>
-                            </div>
-                            <p class="ml-3">Customer's Address</p>
+                              <p><i class="fas fa-map-marker-alt"></i> {{user.house_no}} {{user.street}} {{user.barangay}} {{user.cityMunicipality}} {{user.province}}</p>
+                              <a [routerLink]="['/user/addressbook']">Edit</a>
+                          </div>
                         </div>
                         <div class="phonenum_div d-flex justify-content-between">
-                            <p><i class="fas fa-phone-alt"></i> Customer's Phone Number</p>
-                            <a href="#">Edit</a>
+                            <p><i class="fas fa-phone-alt"></i> {{user.phone_no}}</p>
+                            <a [routerLink]="['/user/changecredentials']">Edit</a>
                         </div>
                         <div class="cemail_div d-flex justify-content-between">
-                            <p><i class="fas fa-envelope"></i> Customer's Email</p>
-                            <a href="#">Edit</a>
+                            <p><i class="fas fa-envelope"></i> {{user.email}}</p>
+                            <a [routerLink]="['/user/changecredentials']">Edit</a>
                         </div>
                         <hr>
                         <h5 class="order_summary mb-4">Order Summary</h5>
                         <div class="price_div d-flex justify-content-between">
                             <p>Subtotal</p>
-                            <p>₱<span id="subtotal">0.00</span></p>
+                            <p>₱<span id="subtotal">{{total}}.00</span></p>
                         </div>
                         <div class="price_div d-flex justify-content-between">
                             <p>Logistics partner</p>
-                            <a (click)="open(content)" class="text-primary" style="cursor: pointer;">Edit</a>
+                            <a (click)="open(content)" class="text-primary" style="cursor: pointer;">{{logiPartner}}</a>
                         </div>
                         <div class="price_div d-flex justify-content-between">
                             <p>Shipping Fee</p>
-                            <p>₱<span id="shippingfee">0.00</span></p>
+                            <p>₱<span id="shippingfee">{{shippingfee}}.00</span></p>
                         </div>
                         <hr>
                         <div class="totalamt_div d-flex justify-content-between font-weight-bold">
                             <p class="total_amt">Total</p>
-                            <p class="total_amt">₱<span id="totalamt">00</span></p>
+                            <p class="total_amt">₱<span id="totalamt">{{total + 100}}.00</span></p>
                         </div>
                         <div class="checkoutbtn_div">
-                            <button type="button" class="btn btn-lg btn-block opt_btn">Place Order</button>
+                            <button type="button" class="btn btn-lg btn-block opt_btn" (click)="openModal()">Place Order</button>
                         </div>
                     </div>
                 </div>

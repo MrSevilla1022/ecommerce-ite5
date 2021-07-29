@@ -38,6 +38,16 @@ export class ChangecredentialsComponent implements OnInit {
       this.ds.sendApiRequest2("updateUser/", this.user, this.user.user_id).subscribe((data:any) => {
 
       });
+
+      this.ds.sendApiRequest('user/'+this.user.user_id,null)
+      .subscribe((result: any)=>{
+        this.user = result.payload
+        for(let i of this.user){
+          this.user = i
+          localStorage.setItem('user_id',JSON.stringify(this.user));
+          console.log(this.user)
+        }
+      })
       console.log('update user');
       alert("Updated")
     }else{

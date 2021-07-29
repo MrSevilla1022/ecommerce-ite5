@@ -44,7 +44,7 @@
                                                             <button  class="page-link" (click)="incrementqty(prod)"><i class="fas fa-plus" style="color: #E71D36;"></i></button>
                                                         </li>
                                                     </ul>
-                                                </div>  
+                                                </div>
                                             </div>
                                             <!-- remove, move & price -->
                                             <div class="row">
@@ -69,13 +69,13 @@
                     <div class="right_side p-3" style="background-color: #f6f6f6; border-radius: 3px;">
                         <h5 class="order_summary mb-3">Location</h5>
                         <div class="location_div">
-                            <p><i class="fas fa-map-marker-alt"></i> Customer's Location</p>
+                            <p><i class="fas fa-map-marker-alt"></i> {{user.house_no}} {{user.street}} {{user.barangay}} {{user.cityMunicipality}} {{user.province}}</p>
                         </div>
                         <hr>
                         <h5 class="order_summary mb-3">Order Summary</h5>
                         <div class="price_div d-flex justify-content-between">
                             <p>Subtotal</p>
-                            <p>₱<span id="subtotal">0.00</span></p>
+                            <p>₱<span id="subtotal">{{total}}.00</span></p>
                         </div>
                         <div class="price_div d-flex justify-content-between">
                             <p>Shipping Fee</p>

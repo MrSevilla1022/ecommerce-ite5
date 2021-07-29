@@ -36,6 +36,7 @@ import { SidemenuComponent } from './navigation-bar/sidemenu/sidemenu.component'
 import { AddressbookComponent } from './user/addressbook/addressbook.component';
 import { ChangepwComponent } from './user/changepw/changepw.component';
 import { SidefilterComponent } from './navigation-bar/sidefilter/sidefilter.component';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { SidefilterComponent } from './navigation-bar/sidefilter/sidefilter.comp
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    GooglePayButtonModule
   ],
   providers: [
     {

@@ -43,13 +43,13 @@ export class CartComponent implements OnInit {
   computeTotal(){
     for(let i in this.cart){
         this.total+=this.cart[i].qty*this.cart[i].price
-        console.log("item "+ i +" "+this.total)
     }
   }
 
   updateQty:any = {}
 
   async decrementqty(cart:any){
+    this.total = 0
     if(cart.qty != 1){
       for(let i in this.cart){
 
@@ -57,6 +57,8 @@ export class CartComponent implements OnInit {
           this.cart[i].qty--
           this.updateQty.qty=this.cart[i].qty
           this.updateQuantity(cart.cart_id)
+
+          this.computeTotal()
           break;
         }
       }
@@ -71,15 +73,19 @@ export class CartComponent implements OnInit {
   }
 
   async incrementqty(cart:any){
+    this.total = 0
     for(let i in this.cart){
 
       if(this.cart[i].cart_id === cart.cart_id){
         this.cart[i].qty++
         this.updateQty.qty=this.cart[i].qty
         this.updateQuantity(cart.cart_id)
+
+        this.computeTotal()
         break;
       }
     }
+
 
   }
 
@@ -87,16 +93,17 @@ export class CartComponent implements OnInit {
   acart:any []= []
   async removeItem(cartId:any){
     console.log(cartId)
+    this.total = 0
     this.ds.sendApiRequest("deleteCart/"+cartId, null ).subscribe((data: any) => {
      this.acart = data.payload
      sessionStorage.setItem('cart',JSON.stringify(this.acart))
-
-
     })
     this.cartItems = sessionStorage.getItem('cart')
     this.cart = JSON.parse(this.cartItems)
+    this.ds.itemnum = this.cart.length
     let index = this.cart.findIndex((x:any) => x.cart_id ===cartId);
     this.cart.splice(index, 1);
+    this.computeTotal()
 
   }
 

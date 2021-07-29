@@ -11,6 +11,8 @@ export class ServiceService {
   baseURL: string = "http://localhost/ecommerce-ite5/gearup-api/";
   subject = new Subject()
   cart:any = []
+  itemnum :any
+
   constructor(private http: HttpClient) { }
 
 

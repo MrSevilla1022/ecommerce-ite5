@@ -2,7 +2,6 @@
 
 <main>
     <app-navbar></app-navbar>
-    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 col-11 mx-auto">
@@ -14,7 +13,7 @@
                 <div class="row mt-5 gx-3">
                     <!----left side div-->
                     <app-sidemenu></app-sidemenu>
-    
+
                     <!-- right side div -->
                     <div class="col-md-12 col-lg-10 col-11 mx-auto mt-lg-0 mt-md-5">
                         <div class="right_side p-4 shadow bg-white">
@@ -22,33 +21,31 @@
                             <p>Edit your address and contact information</p>
                             <hr>
                             <div class="mt-5 credentials">
-                              <form>
                                 <div class="form-group row justify-content-center">
                                   <div class="col-2 first_line">
                                     <label for="houseno">House No.</label>
-                                    <input type="text" class="form-control" id="houseno">
+                                    <input [(ngModel)]="user.house_no" type="number" class="form-control" id="houseno">
                                   </div>
                                   <div class="col-4 first_line">
                                     <label for="street">Street Name</label>
-                                    <input type="text" class="form-control" id="street">
+                                    <input  [(ngModel)]="user.street" type="text" class="form-control" id="street">
                                   </div>
                                 </div>
                                 <div class="form-group row justify-content-center">
                                   <div class="col-6 first_line">
                                     <label for="city_municipality">City/Municipality</label>
-                                    <input type="text" class="form-control" id="city_municipality">
+                                    <input [(ngModel)]="user.cityMunicipality" type="text" class="form-control" id="city_municipality">
                                   </div>
                                 </div>
                                 <div class="form-group row justify-content-center">
                                   <div class="col-6 first_line">
                                     <label for="province">Province</label>
-                                    <input type="text" class="form-control" id="province">
+                                    <input [(ngModel)]="user.province" type="text" class="form-control" id="province">
                                   </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                  <button type="button" class="col-6 btn btn-sm btn-block p-2 mt-3 save_btn" style="color: white;">Save</button>
+                                  <button type="button" class="col-6 btn btn-sm btn-block p-2 mt-3 save_btn" style="color: white;" (click)="updateAddr()">Save</button>
                               </div>
-                              </form>
                             </div>
                         </div>
                     </div>
@@ -59,4 +56,3 @@
 
     <app-footer></app-footer>
     </main>
-    

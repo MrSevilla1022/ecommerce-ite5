@@ -14,12 +14,13 @@ export class NavbarComponent implements OnInit {
   user:any;
 
 
-  itemnum = localStorage.length;
-  
+  itemnum :any
 
-  
 
-  constructor(private router:Router) { }
+  name:any
+  cartItems:any = []
+  cart:any = []
+  constructor(private router:Router, public ds: ServiceService) { }
 
   ngOnInit(): void {
     const user_id = localStorage.getItem('user_id')
@@ -27,7 +28,11 @@ export class NavbarComponent implements OnInit {
       this.user = JSON.parse(user_id)
       console.log(this.user)
     }
-    
+
+    this.cartItems = sessionStorage.getItem('cart')
+    this.cart = JSON.parse(this.cartItems)
+    this.ds.itemnum = this.cart.length
+    this.itemnum = this.ds.itemnum
   }
 
   signOut(){

@@ -12,7 +12,7 @@
 			$this->sql = "SELECT * FROM $table";
 
       if($filter_data != null && $table == "tbl_user") {
-				$this->sql .= " WHERE user_uname=$filter_data";
+				$this->sql .= " WHERE user_id=$filter_data";
 			}
       if($filter_data != null && $table == "tbl_cart") {
 				$this->sql .= " WHERE user_id=$filter_data";
