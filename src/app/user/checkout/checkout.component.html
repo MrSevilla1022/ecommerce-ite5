@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <main>
 <app-navbar></app-navbar>
@@ -107,20 +105,20 @@
                                                         <!-- item name -->
                                                         <div class="col-11">
                                                             <h4 class="product_name">Product Name</h4>
-                                                            <p>Item description/variation</p>
+                                                            <p class="desc">Item description/variation</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             
                                         </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
                                             ₱30
                                         </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
                                             2
                                         </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
                                             ₱60
                                         </div>
                                     </div>
@@ -147,13 +145,13 @@
                                             </div>
                                             
                                         </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
                                             ₱30
                                         </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
                                             2
                                         </div>
-                                        <div class="col-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-2 d-flex justify-content-center align-items-center order_info">
                                             ₱60
                                         </div>
                                     </div>
@@ -166,7 +164,7 @@
                 <!-- right side div -->
                 <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
                     <div class="right_side p-3" style="background-color: #f6f6f6; border-radius: 3px;">
-                        <h5 class="order_summary mb-5">Shipping & Billing</h5>
+                        <h5 class="order_summary mb-4">Shipping & Billing</h5>
                         <div class="location_div">
                             <div class="cname d-flex justify-content-between">
                                 <p><i class="fas fa-map-marker-alt"></i> Customer's Name</p>
@@ -183,13 +181,13 @@
                             <a href="#">Edit</a>
                         </div>
                         <hr>
-                        <h4 class="order_summary mb-5">Order Summary</h4>
+                        <h5 class="order_summary mb-4">Order Summary</h5>
                         <div class="price_div d-flex justify-content-between">
                             <p>Subtotal</p>
                             <p>₱<span id="subtotal">0.00</span></p>
                         </div>
                         <div class="price_div d-flex justify-content-between">
-                            <p>Logistics partner:</p>
+                            <p>Logistics partner</p>
                             <a (click)="open(content)" class="text-primary" style="cursor: pointer;">Edit</a>
                         </div>
                         <div class="price_div d-flex justify-content-between">
@@ -198,12 +196,11 @@
                         </div>
                         <hr>
                         <div class="totalamt_div d-flex justify-content-between font-weight-bold">
-                            <p>Total</p>
-                            <p>₱<span id="totalamt">00</span></p>
+                            <p class="total_amt">Total</p>
+                            <p class="total_amt">₱<span id="totalamt">00</span></p>
                         </div>
                         <div class="checkoutbtn_div">
-                            
-                            <button type="button" class="btn btn-sm btn-warning btn-block opt_btn">Place Order</button>
+                            <button type="button" class="btn btn-lg btn-block opt_btn">Place Order</button>
                         </div>
                     </div>
                 </div>

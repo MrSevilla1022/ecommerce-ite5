@@ -27,8 +27,8 @@
                                             <div class="row">
                                                 <!-- item name -->
                                                 <div class="col-6">
-                                                    <h4 class="product_name">{{prod.product_name}}</h4>
-                                                    <p>{{prod.product_desc}}</p>
+                                                    <h5 class="product_name">{{prod.product_name}}</h5>
+                                                    <p class="desc">{{prod.product_desc}}</p>
                                                 </div>
                                                 <!-- quantity -->
                                                 <div class="col-6">
@@ -49,11 +49,11 @@
                                             <!-- remove, move & price -->
                                             <div class="row">
                                                 <div class="col-8 d-flex justify-content-between remove_move">
-                                                    <p (click)='removeItem(prod.cart_id)' class="btn"><i class="fas fa-trash-alt "></i>REMOVE</p>
-                                                    <p class="btn"><i class="fas fa-heart "></i> TO WISHLIST</p>
+                                                    <p (click)='removeItem(prod.cart_id)' class="btn remove_item"><i class="fas fa-trash-alt "></i>REMOVE</p>
+                                                    <p class="btn to_wishlist"><i class="fas fa-heart "></i> TO WISHLIST</p>
                                                 </div>
                                                 <div class="col-4 d-flex justify-content-end item_price">
-                                                    <h3>₱<span id="productprice">{{prod.price}}</span></h3>
+                                                    <h4>₱<span id="productprice">{{prod.price}}</span></h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -67,12 +67,12 @@
                 <!-- right side div -->
                 <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
                     <div class="right_side p-3" style="background-color: #f6f6f6; border-radius: 3px;">
-                        <h5 class="order_summary mb-5">Location</h5>
-                        <div class="location_div d-flex justify-content-between">
+                        <h5 class="order_summary mb-3">Location</h5>
+                        <div class="location_div">
                             <p><i class="fas fa-map-marker-alt"></i> Customer's Location</p>
                         </div>
                         <hr>
-                        <h4 class="order_summary mb-5">Order Summary</h4>
+                        <h5 class="order_summary mb-3">Order Summary</h5>
                         <div class="price_div d-flex justify-content-between">
                             <p>Subtotal</p>
                             <p>₱<span id="subtotal">0.00</span></p>
@@ -83,11 +83,11 @@
                         </div>
                         <hr>
                         <div class="totalamt_div d-flex justify-content-between font-weight-bold">
-                            <p>Total</p>
-                            <p>₱<span id="totalamt">{{total}}.00</span></p>
+                            <p class="total_amt">Total</p>
+                            <p class="total_amt">₱<span id="totalamt">{{total}}.00</span></p>
                         </div>
                         <div class="checkoutbtn_div">
-                            <button type="button" class="btn btn-sm btn-block checkout_btn" routerLink="/user/checkout">Proceed to Checkout</button>
+                            <button type="button" class="btn btn-lg btn-block checkout_btn" routerLink="/user/checkout">Proceed to Checkout</button>
                         </div>
                     </div>
                 </div>
