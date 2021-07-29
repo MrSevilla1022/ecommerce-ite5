@@ -153,7 +153,10 @@
                         </div>
                         <div class="price_div d-flex justify-content-between">
                             <p>Logistics partner</p>
-                            <a (click)="open(content)" class="text-primary" style="cursor: pointer;">{{logiPartner}}</a>
+                            <div *ngIf="logiPartner == null">
+                              <a (click)="open(content)"  class="text-primary" style="cursor: pointer;">Edit</a>
+                            </div>
+                            <a (click)="open(content)" *ngIf="logiPartner != null" class="text-primary" style="cursor: pointer;">{{logiPartner}}</a>
                         </div>
                         <div class="price_div d-flex justify-content-between">
                             <p>Shipping Fee</p>
@@ -162,11 +165,30 @@
                         <hr>
                         <div class="totalamt_div d-flex justify-content-between font-weight-bold">
                             <p class="total_amt">Total</p>
-                            <p class="total_amt">₱<span id="totalamt">{{total + 100}}.00</span></p>
+                            <p class="total_amt">₱<span id="totalamt">{{finaltotal}}.00</span></p>
                         </div>
                         <div class="checkoutbtn_div">
-                            <button type="button" class="btn btn-lg btn-block opt_btn" (click)="openModal()">Place Order</button>
+                            <!-- <button type="button" class="btn btn-lg btn-block opt_btn" (click)="openModal()">Place Order</button> -->
+                            <div *ngIf="logiPartner != null">
+                              <google-pay-button
+                              disabled
+                              class="btn btn-lg btn-block "
+                              environment="TEST"
+                              buttonType="buy"
+                              buttonColor="white"
+                              [paymentRequest]=paymentRequest
+                              (loadpaymentdata)="onLoadPaymentData($event)"
+                              (error)="onError($event)"
+                              [paymentAuthorizedCallback]="onPaymentDataAuthorized"
+                              ></google-pay-button>
+                            </div>
+                            <div *ngIf="logiPartner == null">
+                              <h5 class="order_summary mb-4">Pick a Logistics partner
+                              </h5>
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
             </div>

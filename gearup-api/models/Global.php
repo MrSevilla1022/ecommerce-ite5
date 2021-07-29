@@ -15,7 +15,7 @@
 				$this->sql .= " WHERE user_id=$filter_data";
 			}
       if($filter_data != null && $table == "tbl_cart") {
-				$this->sql .= " WHERE user_id=$filter_data";
+				$this->sql .= " WHERE checkout_st = 1 AND user_id=$filter_data  ";
 			}
 
       if($filter_data != null && $table == "tbl_products") {

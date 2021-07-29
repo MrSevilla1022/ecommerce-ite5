@@ -24,6 +24,7 @@ export class CartComponent implements OnInit {
 
     this.ds.sendApiRequest("cart/"+this.user.user_id, null ).subscribe((data: any) => {
       sessionStorage.setItem('cart',JSON.stringify(data.payload))
+      console.log(data.payload)
     })
 
     this.cartItems = sessionStorage.getItem('cart')
