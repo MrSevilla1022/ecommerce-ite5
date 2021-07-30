@@ -5,6 +5,7 @@ import { ServiceService } from '../../services/service.service'
 import {formatDate } from '@angular/common';
 import { DatePipe } from '@angular/common';
 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -32,7 +33,7 @@ export class CheckoutComponent implements OnInit {
     this.modalService.open(this.content, { centered: true });
   }
 
-  constructor(private modalService: NgbModal, public ds: ServiceService,private datePipe: DatePipe) { }
+  constructor(private router:Router,private modalService: NgbModal, public ds: ServiceService,private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     const user_id = localStorage.getItem('user_id')
@@ -48,10 +49,34 @@ export class CheckoutComponent implements OnInit {
     this.cartItems = sessionStorage.getItem('cart')
     this.cart = JSON.parse(this.cartItems)
     this.computeTotal()
+    this.generateOrderId()
   }
 
    favoriteSeason: any;
   partners: string[] = ['J&T', 'GooglePay', 'LBC'];
+
+  orders :any;
+  orderId:any
+  newOrderId:any = ""
+  generateOrderId(){
+    this.ds.sendApiRequest("orderTrans/", null ).subscribe((data: any) => {
+      console.log(data.payload);
+      this.orders = data.payload
+      this.orderId = Number(this.orders[0].transaction_no)
+      this.orderId++
+      let stringId = String(this.orderId)
+      let numOfZero = 6 - stringId.length
+      for (let i = 0; i < numOfZero; i++) {
+        this.newOrderId += '0'
+      }
+      this.newOrderId = this.newOrderId + stringId
+      console.log(this.newOrderId)
+
+
+
+      // sessionStorage.setItem('cart',JSON.stringify(data.payload))
+    })
+  }
 
   paymentRequest:google.payments.api.PaymentDataRequest={
     apiVersion: 2,
@@ -106,11 +131,13 @@ export class CheckoutComponent implements OnInit {
         this.checkout.checkout_st = 1
         this.checkout.checkout_time = this.currentDate + " " +this.currentTime
         this.checkout.deliver_st = 0
+        this.checkout.transaction_no = this.newOrderId
         this.checkout.payment = this.finaltotal
         // Add to transaction
         this.ds.sendApiRequest2("checkout/", this.checkout, this.user.user_id).subscribe((data:any) => {
         });
-        
+        sessionStorage.removeItem('cart');
+        this.router.navigateByUrl('/user/orderstatus').then()
         // redirect to my orders
         return {
           transactionState: 'SUCCESS'

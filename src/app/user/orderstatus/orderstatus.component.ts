@@ -16,6 +16,7 @@ export class OrderstatusComponent implements OnInit {
   total:any = 0
   finaltotal:any = 0
   user:any;
+  transactions:any
   ngOnInit(): void {
     const user_id = localStorage.getItem('user_id')
     if(user_id){
@@ -25,6 +26,12 @@ export class OrderstatusComponent implements OnInit {
     this.ds.sendApiRequest("orders/"+this.user.user_id, null ).subscribe((data: any) => {
       sessionStorage.setItem('orders',JSON.stringify(data.payload))
     })
+    //GET TRANSACTION_NO DISTINCT
+    this.ds.sendApiRequest("transactions/", null ).subscribe((data: any) => {
+      this.transactions = data.payload
+      console.log(this.transactions)
+    })
+
     this.orderItems = sessionStorage.getItem('orders')
     this.orders = JSON.parse(this.orderItems)
     this.computeTotal()

@@ -47,6 +47,20 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($post->checkOrders('tbl_cart', null), JSON_PRETTY_PRINT);
         }
         break;
+      case 'orderTrans':
+        if (count($req) > 1) {
+          echo json_encode($post->orderTrans('tbl_cart', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($post->orderTrans('tbl_cart', null), JSON_PRETTY_PRINT);
+        }
+        break;
+      case 'transactions':
+        if (count($req) > 1) {
+          echo json_encode($post->transactions('tbl_cart', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($post->transactions('tbl_cart', null), JSON_PRETTY_PRINT);
+        }
+        break;
       case 'checkPhone':
         if (count($req) > 1) {
           echo json_encode($post->checkPhone('tbl_user', $req[1]), JSON_PRETTY_PRINT);
