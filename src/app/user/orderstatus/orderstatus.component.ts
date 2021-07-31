@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceService } from '../../services/service.service'
 import { DatePipe } from '@angular/common';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-orderstatus',
   templateUrl: './orderstatus.component.html',
@@ -53,7 +54,7 @@ export class OrderstatusComponent implements OnInit {
     // calculate new rating
     let newrate
     if(this.oldRating == 0){
-      newrate = rate.rating 
+      newrate = rate.rating
     }else{
       newrate = (rate.rating + this.oldRating) / 2
     }
@@ -63,9 +64,13 @@ export class OrderstatusComponent implements OnInit {
     this.rateProd.sold++
     this.rateProd.stock_avail = rate.stock_avail
     this.rateProd.stock_avail--
-    alert('New:  ' + this.rateProd.rating)
-    alert('Old rating:  ' + this.oldRating)
-    alert('Product ID: ' + rate.product_id)
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Rated!',
+      showConfirmButton: false,
+      timer: 1000
+    })
     this.ds.sendApiRequest2("updateRate/", this.rateProd, rate.product_id).subscribe((data:any) => {
     });
   }
@@ -88,7 +93,13 @@ export class OrderstatusComponent implements OnInit {
 
     let index = this.transactions.findIndex((x:any) => x.transaction_no ===transno);
     this.transactions.splice(index, 1);
-
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Transaction Success!',
+      showConfirmButton: false,
+      timer: 1500
+    })
 
   }
 

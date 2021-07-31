@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <main>
     <app-navbar></app-navbar>
-    
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 col-11 mx-auto">
@@ -22,59 +22,30 @@
                         <div class="card p-4 mt-4 item_list shadow">
                             <div class="item_container">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item row p-4">
+                                    <li class="list-group-item row p-4" *ngFor="let w of wish">
                                         <div class="row">
                                             <!-- thumbnail -->
                                             <div class="col-md-2 col-6 mx-auto bg-white
                                             d-flex justify-content-center align-items-center product_img">
-                                                <img src="assets/silentbaffle.jpg" alt="item" style="width: 100px;">
+                                                <img src={{w.product_img}} alt="item" style="width: 100px;">
                                             </div>
                                             <!-- cart product details -->
                                             <div class="col-md-10 col-12 mx-auto px-4 align-items-start">
                                                 <div class="row">
                                                     <!-- item name -->
                                                     <div class="col-lg-4 col-sm-10">
-                                                        <h4 class="product_name">Product name here</h4>
-                                                        <p>Product description here</p>
-                                                        
+                                                        <h4 class="product_name">{{w.product_name}}</h4>
+                                                        <p>{{w.product_desc}}</p>
+
                                                     </div>
                                                     <!-- item price -->
                                                     <div class="col-lg-4 col-sm-10 d-flex align-items-start justify-content-center">
-                                                        <h5>Product price</h5>
+                                                        <h5>&#8369;{{w.price}}</h5>
                                                     </div>
                                                     <!-- add to cart & remove buttons -->
                                                     <div class="col-lg-4 col-sm-10 d-flex align-items-start justify-content-end">
-                                                        <button type="button" class="atc_btn px-4 py-2 mr-2"><i class="fas fa-cart-plus"></i></button>
-                                                        <button type="button" class="remove_btn px-4 py-2"><i class="fas fa-trash"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item row p-4">
-                                        <div class="row">
-                                            <!-- thumbnail -->
-                                            <div class="col-md-2 col-6 mx-auto bg-white
-                                            d-flex justify-content-center align-items-center product_img">
-                                                <img src="assets/silentbaffle.jpg" alt="item" style="width: 100px;">
-                                            </div>
-                                            <!-- cart product details -->
-                                            <div class="col-md-10 col-12 mx-auto px-4 align-items-start">
-                                                <div class="row">
-                                                    <!-- item name -->
-                                                    <div class="col-lg-4 col-sm-10">
-                                                        <h4 class="product_name">Silent Baffle</h4>
-                                                        <p>Desc: Φ28.6</p>
-                                                        
-                                                    </div>
-                                                    <!-- item price -->
-                                                    <div class="col-lg-4 col-sm-10 d-flex align-items-start justify-content-center">
-                                                        <h5>350.00</h5>
-                                                    </div>
-                                                    <!-- add to cart & remove buttons -->
-                                                    <div class="col-lg-4 col-sm-10 d-flex align-items-start justify-content-end">
-                                                        <button type="button" class="atc_btn px-4 py-2 mr-2"><i class="fas fa-cart-plus"></i></button>
-                                                        <button type="button" class="remove_btn px-4 py-2"><i class="fas fa-trash"></i></button>
+                                                        <button type="button" class="atc_btn px-4 py-2 mr-2"><i class="fas fa-cart-plus" (click)="addToCart(w)"></i></button>
+                                                        <button type="button" (click)="removeWish(w.wish_id)" class="remove_btn px-4 py-2"><i class="fas fa-trash"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,7 +54,7 @@
                                   </ul>
                             </div>
                         </div>
-                    </div>        
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,4 +62,4 @@
 
     <app-footer></app-footer>
     </main>
-    
+

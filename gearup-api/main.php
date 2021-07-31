@@ -40,6 +40,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($post->cart('tbl_cart', null), JSON_PRETTY_PRINT);
         }
         break;
+      case 'wish':
+        if (count($req) > 1) {
+          echo json_encode($post->wish('tbl_wish', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($post->wish('tbl_wish', null), JSON_PRETTY_PRINT);
+        }
+        break;
       case 'orders':
         if (count($req) > 1) {
           echo json_encode($post->checkOrders('tbl_cart', $req[1]), JSON_PRETTY_PRINT);
@@ -132,6 +139,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
         echo json_encode($gm->insert("tbl_cart", $d), JSON_PRETTY_PRINT);
         return array("data" => $d);
         break;
+      case 'addWish':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->insert("tbl_wish", $d), JSON_PRETTY_PRINT);
+        return array("data" => $d);
+        break;
 
       case 'addCategory':
           $d = json_decode(file_get_contents("php://input"));
@@ -178,6 +190,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($gm->delete('tbl_cart', $req[1]), JSON_PRETTY_PRINT);
         } else {
           echo json_encode($gm->delete('tbl_cart', null), JSON_PRETTY_PRINT);
+        }
+        break;
+      case 'deleteWish':
+        if (count($req) > 1) {
+          echo json_encode($gm->delete('tbl_wish', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($gm->delete('tbl_wish', null), JSON_PRETTY_PRINT);
         }
         break;
         //LOGIN

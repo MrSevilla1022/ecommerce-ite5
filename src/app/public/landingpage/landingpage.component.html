@@ -42,7 +42,7 @@
                               <!--adding of product ends here-->
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-dark"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+                              <button type="button" class="btn btn-outline-dark" (click)="addWish(hel)" (click)="d('Cross click')"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
                               <button  type="button" class="btn btn-warning" (click)="addToCart(hel)" (click)="d('Cross click')"><i class="bi bi-cart" ></i> {{addCartBtn}}</button>
                             </div>
                           </ng-template>
@@ -87,7 +87,7 @@
                               <!--adding of product ends here-->
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-outline-dark"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+                              <button type="button" class="btn btn-outline-dark" (click)="addWish(hl)" (click)="d('Cross click')"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
                               <button  type="button" class="btn btn-warning" (click)="addToCart(hl)"><i class="bi bi-cart" (click)="d('Cross click')"></i> {{addCartBtn}}</button>
                             </div>
                           </ng-template>

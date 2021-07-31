@@ -101,6 +101,9 @@
 			if($filter_data != null && $table == "tbl_cart") {
 				$this->sql .= " WHERE  cart_id=$filter_data";
 			}
+      if($filter_data != null && $table == "tbl_wish") {
+				$this->sql .= " WHERE  wish_id=$filter_data";
+			}
 
 
 			$data = array(); $code = 0; $msg= ""; $remarks = "";

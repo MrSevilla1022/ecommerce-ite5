@@ -90,10 +90,16 @@ export class LandingpageComponent implements OnInit {
     }else{
 
     }
+
+    this.ds.sendApiRequest("wish/"+this.user.user_id, null ).subscribe((data: any) => {
+      this.wish = data.payload
+      sessionStorage.setItem('wish',JSON.stringify(data.payload))
+      console.log(this.wish)
+    })
     this.ds.sendApiRequest("cart/"+this.user.user_id, null ).subscribe((data: any) => {
       sessionStorage.setItem('cart',JSON.stringify(data.payload))
       this.cart = data.payload
-      this.checkCart = data.payloadz
+      this.checkCart = data.payload
     })
     this.getProducts();
   }
@@ -155,11 +161,48 @@ export class LandingpageComponent implements OnInit {
       sessionStorage.setItem('cart',JSON.stringify(this.cart))
     }
 
+  }
+  toWish:any = {}
+  wish:any[]=[]
+  addWish(product:any){
 
+    let wish = sessionStorage.getItem('wish')
+    if(wish){
+      this.wish = JSON.parse(wish)
+    }else{
+    }
+    console.log(this.wish)
+    let alrdWish = false
+    for(let item of this.wish){
+      if(product.product_id == item.product_id){
+        alrdWish = true
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Item already on wishlist!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+    if(!alrdWish){
+      this.wish.push(product)
+      this.toWish.product_id = product.product_id
+      this.toWish.user_id = this.user.user_id
+      this.ds.sendApiRequest("addWish/", this.toWish)
+            .subscribe((result: any)=>{
+              console.log(result);
+          });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Added to Wishlist!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+    sessionStorage.setItem('wish',JSON.stringify(this.wish))
 
-
-    //Delete all cart where user_id = user_id
-    //Insert new cart
 
   }
 
