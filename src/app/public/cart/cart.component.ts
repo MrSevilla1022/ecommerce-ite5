@@ -29,7 +29,7 @@ export class CartComponent implements OnInit {
 
     this.cartItems = sessionStorage.getItem('cart')
     this.cart = JSON.parse(this.cartItems)
-
+    console.log(this.cart)
     this.computeTotal()
     // this.ds.getMsg().subscribe((product:any) =>{
     //   this.cartItems.push({

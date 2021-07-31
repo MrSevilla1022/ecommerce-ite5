@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, delay } from "rxjs/operators";
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,14 @@ export class ServiceService {
   subject = new Subject()
   cart:any = []
   itemnum :any
-
+  
   constructor(private http: HttpClient) { }
+  private resultList: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(null);
+  public resultList$: Observable<any[]> = this.resultList.asObservable();
 
-
+  updateResultList(updatedList:any) {
+    this.resultList.next(updatedList);
+  }
   sendMsg(product:any){
     console.log(product)
     this.subject.next(product)

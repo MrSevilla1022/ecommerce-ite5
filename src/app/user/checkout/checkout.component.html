@@ -61,7 +61,7 @@
                               <!--options ends here-->
                             </div>
                             <div class="modal-footer">
-                              <button  type="button" class="btn mb-3 btn-primary " (click)="d('Cross click')" >Save</button>
+                              <button  type="button" class="btn mb-3 btn-primary " (click)="d('Cross click')" (click)="saveLogiPartner()" >Save</button>
                             </div>
                           </ng-template>
 
@@ -156,7 +156,7 @@
                             <div *ngIf="logiPartner == null">
                               <a (click)="open(content)"  class="text-primary" style="cursor: pointer;">Edit</a>
                             </div>
-                            <a (click)="open(content)" *ngIf="logiPartner != null" class="text-primary" style="cursor: pointer;">{{logiPartner}}</a>
+                            <a (click)="open(content)" *ngIf="logiPartner != null" class="text-primary" style="cursor: pointer;">{{logiPartnerFinal}}</a>
                         </div>
                         <div class="price_div d-flex justify-content-between">
                             <p>Shipping Fee</p>
@@ -169,7 +169,7 @@
                         </div>
                         <div class="checkoutbtn_div">
                             <!-- <button type="button" class="btn btn-lg btn-block opt_btn" (click)="openModal()">Place Order</button> -->
-                            <div *ngIf="logiPartner != null">
+                            <div *ngIf="logiPartnerFinal != null">
                               <google-pay-button
                               disabled
                               class="btn btn-lg btn-block "
@@ -182,7 +182,7 @@
                               [paymentAuthorizedCallback]="onPaymentDataAuthorized"
                               ></google-pay-button>
                             </div>
-                            <div *ngIf="logiPartner == null">
+                            <div *ngIf="logiPartnerFinal == null">
                               <h5 class="order_summary mb-4">Pick a Logistics partner
                               </h5>
                             </div>

@@ -49,8 +49,8 @@ export class LandingpageComponent implements OnInit {
   userDetails:any;
   user:any;
 
-  
-  
+
+
 
 
   //stars hereeee
@@ -64,16 +64,16 @@ export class LandingpageComponent implements OnInit {
   constructor(
     public ds: ServiceService,
     private router:Router,
-    
+
     private modalService: NgbModal,
     config: NgbCarouselConfig
-    ) { 
+    ) {
       config.interval = 10000;
       config.pauseOnHover =true;
       config.wrap = false;
       config.keyboard = false;
     }
-  
+
 
 
   ngOnInit(): void {
@@ -93,7 +93,7 @@ export class LandingpageComponent implements OnInit {
     this.ds.sendApiRequest("cart/"+this.user.user_id, null ).subscribe((data: any) => {
       sessionStorage.setItem('cart',JSON.stringify(data.payload))
       this.cart = data.payload
-      this.checkCart = data.payload
+      this.checkCart = data.payloadz
     })
     this.getProducts();
   }
@@ -102,6 +102,7 @@ export class LandingpageComponent implements OnInit {
   addCartBtn = "Add to Cart"
   disableBtn: boolean = false
   toCart:any = {}
+  cartL:any
   addToCart(product:any){
 
     //get cart from db
@@ -127,12 +128,19 @@ export class LandingpageComponent implements OnInit {
       }
     }
     if(!alrdCart){
-
+      product.qty=1
       this.cart.push(product)
+
       console.log(product.product_id)
       this.toCart.product_id = product.product_id
       this.toCart.user_id = this.user.user_id
+      this.toCart.qty = 1
+      this.cart.qty = 1
       console.log(this.toCart)
+      let cartL = this.ds.resultList$
+      this.cartL = Number(cartL)
+      this.cartL++
+      this.ds.resultList$ = this.cartL
       Swal.fire({
         position: 'center',
         icon: 'success',

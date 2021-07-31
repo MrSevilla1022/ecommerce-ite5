@@ -53,7 +53,7 @@ export class CheckoutComponent implements OnInit {
   }
 
    favoriteSeason: any;
-  partners: string[] = ['J&T', 'GooglePay', 'LBC'];
+  partners: string[] = ['GooglePay'];
 
   orders :any;
   orderId:any
@@ -76,6 +76,11 @@ export class CheckoutComponent implements OnInit {
 
       // sessionStorage.setItem('cart',JSON.stringify(data.payload))
     })
+  }
+  logiPartnerFinal:any
+  saveLogiPartner(){
+    this.logiPartnerFinal = this.logiPartner
+    
   }
 
   paymentRequest:google.payments.api.PaymentDataRequest={

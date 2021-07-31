@@ -43,7 +43,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-outline-dark"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
-                              <button  type="button" class="btn btn-warning" (click)="addToCart(hel)"><i class="bi bi-cart" ></i> {{addCartBtn}}</button>
+                              <button  type="button" class="btn btn-warning" (click)="addToCart(hel)" (click)="d('Cross click')"><i class="bi bi-cart" ></i> {{addCartBtn}}</button>
                             </div>
                           </ng-template>
                           <!--Modal for adding products ends here-->
@@ -88,7 +88,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-outline-dark"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
-                              <button  type="button" class="btn btn-warning" (click)="addToCart(hl)"><i class="bi bi-cart" ></i> {{addCartBtn}}</button>
+                              <button  type="button" class="btn btn-warning" (click)="addToCart(hl)"><i class="bi bi-cart" (click)="d('Cross click')"></i> {{addCartBtn}}</button>
                             </div>
                           </ng-template>
                           <!--Modal for adding products ends here-->
@@ -151,7 +151,7 @@
                             <div class="col-4 p-4 mx-auto sliderimg">
                                 <img [src]="images[0]" alt="Random first slide" style="height: 500px; width: auto;">
                             </div>
-                  
+
                             <div class="slidertext col-6 pt-4 pl-4">
                                 <h1>Icon Airflite Helmet</h1>
                                 <p>All around aggression distilled into a helmet that is potable for multiple rider types.</p>
@@ -165,13 +165,13 @@
                             </div>
                           </div>
                   </ng-template>
-                  
+
                   <ng-template ngbSlide>
                     <div class="row">
                         <div class="col-4 p-4 mx-auto sliderimg">
                             <img [src]="images[1]" alt="Random first slide" style="height: 500px; width: auto;">
                         </div>
-              
+
                         <div class="slidertext col-6 pt-4 pl-4">
                             <h1>Bell Qualifier Helmet</h1>
                             <p>Sleek, stylish look and reliable Bell build quality. The Qualifier is a no-frills helmet that looks good and performs like it should, every time.</p>
@@ -189,7 +189,7 @@
                     <div class="col-4 p-4 mx-auto sliderimg">
                         <img [src]="images[2]" alt="Random first slide" style="height: 500px; width: auto;">
                     </div>
-          
+
                     <div class="slidertext col-6 pt-4 pl-4">
                         <h1>Biltwell Lane Splitter Helmet</h1>
                         <p>The Biltwell Lane Splitter contains all the style that you want without the costly gimmicks that weighs down your head and lightens your wallet.</p>
@@ -207,7 +207,7 @@
                 <div class="col-4 p-4 mx-auto sliderimg" style="cursor:pointer;">
                     <img [src]="images[3]" alt="Random first slide" style="height: 500px; width: auto;">
                 </div>
-      
+
                 <div class="slidertext col-6 pt-4 pl-4">
                     <h1>Simpson Ghost Bandit Helmet</h1>
                     <p>If hell-bent apocalyptic wild-west outlaws from the future raced dirt bike choppers in the wastelands, they would most likely do it in a Simpson. </p>
@@ -215,7 +215,7 @@
                     <hr>
                     <pre>Rate: <b>{{ratingFive}}</b></pre>
                     <p><span>&#8369;</span>19,599</p>
-                
+
                     <button type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-cart"></i> Add to cart!</button>
                     <button type="button" class="btn btn-outline-warning"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
                 </div>
