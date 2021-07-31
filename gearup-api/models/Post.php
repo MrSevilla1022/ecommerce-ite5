@@ -57,7 +57,6 @@
 			}
 
 
-
 			$data = array(); $code = 0; $msg= ""; $remarks = "";
 			try {
 				if ($res = $this->pdo->query($this->sql)->fetchAll()) {
@@ -88,7 +87,7 @@
 		}
   public function transactions($table, $filter_data) {
 
-    $this->sql = "SELECT DISTINCT transaction_no, payment, checkout_time FROM tbl_cart" ;
+    $this->sql = "SELECT DISTINCT transaction_no, payment, checkout_time,user_id,deliver_st FROM tbl_cart" ;
 
 
     $data = array(); $code = 0; $msg= ""; $remarks = "";

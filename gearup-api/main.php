@@ -160,6 +160,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $d = json_decode(file_get_contents("php://input"));
         echo json_encode($post->checkout("tbl_cart", $d, 'user_id=' . $req[1]), JSON_PRETTY_PRINT);
         break;
+      case 'updateRate':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->update("tbl_products", $d, 'product_id=' . $req[1]), JSON_PRETTY_PRINT);
+        break;
+      case 'updateTransaction':
+        $d = json_decode(file_get_contents("php://input"));
+        echo json_encode($gm->update("tbl_cart", $d, 'transaction_no=' . $req[1]), JSON_PRETTY_PRINT);
+        break;
 
 
 
