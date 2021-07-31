@@ -33,6 +33,12 @@
                                 </div>
                                 <div class="form-group row justify-content-center">
                                   <div class="col-6 first_line">
+                                  <label for="barangay">Barangay</label>
+                                  <input  [(ngModel)]="user.barangay" type="text" class="form-control" id="barangay" value={{user.barangay}}>
+                                </div>
+                                </div>
+                                <div class="form-group row justify-content-center">
+                                  <div class="col-6 first_line">
                                     <label for="city_municipality">City/Municipality</label>
                                     <input [(ngModel)]="user.cityMunicipality" type="text" class="form-control" id="city_municipality">
                                   </div>

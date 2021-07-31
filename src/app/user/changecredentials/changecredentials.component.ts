@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { ServiceService } from '../../services/service.service'
 
 @Component({
@@ -23,13 +24,15 @@ export class ChangecredentialsComponent implements OnInit {
     if(this.user.user_uname == '' || this.user.fname == '' || this.user.lname == '' || this.user.email == '' || this.user.phone_no == ''){
       alert("FILL")
     }else{
-      alert("GOOD")
       if(this.validateEmail(this.user.email)){
-
-        alert("valid email")
+        //alert("valid email")
         this.validatePhone()
       }else{
-        alert("invalid email")
+        Swal.fire(
+          'Invalid Email',
+          'you have entered an invalid email',
+          'error'
+        )
       }
     }
 
@@ -49,7 +52,12 @@ export class ChangecredentialsComponent implements OnInit {
         }
       })
       console.log('update user');
-      alert("Updated")
+      console.log('Username not available')
+      Swal.fire(
+        'Profile has been saved',
+        'your profile is updated!',
+        'success'
+      )
     }else{
 
     }
@@ -72,10 +80,15 @@ export class ChangecredentialsComponent implements OnInit {
             .subscribe((result: any)=>{
               console.log(result.payload);
               this.users = result.payload
+
               for(let user of this.users){
                 if(user.user_uname == this.user.user_uname && this.user.user_id != user.user_id){
                   this.unameAvail = false
                   console.log('Username not available')
+                  Swal.fire(
+                    'This username is already Taken!',
+                    'error'
+                  )
                   break;
                 }
 

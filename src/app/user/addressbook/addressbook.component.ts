@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { ServiceService } from '../../services/service.service'
 
 @Component({
@@ -19,7 +20,7 @@ export class AddressbookComponent implements OnInit {
   }
 
   updateAddr(){
-    if(this.user.house_no == '' || this.user.street == '' || this.user.cityMunicipality == '' || this.user.province == ''){
+    if(this.user.house_no == '' || this.user.street == '' || this.user.barangay == '' || this.user.cityMunicipality == '' || this.user.province == ''){
       alert("Fill")
     }else{
 
@@ -36,8 +37,11 @@ export class AddressbookComponent implements OnInit {
         }
       })
 
-
-      alert("Success")
+      Swal.fire(
+        'Address updated!',
+        'Your address information has been updated',
+        'success'
+      )
     }
 
   }
