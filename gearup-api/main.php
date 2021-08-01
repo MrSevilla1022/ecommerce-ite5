@@ -33,6 +33,23 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($post->checkUser('tbl_user', null), JSON_PRETTY_PRINT);
         }
         break;
+
+        case 'UserTable':
+          if (count($req) > 1) {
+            echo json_encode($post->pullUser('tbl_user', $req[1]), JSON_PRETTY_PRINT);
+          } else {
+            echo json_encode($post->pullUser('tbl_user', null), JSON_PRETTY_PRINT);
+          }
+          break;
+      
+          case 'TransTable':
+            if (count($req) > 1) {
+              echo json_encode($post->pullUser('tbl_transactions', $req[1]), JSON_PRETTY_PRINT);
+            } else {
+              echo json_encode($post->pullUser('tbl_transactions', null), JSON_PRETTY_PRINT);
+            }
+            break;
+
       case 'cart':
         if (count($req) > 1) {
           echo json_encode($post->cart('tbl_cart', $req[1]), JSON_PRETTY_PRINT);

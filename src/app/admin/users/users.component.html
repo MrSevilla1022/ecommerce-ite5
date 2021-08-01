@@ -5,7 +5,7 @@
 <main>
 <app-admin-nav></app-admin-nav>
 
-<div class="container">
+<div class="container my-5">
   <h3>Users</h3>
 
   <!--Users table starts here-->
@@ -20,18 +20,18 @@
     </tr>
     </thead>
     <tbody>
-    <!-- <tr *ngFor="let prod of products">
+    <tr *ngFor="let users of gusers">
 
-      <td>{{ prod.product_id }}</td>
+      <td>{{ users.user_id }}</td>
       <td>
-        <img src={{prod.product_img}} class="mr-2" style="width: 20px">
+        <img src={{users.usersuct_img}} class="mr-2" style="width: 20px">
 
       </td>
-      <td>{{ prod.product_name }}</td>
-      <td>{{ prod.product_desc }}</td>
-      <td>{{ prod.price }}</td>
+      <td>{{users.fname}} {{ users.lname}}</td>
+      <td>{{ users.phone_no }}</td>
+      <td>{{ users.email }}</td>
 
-    </tr> -->
+    </tr>
     </tbody>
   </table>
   <!--Transaction table ends here-->

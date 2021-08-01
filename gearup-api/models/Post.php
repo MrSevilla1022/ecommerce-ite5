@@ -25,6 +25,41 @@
 			}
 			return $this->sendPayload($data, $remarks, $filter_data, $code);
 		}
+
+		
+		public function pullUser($table, $filter_data) {
+
+			$this->sql = "SELECT * FROM $table";
+
+			$data = array(); $code = 0; $msg= ""; $remarks = "";
+			try {
+				if ($res = $this->pdo->query($this->sql)->fetchAll()) {
+					foreach ($res as $rec) { array_push($data, $rec);}
+					$res = null; $code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
+				}
+			} catch (\PDOException $e) {
+				$msg = $e->getMessage(); $code = 401; $remarks = "failed";
+			}
+			return $this->sendPayload($data, $remarks, $filter_data, $code);
+		}
+
+		public function pullTrans($table, $filter_data) {
+
+			$this->sql = "SELECT * FROM $table";
+
+			$data = array(); $code = 0; $msg= ""; $remarks = "";
+			try {
+				if ($res = $this->pdo->query($this->sql)->fetchAll()) {
+					foreach ($res as $rec) { array_push($data, $rec);}
+					$res = null; $code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
+				}
+			} catch (\PDOException $e) {
+				$msg = $e->getMessage(); $code = 401; $remarks = "failed";
+			}
+			return $this->sendPayload($data, $remarks, $filter_data, $code);
+		}
+
+
     public function wish($table, $filter_data) {
 
 			$this->sql = "SELECT * FROM $table INNER JOIN tbl_products ON tbl_wish.product_id=tbl_products.product_id" ;
