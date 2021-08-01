@@ -14,12 +14,7 @@ export class ServiceService {
   itemnum :any
   
   constructor(private http: HttpClient) { }
-  private resultList: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(null);
-  public resultList$: Observable<any[]> = this.resultList.asObservable();
-
-  updateResultList(updatedList:any) {
-    this.resultList.next(updatedList);
-  }
+  
   sendMsg(product:any){
     console.log(product)
     this.subject.next(product)

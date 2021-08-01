@@ -143,10 +143,7 @@ export class LandingpageComponent implements OnInit {
       this.toCart.qty = 1
       this.cart.qty = 1
       console.log(this.toCart)
-      let cartL = this.ds.resultList$
-      this.cartL = Number(cartL)
       this.cartL++
-      this.ds.resultList$ = this.cartL
       Swal.fire({
         position: 'center',
         icon: 'success',
