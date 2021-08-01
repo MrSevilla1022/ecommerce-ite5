@@ -169,7 +169,7 @@
                         </div>
                         <div class="checkoutbtn_div">
                             <!-- <button type="button" class="btn btn-lg btn-block opt_btn" (click)="openModal()">Place Order</button> -->
-                            <div *ngIf="logiPartnerFinal != null">
+                            <div *ngIf="logiPartnerFinal != null && user.fname != null && user.lname != null && user.house_no != null && user.street != null && user.cityMunicipality != null && user.province != null">
                               <google-pay-button
                               disabled
                               class="btn btn-lg btn-block "
@@ -184,6 +184,10 @@
                             </div>
                             <div *ngIf="logiPartnerFinal == null">
                               <h5 class="order_summary mb-4">Pick a Logistics partner
+                              </h5>
+                            </div>
+                            <div *ngIf="user.fname == null || user.lname == null || user.house_no == null || user.street == null || user.cityMunicipality == null  || user.province == null ">
+                              <h5 class="order_summary mb-4">Set up you profile
                               </h5>
                             </div>
 

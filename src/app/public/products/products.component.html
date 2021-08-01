@@ -161,10 +161,37 @@
                                         <div *ngFor="let prod of products" class="card mr-3 mb-3">
                                             <img class="img card-img-top embed-responsive-item" src={{prod.product_img}} alt="Card image cap">
                                             <div class="card-body">
-                                                <a href="#" class="btn stretched-link"></a>
+                                              <a (click)="open(content)" class="btn stretched-link"></a>
                                                 <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{prod.product_name}}</h5>
                                                 <p class="card-text" style="color: orange;"><span>&#8369;</span>{{prod.price}}</p>
                                             </div>
+                                            <!--Modal for adding products-->
+                          <ng-template #content let-c="close" let-d="dismiss">
+                            <div class="modal-header">
+                              <h4 class="modal-title" id="modal-basic-title">Add to cart</h4>
+
+                              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <!--Adding of products starts here-->
+                                    <div class="form-group">
+                                      <img class="img card-img-top embed-responsive-item" src={{prod.product_img}} alt="Card image cap">
+                                      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{prod.product_name}}</h5>
+                                      <ngb-rating [max]="5" [readonly]="true" [(rate)]="prod.rating"></ngb-rating>
+                                      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{prod.price}}</p>
+
+                                  </div>
+
+                              <!--adding of product ends here-->
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-dark" (click)="addWish(prod)" (click)="d('Cross click')"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+                              <button  type="button" class="btn btn-warning" (click)="addToCart(prod)" (click)="d('Cross click')"><i class="bi bi-cart" ></i> Add to cart</button>
+                            </div>
+                          </ng-template>
+                          <!--Modal for adding products ends here-->
                                       </div>
 
                               </div><!-- End -->

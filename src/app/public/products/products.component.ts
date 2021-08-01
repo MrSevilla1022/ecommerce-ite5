@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ServiceService } from '../../services/service.service'
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -15,16 +17,132 @@ export class ProductsComponent implements OnInit {
   helmet:any[] = []
   headlight:any[] = []
  category_title:any
-  constructor(public ds: ServiceService,private router:Router) { }
-
+ @ViewChild('content') content: any ;
+  constructor(public ds: ServiceService,private modalService: NgbModal,private router:Router) { }
+  cart:any = []
+  checkCart:any =[]
+  user:any
+  toCart:any = {}
+  cartL:any
   ngOnInit(): void {
+
+    const user_id = localStorage.getItem('user_id')
+    if(user_id){
+      this.user = JSON.parse(user_id)
+      console.log(this.user)
+    }
     this.category_id = sessionStorage.getItem('category_id')
     console.log(this.category_id)
     this.checkCateg()
     this.getProducts()
 
+    this.ds.sendApiRequest("cart/"+this.user.user_id, null ).subscribe((data: any) => {
+      sessionStorage.setItem('cart',JSON.stringify(data.payload))
+      this.cart = data.payload
+      this.checkCart = data.payload
+    })
+  }
+  toWish:any = {}
+  wish:any[]=[]
+  addWish(product:any){
+
+    let wish = sessionStorage.getItem('wish')
+    if(wish){
+      this.wish = JSON.parse(wish)
+    }else{
+    }
+    console.log(this.wish)
+    let alrdWish = false
+    for(let item of this.wish){
+      if(product.product_id == item.product_id){
+        alrdWish = true
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Item already on wishlist!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+    if(!alrdWish){
+      this.wish.push(product)
+      this.toWish.product_id = product.product_id
+      this.toWish.user_id = this.user.user_id
+      this.ds.sendApiRequest("addWish/", this.toWish)
+            .subscribe((result: any)=>{
+              console.log(result);
+          });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Added to Wishlist!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+    sessionStorage.setItem('wish',JSON.stringify(this.wish))
+
+
+  }
+  open(content:any) {
+    this.modalService.open(content,{size: 'xl'});
+  }
+  openModal(){
+    this.modalService.open(this.content, {size:'xl', centered: true });
+  }
+  addToCart(product:any){
+
+    //get cart from db
+
+    let cart = sessionStorage.getItem('cart')
+    if(cart){
+      this.checkCart = JSON.parse(cart)
+    }else{
+    }
+
+    let alrdCart = false
+    for(let item of this.checkCart){
+      if(product.product_id == item.product_id){
+        alrdCart = true
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Item already on cart!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+    if(!alrdCart){
+      product.qty=1
+      this.cart.push(product)
+
+      console.log(product.product_id)
+      this.toCart.product_id = product.product_id
+      this.toCart.user_id = this.user.user_id
+      this.toCart.qty = 1
+      this.cart.qty = 1
+      console.log(this.toCart)
+      this.cartL++
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Item added to cart!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.ds.sendApiRequest("addCart/", this.toCart)
+          .subscribe((result: any)=>{
+            console.log(result);
+        });
+      sessionStorage.setItem('cart',JSON.stringify(this.cart))
+    }
+
   }
 
+
+  // RATING
   checkCateg(){
     if(this.category_id == 1){
       this.category_title ="Helmets"
@@ -187,5 +305,6 @@ export class ProductsComponent implements OnInit {
       }
     })
   }
+  // RATING
 
 }
