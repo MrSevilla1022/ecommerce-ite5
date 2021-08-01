@@ -18,8 +18,8 @@
 				$this->sql .= " WHERE checkout_st = 1 AND user_id=$filter_data  ";
 			}
 
-      if($filter_data != null && $table == "tbl_products") {
-				$this->sql .= " WHERE category_id=$filter_data";
+      if( $table == "tbl_products") {
+				$this->sql .= "  ORDER BY rating DESC";
 			}
 
 			$data = array(); $code = 0; $msg= ""; $remarks = "";

@@ -1,14 +1,113 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <main>
     <app-navbar></app-navbar>
-    
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 col-11 mx-auto">
                 <div class="row mt-5 gx-3">
                     <!----left side div-->
                     <div class="col-md-12 col-lg-2 col-sm-5 mx-auto left_div mb-lg-0 mb-5">
-                        <app-sidefilter></app-sidefilter>
+
+                      <!-- sidefilter -->
+
+                      <div class="row">
+                        <p>Sort products Categories</p>
+                        <hr>
+                        <div class="btn-group mr-3 pb-4 w-75">
+                            <button type="button" class="btn btn-outline-dark"> {{category}} </button>
+                            <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+                              <button class="btn btn-dark dropdown-toggle-split" ngbDropdownToggle></button>
+                              <div class="dropdown-menu" ngbDropdownMenu>
+                                <button ngbDropdownItem (click)="sortCateg('all')">All</button>
+                                <button ngbDropdownItem (click)="sortCateg('helmet')">Helmets</button>
+                                <button ngbDropdownItem >Jackets</button>
+                                <button ngbDropdownItem>Gloves</button>
+                                <button ngbDropdownItem>Seats</button>
+                                <button ngbDropdownItem>Tires</button>
+                                <button ngbDropdownItem>Brakes</button>
+                                <button ngbDropdownItem (click)="sortCateg('hl')">Headlights</button>
+                                <button ngbDropdownItem>Cleaner</button>
+                              </div>
+                            </div>
+                          </div>
+
+                    <div class="pb-1">
+                    <p style="font-weight: bold;">Sort Products by Brand</p>
+                    <hr>
+                    </div>
+
+                    <div class="col-sm-12 form-check">
+                        <div class="checkbox">
+                          <label>
+                              <input type="radio" name="brand" value="sealight" (click)="sortBrand('all')" [checked]="radioCheck">
+                              <span class="cr"><i class="cr-icon fa fa-check" ></i></span>
+                              All
+                          </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" name="brand" value="sealight" (click)="sortBrand('sealight')" [checked]="radioCheck2">
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                Sealight
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" name="brand" value="evo" (click)="sortBrand('evo')" [checked]="radioCheck3">
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                Evo
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" name="brand" value="n1" (click)="sortBrand('n1')" [checked]="radioCheck4">
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                Nitro
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pb-1">
+                        <p style="font-weight: bold;">Sort Products by Rating</p>
+                        <hr>
+                        </div>
+
+                    <div class="col-sm-12">
+
+                       <div class="rating">
+                        <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFive"></ngb-rating>
+                         <pre><a class="button" (click)="sortRate(5)"><b>{{ratingFive}} Stars</b></a></pre>
+                        </div>
+                        <div class="rating">
+                            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingFour"></ngb-rating>
+                            <pre><a class="button" (click)="sortRate(4)"><b>{{ratingFour}} Stars</b></a></pre>
+                        </div>
+                        <div class="rating">
+                            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingThree"></ngb-rating>
+                            <pre><a class="button" (click)="sortRate(3)"><b>{{ratingThree}} Stars</b></a></pre>
+                        </div>
+                        <div class="rating">
+                            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingTwo"></ngb-rating>
+                            <pre><a class="button" (click)="sortRate(2)"><b>{{ratingTwo}} Stars</b></a></pre>
+                        </div>
+                        <div class="rating">
+                            <ngb-rating [max]="5" [readonly]="true" [(rate)]="ratingOne"></ngb-rating>
+                            <pre><a class="button" (click)="sortRate(1)"><b>{{ratingOne}} Stars</b></a></pre>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+                      <!--  sidefilter-->
+
+
+                        <!-- <app-sidefilter></app-sidefilter> -->
                     </div>
 
                     <!-- right -->
@@ -43,7 +142,7 @@
                                       </div>
                                     </div>
                                   <!--End Search-->
-                                 
+
                                 </div>
                               </div>
                             </div>
@@ -53,12 +152,12 @@
                         <div class="card p-4  item_list shadow">
                           <div class="container-fluid">
                             <div class="px-lg-5">
-                          
-                         
-                          
+
+
+
                               <div class="row row-cols-6 mx-auto justify-content-center">
                                 <!-- Gallery item -->
-                      
+
                                         <div *ngFor="let prod of products" class="card mr-3 mb-3">
                                             <img class="img card-img-top embed-responsive-item" src={{prod.product_img}} alt="Card image cap">
                                             <div class="card-body">
@@ -67,7 +166,7 @@
                                                 <p class="card-text" style="color: orange;"><span>&#8369;</span>{{prod.price}}</p>
                                             </div>
                                       </div>
-                                               
+
                               </div><!-- End -->
 
                               <div class="py-5 text-center"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
@@ -75,9 +174,9 @@
                           </div>
                         </div>
                     </div><!--end of right card-->
-    
-                
-                    
+
+
+
                 </div>
             </div>
         </div>
