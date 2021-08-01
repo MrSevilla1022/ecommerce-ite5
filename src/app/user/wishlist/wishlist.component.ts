@@ -67,6 +67,7 @@ export class WishlistComponent implements OnInit {
       }
     }
     if(!alrdCart){
+      product.qty = 1
       this.cart.push(product)
 
       console.log(product.product_id)

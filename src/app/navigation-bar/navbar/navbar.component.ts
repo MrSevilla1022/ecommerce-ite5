@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
 
     this.cartItems = sessionStorage.getItem('cart')
     this.cart = JSON.parse(this.cartItems)
-    console.log(this.itemnum)
+    this.itemnum = this.cart.length
   }
 
   signOut(){
