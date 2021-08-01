@@ -15,7 +15,7 @@
                             {{cart.length}} ITEMS
                         </h1>
 
-                        <!--Modal for shipping options products-->
+                        <!--Modal for payment options products-->
                         <ng-template #content let-c="close" let-d="dismiss">
                             <div class="modal-header">
                                 <h4 class="modal-title" id="modal-basic-title">Select Shipping Option</h4>
@@ -45,19 +45,6 @@
                               </div>
 
 
-                            <!-- <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                                <div class="name_price d-flex justify-content-between">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        Ninja Van
-                                      </label>
-                                    <h5>₱100</h5>
-                                </div>
-                                <div class="receive_date">
-                                    <p>Receive by 1 Aug - 5 Aug</p>
-                                </div>
-                            </div> -->
-
                               <!--options ends here-->
                             </div>
                             <div class="modal-footer">
@@ -65,8 +52,84 @@
                             </div>
                           </ng-template>
 
-                          <hr>
-                        <!-- End Shipping Mode Modal -->
+        
+                        <!-- End Payment Mode Modal -->
+
+                               <!--Modal for shipping options products-->
+                               <ng-template #contents let-c="close" let-d="dismiss">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="modal-basic-title">Select Shipping Option</h4>
+    
+                                  <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+    
+                                  <div class="form-check" *ngFor="let partner of partners">
+                                    <input
+                                    class="form-check-input p-3"
+                                    type="radio"
+                                    name="logiPartners"
+                                    value="{{partners1}}"
+                                    (change)="radiochangePartner($event)">
+                                    <div class="name_price d-flex justify-content-between">
+                                      <label class="form-check-label" for="flexRadioDefault1">
+                                        {{partners1}}
+                                        </label>
+                                      <h5>₱100</h5>
+                                    </div>
+                                    <div class="receive_date">
+                                        <p>Receive by 1 Aug - 5 Aug</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-check" *ngFor="let partner of partners">
+                                    <input
+                                    class="form-check-input p-3"
+                                    type="radio"
+                                    name="logiPartners"
+                                    value="{{partners2}}"
+                                    (change)="radiochangePartner($event)">
+                                    <div class="name_price d-flex justify-content-between">
+                                      <label class="form-check-label" for="flexRadioDefault1">
+                                        {{partners2}}
+                                        </label>
+                                      <h5>₱100</h5>
+                                    </div>
+                                    <div class="receive_date">
+                                        <p>Receive by 1 Aug - 5 Aug</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-check" *ngFor="let partner of partners">
+                                    <input
+                                    class="form-check-input p-3"
+                                    type="radio"
+                                    name="logiPartners"
+                                    value="{{partners3}}"
+                                    (change)="radiochangePartner($event)">
+                                    <div class="name_price d-flex justify-content-between">
+                                      <label class="form-check-label" for="flexRadioDefault1">
+                                        {{partners3}}
+                                        </label>
+                                      <h5>₱100</h5>
+                                    </div>
+                                    <div class="receive_date">
+                                        <p>Receive by 1 Aug - 5 Aug</p>
+                                    </div>
+                                  </div>
+     
+    
+                                  <!--options ends here-->
+                                </div>
+                                <div class="modal-footer">
+                                  <button  type="button" class="btn mb-3 btn-primary " (click)="d('Cross click')" (click)="saveLogiPartner()" >Save</button>
+                                </div>
+                              </ng-template>
+    
+                              <hr>
+                            <!-- End Shipping Mode Modal -->
 
                         <!-- Item List Starts Here -->
                         <div class="item_container">
@@ -151,8 +214,21 @@
                             <p>Subtotal</p>
                             <p>₱<span id="subtotal">{{total}}.00</span></p>
                         </div>
+
+                        <!--for logistics-->
                         <div class="price_div d-flex justify-content-between">
-                            <p>Logistics partner</p>
+                            <p>Logistics Partner</p>
+                            <div *ngIf="logiPartners == null">
+                              <a (click)="open(contents)"  class="text-primary" style="cursor: pointer;">Edit</a>
+                            </div>
+                            <a (click)="open(contents)" *ngIf="logiPartners != null" class="text-primary" style="cursor: pointer;">{{logiPartners}}</a>
+                        </div>
+
+
+
+                        <!--for payment-->
+                        <div class="price_div d-flex justify-content-between">
+                            <p>Payment mode</p>
                             <div *ngIf="logiPartner == null">
                               <a (click)="open(content)"  class="text-primary" style="cursor: pointer;">Edit</a>
                             </div>
@@ -169,7 +245,7 @@
                         </div>
                         <div class="checkoutbtn_div">
                             <!-- <button type="button" class="btn btn-lg btn-block opt_btn" (click)="openModal()">Place Order</button> -->
-                            <div *ngIf="logiPartnerFinal != null && user.fname != null && user.lname != null && user.house_no != null && user.street != null && user.cityMunicipality != null && user.province != null">
+                            <div *ngIf="logiPartnerFinal != null && logiPartners != null">
                               <google-pay-button
                               disabled
                               class="btn btn-lg btn-block "
@@ -183,13 +259,13 @@
                               ></google-pay-button>
                             </div>
                             <div *ngIf="logiPartnerFinal == null">
-                              <h5 class="order_summary mb-4">Pick a Logistics partner
+                              <h5 class="order_summary mb-4">Please Choose a Payment Method
                               </h5>
                             </div>
-                            <div *ngIf="user.fname == null || user.lname == null || user.house_no == null || user.street == null || user.cityMunicipality == null  || user.province == null ">
-                              <h5 class="order_summary mb-4">Set up you profile
-                              </h5>
-                            </div>
+                            <div *ngIf="logiPartners == null">
+                                <h5 class="order_summary mb-4">Please Choose a Logistic Partner
+                                </h5>
+                              </div>
 
                         </div>
 

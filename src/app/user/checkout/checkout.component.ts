@@ -22,13 +22,10 @@ export class CheckoutComponent implements OnInit {
   @ViewChild('content') content: any ;
 
 
-  cartItems:any = []
-  cart:any = []
+
   user:any;
-  total:any = 0
-  finaltotal:any = 0
-  logiPartner:any
-  shippingfee:any
+  finaltotal:any = 0;
+
   openModal(){
     this.modalService.open(this.content, { centered: true });
   }
@@ -53,7 +50,7 @@ export class CheckoutComponent implements OnInit {
   }
 
    favoriteSeason: any;
-  partners: string[] = ['GooglePay'];
+
 
   orders :any;
   orderId:any
@@ -77,11 +74,7 @@ export class CheckoutComponent implements OnInit {
       // sessionStorage.setItem('cart',JSON.stringify(data.payload))
     })
   }
-  logiPartnerFinal:any
-  saveLogiPartner(){
-    this.logiPartnerFinal = this.logiPartner
-    
-  }
+
 
   paymentRequest:google.payments.api.PaymentDataRequest={
     apiVersion: 2,
@@ -160,15 +153,46 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  cartItems:any = []
+  cart:any = []
+  total:any = 0
+  //payment
+  partners: string[] = ['GooglePay'];
+  //logistics
+  partners1: string[] = ['LBC'];
+  partners2: string[] = ['J&T'];
+  partners3: string[] = ['Ninjavan'];
+  logiPartner:any
+  shippingfee:any
+  logiPartners:any;
+  logiPartnerFinal:any
+
+
+  //for payment
+  saveLogiPartner(){
+    this.logiPartnerFinal = this.logiPartner
+    
+  }
+
+  //for logistics
+  saveLogiPartners(){
+    this.logiPartners = this.logiPartner
+    
+  }
+  
   open(content:any) {
     this.modalService.open(content);
   }
   stringTotal:string = ""
   radiochange(event:any){
+    this.logiPartner = event.target.value
+  }
+
+  radiochangePartner(event:any){
     this.shippingfee = 100
     this.finaltotal = this.total + this.shippingfee
     this.finaltotal.toString()
     this.stringTotal = this.finaltotal
-    this.logiPartner = event.target.value
+    this.logiPartners = event.target.value
   }
 }
