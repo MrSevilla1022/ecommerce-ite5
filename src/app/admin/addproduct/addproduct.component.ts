@@ -20,6 +20,7 @@ export class AddproductComponent implements OnInit {
   pageSize:any=7
   products:any[] = []
   vproducts:any[] = []
+  searchkey:any
   constructor(public ds: ServiceService, config: NgbModalConfig, private modalService: NgbModal) {
 
      // customize default values of modals used by this component tree
@@ -27,12 +28,12 @@ export class AddproductComponent implements OnInit {
      config.keyboard = false;
    }
 
+
   product:any={}
   branding = new Branding('');
   categories = new Categories('');
 
   prodcategory:any;
-  brandname:any;
   img:any;
   brand:any;
   type:any;
@@ -42,7 +43,7 @@ export class AddproductComponent implements OnInit {
   quantity:any;
   types:any[]=[];
   brands:any[]=[];
-
+  allprod:any[] = []
   ngOnInit(): void {
     this.apitest()
     this.getTypes();
@@ -50,16 +51,248 @@ export class AddproductComponent implements OnInit {
     this.getProducts();
 
   }
+  search(){
 
+    this.category = "All"
+    this.brandname = "Brand"
+    if(this.searchkey == ""){
+      this.products = this.allprod
+    }else{
+      this.products = this.products.filter(res =>{
+        return res.product_name.toLocaleLowerCase().match(this.searchkey.toLocaleLowerCase())
+      })
+    }
+  }
+// SORTING
 
+helmet:any[] = []
+gloves:any[] = []
+headlight:any[] = []
+category:any = "Category"
+radioCheck = false
+radioCheck2 = false
+radioCheck3 = false
+radioCheck4 = false
+radioCheck5 = false
+sortCateg(cat:any){
+  if(cat == "helmet"){
+    this.products = this.helmet
+    this.category = "Helmet"
+
+    this.brandname = "Brand"
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+  }
+  if(cat == "hl"){
+    this.products = this.headlight
+    this.category = "Headlight"
+    this.brandname = "Brand"
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+  }
+  if(cat == "gloves"){
+    this.products = this.gloves
+    this.brandname = "Brand"
+    this.category = "Gloves"
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+  }
+  if(cat == "all"){
+    this.products = this.allprod
+    this.brandname = "Brand"
+    this.category = "All"
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+  }
+}
+brandname:any = "Brand"
+sortBrand(brand:any){
+  if(brand == "all"){
+    this.products = this.allprod
+    this.brandname = "All"
+    this.category = "All"
+  }
+  if(brand == "n1"){
+    this.products = this.nitro
+    this.brandname = "Nitro"
+    this.category = "All"
+  }
+  if(brand == "evo"){
+
+    this.brandname = "Evo"
+    this.products = this.evo
+    this.category = "All"
+  }
+  if(brand == "sealight"){
+
+    this.brandname = "Sealight"
+    this.products = this.sealight
+    this.category = "All"
+  }
+  if(brand == "biltwell"){
+    this.brandname = "Bitwell"
+    this.products = this.biltwell
+    this.category = "All"
+  }
+  if(brand == "hjc"){
+
+    this.brandname = "HJC"
+    this.products = this.HJC
+    this.category = "All"
+  }
+  if(brand == "nexx"){
+    this.brandname = "Nexx"
+    this.products = this.nexx
+    this.category = "All"
+  }
+  if(brand == "shark"){
+    this.brandname = "Shark"
+    this.products = this.shark
+    this.category = "All"
+  }
+  if(brand == "zeus"){
+    this.brandname = "Zues"
+    this.products = this.zeus
+    this.category = "All"
+  }
+  if(brand == "spidi"){
+    this.brandname = "Spidi"
+    this.products = this.spidi
+    this.category = "All"
+  }
+}
+
+sortRate(rate:any){
+  if(rate == 5){
+    this.products = this.rate5
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+    this.category = "All"
+  }
+  if(rate == 4){
+    this.products = this.rate4
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+    this.category = "All"
+  }
+  if(rate == 3){
+    this.products = this.rate3
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+    this.category = "All"
+  }
+  if(rate == 2){
+    this.products = this.rate2
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+    this.category = "All"
+  }
+  if(rate == 1){
+    this.products = this.rate1
+    this.radioCheck = false
+    this.radioCheck2 = false
+    this.radioCheck3 = false
+    this.radioCheck4 = false
+    this.category = "All"
+  }
+}
+
+rate1:any[]=[]
+rate2:any[]=[]
+rate3:any[]=[]
+rate4:any[]=[]
+rate5:any[]=[]
+
+evo:any[] = []
+nitro:any[] = []
+sealight:any = []
+biltwell:any = []
+shark:any = []
+HJC:any = []
+nexx:any = []
+zeus: any = []
+spidi: any = []
+// SORTING
 
   lastId:any
   async getProducts(){
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
       console.log(data.payload);
       this.products = data.payload
-      for(let prod of this.products){
-        this.lastId = prod.product_id
+      this.allprod =data.payload
+      for(let prods of this.products){
+        if(prods.category_id == 1){
+          this.helmet.push(prods)
+        }
+
+        if(prods.category_id == 2){
+          this.headlight.push(prods)
+        }
+
+        if(prods.category_id == 3){
+          this.gloves.push(prods)
+        }
+
+        //SORT BRAND
+        if(prods.brand_id == 1){
+          this.nitro.push(prods)
+        }
+        if(prods.brand_id == 2){
+          this.evo.push(prods)
+        }
+        if(prods.brand_id == 3){
+          this.sealight.push(prods)
+        }
+        if(prods.brand_id == 4){
+          this.biltwell.push(prods)
+        }
+        if(prods.brand_id == 5){
+          this.HJC.push(prods)
+        }
+        if(prods.brand_id == 6){
+          this.nexx.push(prods)
+        }
+        if(prods.brand_id == 7){
+          this.shark.push(prods)
+        }
+        if(prods.brand_id == 8){
+          this.zeus.push(prods)
+        }
+        if(prods.brand_id == 9){
+          this.spidi.push(prods)
+        }
+
+        if(prods.rating >= 1){
+          this.rate1.push(prods)
+        }
+        if(prods.rating >= 2){
+          this.rate2.push(prods)
+        }
+        if(prods.rating >= 3){
+          this.rate3.push(prods)
+        }
+        if(prods.rating >= 4){
+          this.rate4.push(prods)
+        }
+        if(prods.rating >= 5){
+          this.rate5.push(prods)
+        }
       }
       console.log(this.lastId)
     })

@@ -6,6 +6,23 @@
 <app-admin-nav></app-admin-nav>
 
 <div class="container my-5">
+
+    <div class="col-md-12 col-lg-2 col-sm-5">
+      <p>Sort by Status</p>
+    <hr>
+    <div class="btn-group mr-3 pb-4 w-75">
+        <button type="button" class="btn btn-outline-dark"> {{status}} </button>
+        <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+          <button class="btn btn-dark dropdown-toggle-split" ngbDropdownToggle></button>
+          <div class="dropdown-menu" ngbDropdownMenu>
+            <button ngbDropdownItem (click)="sortStatus('all')">All</button>
+            <button ngbDropdownItem (click)="sortStatus('checkout')">Checked out</button>
+            <button ngbDropdownItem (click)="sortStatus('delivered')">Delivered</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
   <h3>Transactions</h3>
 
   <!--Transaction table starts here-->
@@ -64,6 +81,8 @@
               <div >
               <!--Adding of products starts here-->
                     <div class="form-group" >
+                      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{order.fname}}</h5>
+                      <hr>
                       <img class="img card-img-top embed-responsive-item" style="width: 20%; height: 20%;" src={{order.product_img}} alt="Card image cap">
                       <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{order.product_name}}</h5>
                       <ngb-rating [max]="5" [readonly]="true" [(rate)]="order.rating"></ngb-rating>
@@ -89,7 +108,9 @@
     </tr>
     </tbody>
   </table>
-
+  <ngb-pagination [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="transactionRec.length" aria-label="Default pagination"></ngb-pagination>
   <!--Transaction table ends here-->
 
 

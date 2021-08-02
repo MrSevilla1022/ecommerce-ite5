@@ -120,7 +120,7 @@
 
     public function checkOrders($table, $filter_data) {
 
-			$this->sql = "SELECT * FROM $table INNER JOIN tbl_products ON tbl_cart.product_id=tbl_products.product_id WHERE  tbl_cart.checkout_st = 1" ;
+			$this->sql = "SELECT * FROM $table INNER JOIN tbl_products ON tbl_cart.product_id=tbl_products.product_id INNER JOIN tbl_user ON tbl_cart.user_id=tbl_user.user_id WHERE  tbl_cart.checkout_st = 1" ;
 
       if($filter_data != null && $table == "tbl_cart") {
 				$this->sql .= " AND tbl_cart.deliver_st = 0 AND tbl_cart.user_id=$filter_data";
