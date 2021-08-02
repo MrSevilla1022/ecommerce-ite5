@@ -77,7 +77,8 @@ import { GooglePayButtonModule } from '@google-pay/button-angular';
     FormsModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    GooglePayButtonModule
+    GooglePayButtonModule,
+    
   ],
   providers: [
     {

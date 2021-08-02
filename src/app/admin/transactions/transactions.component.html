@@ -21,7 +21,7 @@
     </tr>
     </thead>
     <tbody>
-     <tr *ngFor="let transaction of transactionRec">
+     <tr    *ngFor="let transaction of transactionRec ">
 
       <td>{{ transaction.transaction_no }}</td>
 
@@ -58,7 +58,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-        <div *ngFor="let order of orders">
+        <div *ngFor="let order of orders ">
           <div *ngIf="order.transaction_no == transaction.transaction_no">
             <div class="modal-body" >
               <div >
@@ -89,9 +89,7 @@
     </tr>
     </tbody>
   </table>
-  <ngb-pagination [(page)]="page"
-  [pageSize]="pageSize"
-  [collectionSize]="transactionRec.length" aria-label="Default pagination"></ngb-pagination>
+
   <!--Transaction table ends here-->
 
 

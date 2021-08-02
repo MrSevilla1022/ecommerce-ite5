@@ -27,6 +27,8 @@ export class ProductsComponent implements OnInit {
   user:any
   toCart:any = {}
   cartL:any
+  page:any = 1
+  pageSize:any=10
   ngOnInit(): void {
 
     const user_id = localStorage.getItem('user_id')

@@ -13,7 +13,7 @@ export class TransactionsComponent implements OnInit {
   page:any = 1
   pageSize:any=7
   constructor(public ds: ServiceService,
-    private modalService: NgbModal,) { }
+    private modalService: NgbModal,config: NgbModalConfig) { }
 
   ngOnInit(): void {
     this.getTransactions()
