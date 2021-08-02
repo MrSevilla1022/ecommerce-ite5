@@ -6,7 +6,66 @@
 <app-admin-nav></app-admin-nav>
 
 <div class="container">
-  <button type="button" class="btn btn-outline-dark my-5" (click)="open(content)">Add product</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <button type="button" class="btn btn-outline-dark my-5" (click)="open(content)">Add product</button>
+      </div>
+      <div class="col-sm">
+        <div class="input-group mt-5">
+          <input type="text" class="form-control searchbarclass" [(ngModel)]="searchkey" (ngModelChange)="search()" placeholder="Search..." aria-label="Search Bar" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <span class="input-group-text bg-dark text-light" id="basic-addon2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="btn-group mt-5 mr-3">
+          <button type="button" class="btn btn-outline-dark"> {{category}} </button>
+          <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+            <button class="btn btn-dark dropdown-toggle-split" ngbDropdownToggle></button>
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <button ngbDropdownItem (click)="sortCateg('all')">All</button>
+              <button ngbDropdownItem (click)="sortCateg('helmet')">Helmets</button>
+              <button ngbDropdownItem >Jackets</button>
+              <button ngbDropdownItem (click)="sortCateg('gloves')">Gloves</button>
+              <button ngbDropdownItem>Seats</button>
+              <button ngbDropdownItem>Tires</button>
+              <button ngbDropdownItem>Brakes</button>
+              <button ngbDropdownItem (click)="sortCateg('hl')">Headlights</button>
+              <button ngbDropdownItem>Cleaner</button>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group mt-5">
+          <button type="button" class="btn btn-outline-dark"> {{brandname}} </button>
+          <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+            <button class="btn btn-dark dropdown-toggle-split" ngbDropdownToggle></button>
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <button ngbDropdownItem (click)="sortBrand('all')">All</button>
+              <button ngbDropdownItem (click)="sortBrand('sealight')" >Sealight</button>
+              <button ngbDropdownItem (click)="sortBrand('evo')">Evo</button>
+              <button ngbDropdownItem (click)="sortBrand('n1')">Nitro</button>
+              <button ngbDropdownItem (click)="sortBrand('biltwell')" >Biltwell</button>
+              <button ngbDropdownItem (click)="sortBrand('hjc')">HJC</button>
+              <button ngbDropdownItem (click)="sortBrand('nexx')">Nexx</button>
+              <button ngbDropdownItem (click)="sortBrand('shark')">Shark</button>
+              <button ngbDropdownItem (click)="sortBrand('zeus')">Zues</button>
+              <button ngbDropdownItem (click)="sortBrand('spidi')">Spidi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
   <h3>Products</h3>
   <!--Modal for adding products-->
   <ng-template #content let-c="close" let-d="dismiss">

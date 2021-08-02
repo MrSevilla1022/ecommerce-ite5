@@ -8,7 +8,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./transactions.component.scss']
 })
 export class TransactionsComponent implements OnInit {
-  transactionRec: any;
+  transactionRec:any[]=[]
   orders:any
   page:any = 1
   pageSize:any=7
@@ -18,6 +18,25 @@ export class TransactionsComponent implements OnInit {
   ngOnInit(): void {
     this.getTransactions()
     this.getOrders()
+  }
+
+  delivered:any[]=[]
+  checkedout:any[]=[]
+  transactionRec2:any[]=[]
+  status:any = "Status"
+  sortStatus(status:any){
+    if(status == "all"){
+      this.transactionRec = this.transactionRec2
+      this.status = "All"
+    }
+    if(status == "checkout"){
+      this.transactionRec = this.checkedout
+      this.status = "Checked out"
+    }
+    if(status == "delivered"){
+      this.transactionRec = this.delivered
+      this.status = "Delivered"
+    }
   }
 
   getOrders(){
@@ -34,6 +53,16 @@ export class TransactionsComponent implements OnInit {
   getTransactions(){
     this.ds.sendApiRequest("transactions/", null ).subscribe((data: any) => {
       this.transactionRec = data.payload
+      this.transactionRec2 = data.payload
+      for(let tr of this.transactionRec){
+        if(tr.deliver_st == 1){
+          this.delivered.push(tr)
+        }
+        if(tr.deliver_st == 0){
+          this.checkedout.push(tr)
+        }
+      }
+      console.log(this.checkedout)
       console.log(this.transactionRec)
     })
   }

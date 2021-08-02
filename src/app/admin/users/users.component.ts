@@ -9,10 +9,13 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UsersComponent implements OnInit {
   gusers: any;
+  users:any
   transactionRec: any;
   orders:any
   page:any = 1
   pageSize:any=7
+
+  searchkey:any
   constructor(public ds: ServiceService,
     private modalService: NgbModal) { }
 
@@ -20,6 +23,17 @@ export class UsersComponent implements OnInit {
     this.getProducts();
     this.getTransactions()
     this.getOrders()
+  }
+
+
+  search(){
+    if(this.searchkey == ""){
+      this.gusers = this.users
+    }else{
+      this.gusers = this.gusers.filter((res:any) =>{
+        return res.fname.toLocaleLowerCase().match(this.searchkey.toLocaleLowerCase())
+      })
+    }
   }
 
   open(content:any) {
@@ -41,9 +55,10 @@ export class UsersComponent implements OnInit {
   }
 
   getProducts(){
-    this.ds.sendApiRequest("UserTable/", null ).subscribe((data: any) => {
+    this.ds.sendApiRequest("user/", null ).subscribe((data: any) => {
       console.log(data.payload);
       this.gusers = data.payload
+      this.users =data.payload
       console.log(this.gusers);
     })
   }
