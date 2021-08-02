@@ -16,7 +16,8 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
   providers: [NgbModalConfig, NgbModal]
 })
 export class AddproductComponent implements OnInit {
-
+  page:any = 1
+  pageSize:any=7
   products:any[] = []
   vproducts:any[] = []
   constructor(public ds: ServiceService, config: NgbModalConfig, private modalService: NgbModal) {

@@ -10,6 +10,8 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class TransactionsComponent implements OnInit {
   transactionRec: any;
   orders:any
+  page:any = 1
+  pageSize:any=7
   constructor(public ds: ServiceService,
     private modalService: NgbModal,) { }
 

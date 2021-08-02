@@ -53,7 +53,7 @@
                   <p class="card-text" >{{users.email}} </p>
                   <p class="card-text" >{{users.phone_no}} </p>
 
-                  
+
 
 
               </div>
@@ -70,6 +70,9 @@
     </tr>
     </tbody>
   </table>
+  <ngb-pagination [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="gusers.length" aria-label="Default pagination"></ngb-pagination>
   <!--Transaction table ends here-->
 
 

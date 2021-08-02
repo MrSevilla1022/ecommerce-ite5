@@ -132,7 +132,7 @@
       <!--Modal for view content ends here-->
 
   <!--Product table starts here-->
-  <table class="table table-striped" style="cursor: pointer;">
+  <table class="table table-striped" style="cursor: pointer;" >
     <thead>
     <tr>
       <th scope="col">#</th>
@@ -144,7 +144,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let prod of products" >
+    <tr   *ngFor="let prod of products | slice: (page-1) * pageSize : page * pageSize">
 
       <td >{{ prod.product_id }}</td>
       <td>
@@ -187,8 +187,14 @@
         <!--Modal for adding products ends here-->
 
     </tr>
+
     </tbody>
+
+
   </table>
+  <ngb-pagination [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="products.length" aria-label="Default pagination"></ngb-pagination>
   <!--Producr table ends here-->
 
 

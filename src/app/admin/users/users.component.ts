@@ -11,6 +11,8 @@ export class UsersComponent implements OnInit {
   gusers: any;
   transactionRec: any;
   orders:any
+  page:any = 1
+  pageSize:any=7
   constructor(public ds: ServiceService,
     private modalService: NgbModal) { }
 
