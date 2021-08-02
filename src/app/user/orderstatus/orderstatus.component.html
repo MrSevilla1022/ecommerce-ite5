@@ -18,6 +18,92 @@
                         <div class="title">
                             <h1>My Orders</h1>
                         </div>
+                        <!-- <div *ngFor="let trans of transactions">
+                            <div class="row justify-content-between" *ngIf="user.user_id == trans.user_id && trans.deliver_st == 0"> -->
+                                <div class="right_side p-4 shadow bg-white">
+                                    <div class="headers">
+                                        <div class="d-inline orderid_orderedon">
+                                            <p class="text-muted"> Order ID <span class="font-weight-bold text-dark">000007</span></p>
+                                        </div>
+                                        <div class="d-inline orderid_orderedon">
+                                            <p class="text-muted"> Ordered On <span class="font-weight-bold text-dark">July 31, 2021 </span> </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <p class="text-muted">Tracking Status on: <span class="Today">11:30pm, Today</span></p><button type="button" class="btn btn-outline-primary d-flex">GearUp Warehouse, Olongapo City</button>
+                                    <div class="row justify-content-center">
+                                        <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                                            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                                                <ul id="progressbar">
+                                                    <li class="active" id="placed"><strong>Placed</strong></li>
+                                                    <li class="active" id="shipped"><strong>Shipped</strong></li>
+                                                    <li id="delivered"><strong>Delivered</strong></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="contents">
+                                        <ul class="list-group list-group-flush" >
+                                            <li class="list-group-item row">
+                                                <div class="row">
+                                                    <!-- thumbnail -->
+                                                    <div class="col-md-2 col-6 mx-auto bg-white
+                                                d-flex justify-content-center align-items-center product_img">
+                                                    <img src="assets/silentbaffle.jpg" alt="item" style="width: 100px;">
+                                                </div>
+                                                    <!-- cart product details -->
+                                                    <div class="col-md-10 col-12 mx-auto px-4">
+                                                        <div class="row">
+                                                            <!-- item name -->
+                                                            <div class="col-12">
+                                                                <h4 class="item_name">Item Name</h4>
+                                                                <small class="item_desc">Item Desc</small>
+                                                            </div>
+                                                        </div>
+                                                        <!-- remove, move & price -->
+                                                        <div class="row">
+                                                            <div class="col-12 d-flex justify-content-between remove_move">
+                                                                <small class="item_quantity">hello</small>
+                                                                <small class="item_price">45454</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr>
+                                        </ul>
+                                        <div class="price_status">
+                                            <div class="row justify-content-end">
+                                                <div class="col-6 status">
+                                                    <div class="row lower">
+                                                        <div class="col text-left">Subtotal</div>
+                                                        <div class="col text-right"><span>&#8369;</span>4535</div>
+                                                    </div>
+                                                    <div class="row lower">
+                                                        <div class="col text-left">Delivery</div>
+                                                        <div class="col text-right"><span>&#8369;</span>100</div>
+                                                    </div>
+                                                    <div class="row lower">
+                                                        <div class="col text-left"><b>Total to pay</b></div>
+                                                        <div class="col text-right text-primary"><span>&#8369;</span><b>345343</b></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </div>
+                        </div> -->
+                        
+                        </div>
+
+
+                    <!-- right -->
+                    <div class="col-md-12 col-lg-10 col-sm-7 mx-auto mt-lg-0 mt-md-5">
+                        <div class="title">
+                            <h1>My Orders</h1>
+                        </div>
                         <div class="card my-lg-4 shadow-lg ">
                           <div *ngFor="let trans of transactions">
                             <div class="row justify-content-between" *ngIf="user.user_id == trans.user_id && trans.deliver_st == 0">
