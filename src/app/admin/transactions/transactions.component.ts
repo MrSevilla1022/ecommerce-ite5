@@ -26,7 +26,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   open(content:any) {
-    this.modalService.open(content,{size: 'xl'});
+    this.modalService.open(content,{size: 'l'});
   }
 
   getTransactions(){

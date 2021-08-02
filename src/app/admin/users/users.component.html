@@ -17,6 +17,7 @@
       <th scope="col">First Name</th>
       <th scope="col">Contact Number</th>
       <th scope="col">Email</th>
+      <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -30,6 +31,41 @@
       <td>{{users.fname}} {{ users.lname}}</td>
       <td>{{ users.phone_no }}</td>
       <td>{{ users.email }}</td>
+      <td>
+        <button type="button" class="btn btn-outline-dark" (click)="open(user)">View</button>
+      </td>
+
+      <!--Modal for adding products-->
+      <ng-template #user let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">User Information</h4>
+
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!--Adding of products starts here-->
+                <div class="form-group">
+
+                  <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{users.fname}}</h5>
+                  <p class="card-text" >#{{users.house_no}} {{users.street}}, {{users.barangay}}, {{users.cityMunicipality}}, {{users.province}}</p>
+                  <p class="card-text" >{{users.email}} </p>
+                  <p class="card-text" >{{users.phone_no}} </p>
+
+                  
+
+
+              </div>
+
+          <!--adding of product ends here-->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-outline-dark" (click)="addWish(hl)" (click)="d('Cross click')"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+          <button  type="button" class="btn btn-warning" (click)="addToCart(hl)"><i class="bi bi-cart" (click)="d('Cross click')"></i> {{addCartBtn}}</button> -->
+        </div>
+      </ng-template>
+      <!--Modal for adding products ends here-->
 
     </tr>
     </tbody>

@@ -49,6 +49,9 @@ export class AddproductComponent implements OnInit {
     this.getProducts();
 
   }
+
+
+
   lastId:any
   async getProducts(){
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
@@ -74,13 +77,9 @@ export class AddproductComponent implements OnInit {
   }
 
   dummydata:any[]=[];
-  openViewprod(viewprod:any, prodid:any){
-    this.modalService.open(viewprod, prodid);
-    this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
-      console.log(data.payload);
-      this.products = data.payload
-      }
-    )
+  openViewprod(content:any, ){
+    this.modalService.open(content);
+
   }
 
   getBrands(){

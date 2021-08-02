@@ -46,12 +46,11 @@
         </span>
       </td>
       <td>
-        <button type="button" class="btn btn-outline-dark my-5" (click)="open(content)">View</button>
+        <button type="button" class="btn btn-outline-dark " (click)="open(content)">View</button>
         <!--Modal for adding products-->
       <div >
         <ng-template #content let-c="close" let-d="dismiss" >
-          <div *ngFor="let order of orders">
-            <div *ngIf="order.transaction_no == transaction.transaction_no">
+
             <div class="modal-header">
               <h4 class="modal-title" id="modal-basic-title">Transaction</h4>
 
@@ -59,11 +58,13 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+        <div *ngFor="let order of orders">
+          <div *ngIf="order.transaction_no == transaction.transaction_no">
             <div class="modal-body" >
               <div >
               <!--Adding of products starts here-->
                     <div class="form-group" >
-                      <img class="img card-img-top embed-responsive-item" style="width: 30%; height: 30%;" src={{order.product_img}} alt="Card image cap">
+                      <img class="img card-img-top embed-responsive-item" style="width: 20%; height: 20%;" src={{order.product_img}} alt="Card image cap">
                       <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{order.product_name}}</h5>
                       <ngb-rating [max]="5" [readonly]="true" [(rate)]="order.rating"></ngb-rating>
                       <p class="card-text" style="color: orange;"><span>&#8369;</span>{{order.price}}</p>

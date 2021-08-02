@@ -140,12 +140,13 @@
       <th scope="col">Product Name</th>
       <th scope="col">Description</th>
       <th scope="col">Price</th>
+      <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let prod of products">
+    <tr *ngFor="let prod of products" >
 
-      <td (click)="openViewprod(viewprod, prod.product_id)">{{ prod.product_id }}</td>
+      <td >{{ prod.product_id }}</td>
       <td>
         <img src={{prod.product_img}} class="mr-2" style="width: 20px">
 
@@ -153,6 +154,37 @@
       <td>{{ prod.product_name }}</td>
       <td>{{ prod.product_desc }}</td>
       <td>{{ prod.price }}</td>
+      <td>
+        <button type="button" class="btn btn-outline-dark" (click)="openViewprod(product)">View</button>
+      </td>
+
+        <!--Modal for adding products-->
+        <ng-template #product let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Product information</h4>
+
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!--Adding of products starts here-->
+                  <div class="form-group">
+                    <img class="img card-img-top embed-responsive-item" src={{prod.product_img}} alt="Card image cap">
+                    <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{prod.product_name}}</h5>
+                    <ngb-rating [max]="5" [readonly]="true" [(rate)]="prod.rating"></ngb-rating>
+                    <p class="card-text" style="color: orange;"><span>&#8369;</span>{{prod.price}}</p>
+
+                </div>
+
+            <!--adding of product ends here-->
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-outline-dark" (click)="addWish(hl)" (click)="d('Cross click')"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+            <button  type="button" class="btn btn-warning" (click)="addToCart(hl)"><i class="bi bi-cart" (click)="d('Cross click')"></i> {{addCartBtn}}</button> -->
+          </div>
+        </ng-template>
+        <!--Modal for adding products ends here-->
 
     </tr>
     </tbody>

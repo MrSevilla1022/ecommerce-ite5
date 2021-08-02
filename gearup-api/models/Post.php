@@ -157,7 +157,7 @@
 		}
   public function transactions($table, $filter_data) {
 
-    $this->sql = "SELECT DISTINCT checkout_st,checkout_time,received_time,deliver_st,payment,transaction_no FROM tbl_cart" ;
+    $this->sql = "SELECT DISTINCT checkout_st,checkout_time,received_time,deliver_st,payment,transaction_no, user_id FROM tbl_cart" ;
 
 
     $data = array(); $code = 0; $msg= ""; $remarks = "";
