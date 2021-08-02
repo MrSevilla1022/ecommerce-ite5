@@ -15,6 +15,8 @@ export class ProductsComponent implements OnInit {
 
  category_title:any
  searchkey:any
+ minprices:any
+ maxprices:any
  @ViewChild('content') content: any ;
 
   constructor(public ds: ServiceService,private modalService: NgbModal,private router:Router) { }
@@ -50,6 +52,25 @@ export class ProductsComponent implements OnInit {
     }else{
       this.products = this.products.filter(res =>{
         return res.product_name.toLocaleLowerCase().match(this.searchkey.toLocaleLowerCase())
+      })
+    }
+  }
+
+  sortpricemin(){
+    if(this.minprices == ""){
+      this.products = this.allprod
+    }else{
+      this.products = this.products.filter(res =>{
+        return res.price.toLocaleLowerCase().match(this.minprices.toLocaleLowerCase())
+      })
+    }
+  }
+  sortpricemax(){
+    if(this.maxprices == ""){
+      this.products = this.allprod
+    }else{
+      this.products = this.products.filter(res =>{
+        return res.price.toLocaleLowerCase().match(this.maxprices.toLocaleLowerCase())
       })
     }
   }

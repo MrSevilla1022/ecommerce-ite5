@@ -43,9 +43,7 @@ export class LandingpageComponent implements OnInit {
   @ViewChild('content') content: any ;
   //images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
   images = ['/assets/cimages/1.jpg', '/assets/cimages/2.jpg', '/assets/cimages/3.jpg', '/assets/cimages/4.jpg']
-  products:any[] = []
-  helmet:any[] = []
-  headlight:any[] = []
+
   userDetails:any;
   user:any;
 
@@ -220,6 +218,12 @@ export class LandingpageComponent implements OnInit {
     this.router.navigate(['/public/products']);
   }
 
+  products:any[] = []
+  helmet:any[] = []
+  headlight:any[] = []
+  boots:any[] = []
+  lightings:any[] = []
+
   getProducts(){
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
       console.log(data.payload);
@@ -233,6 +237,16 @@ export class LandingpageComponent implements OnInit {
         if(this.headlight.length < 4){
           if(prods.category_id == 3){
             this.headlight.push(prods)
+          }
+        }
+        if(this.boots.length < 4){
+          if(prods.category_id == 5){
+            this.boots.push(prods)
+          }
+        }
+        if(this.lightings.length < 4){
+          if(prods.category_id == 11){
+            this.lightings.push(prods)
           }
         }
       }

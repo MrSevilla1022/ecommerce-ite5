@@ -237,12 +237,12 @@
                       <div class="row mb-4">
                         <div class="col-sm-10">
                           <label for="minprice" class="col-sm-2 col-form-label">Minimum</label>
-                          <input type="number" id="minprice" class="form-control" placeholder="&#8369;">
+                          <input type="number" [(ngModel)]="minprices" (ngModelChange)="sortpricemin()" id="minprice" class="form-control" placeholder="&#8369;">
                         </div>
                         <div class="w-100"></div>
                         <div class="col-sm-10">
                           <label for="maxprice"  class="col col-sm-2 col-form-label">Maximum</label>
-                          <input type="text" id="maxprice" class="form-control" placeholder="&#8369;">
+                          <input type="text" [(ngModel)]="maxprices" (ngModelChange)="sortpricemax()" id="maxprice" class="form-control" placeholder="&#8369;">
                         </div>
                       </div>
                     </form>
