@@ -253,6 +253,71 @@ export class ProductsComponent implements OnInit {
       this.products = this.spidi
       this.category = "All"
     }
+    if(brand == "augi"){
+      this.products = this.augi
+      this.category = "All"
+    }
+    if(brand == "ixon"){
+      this.products = this.ixon
+      this.category = "All"
+    }
+    if(brand == "bikelift"){
+      this.products = this.bikelift
+      this.category = "All"
+    }
+    if(brand == "stopandgo"){
+      this.products = this.stopandgo
+      this.category = "All"
+    }
+    if(brand == "mitas"){
+      this.products = this.mitas
+      this.category = "All"
+    }
+    if(brand == "ebc"){
+      this.products = this.ebc
+      this.category = "All"
+    }
+    if(brand == "brembo"){
+      this.products = this.brembo
+      this.category = "All"
+    }
+    if(brand == "galfer"){
+      this.products = this.galfer
+      this.category = "All"
+    }
+    if(brand == "rekluse"){
+      this.products = this.reluse
+      this.category = "All"
+    }
+    if(brand == "pmachine"){
+      this.products = this.performancemachine
+      this.category = "All"
+    }
+    if(brand == "aness"){
+      this.products = this.arlenness
+      this.category = "All"
+    }
+    if(brand == "cwerkes"){
+      this.products = this.competitionwerkes
+      this.category = "All"
+    }
+    if(brand == "cyclevision"){
+      this.products = this.cyclevisions
+      this.category = "All"
+    }
+    if(brand == "baja"){
+      this.products = this.bajadesigns
+      this.category = "All"
+    }
+    if(brand == "bikemaster"){
+      this.products = this.bikemaster
+      this.category = "All"
+    }
+    if(brand == "motodemic"){
+      this.products = this.motodemic
+      this.category = "All"
+    }
+
   }
 
   sortRate(rate:any){
@@ -313,6 +378,25 @@ export class ProductsComponent implements OnInit {
   nexx:any = []
   zeus: any = []
   spidi: any = []
+
+  augi:any = []
+  ixon:any = []
+  bikelift:any = []
+  stopandgo: any = []
+  mitas: any = []
+
+  ebc:any = []
+  brembo:any = []
+  galfer:any = []
+  reluse: any = []
+  performancemachine: any = []
+
+  arlenness:any = []
+  competitionwerkes:any = []
+  cyclevisions:any = []
+  bajadesigns: any = []
+  bikemaster: any = []
+  motodemic: any = []
   getProducts(){
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
       console.log(data.payload);
@@ -360,6 +444,62 @@ export class ProductsComponent implements OnInit {
           if(prods.brand_id == 9){
             this.spidi.push(prods)
           }
+          if(prods.brand_id == 10){
+            this.spidi.push(prods)
+          }
+          if(prods.brand_id ==11){
+            this.spidi.push(prods)
+          }
+          if(prods.brand_id == 12){
+            this.augi.push(prods)
+          }
+          if(prods.brand_id == 13){
+            this.ixon.push(prods)
+          }
+          if(prods.brand_id == 14){
+            this.bikelift.push(prods)
+          }
+          if(prods.brand_id == 15){
+            this.stopandgo.push(prods)
+          }
+          if(prods.brand_id == 16){
+            this.mitas.push(prods)
+          }
+          if(prods.brand_id == 17){
+            this.ebc.push(prods)
+          }
+          if(prods.brand_id == 16){
+            this.brembo.push(prods)
+          }
+          if(prods.brand_id == 17){
+            this.galfer.push(prods)
+          }
+          if(prods.brand_id == 18){
+            this.reluse.push(prods)
+          }
+          if(prods.brand_id == 19){
+            this.performancemachine.push(prods)
+          }
+          if(prods.brand_id == 20){
+            this.arlenness.push(prods)
+          }
+          if(prods.brand_id == 21){
+            this.competitionwerkes.push(prods)
+          }
+          if(prods.brand_id == 22){
+            this.cyclevisions.push(prods)
+          }
+          if(prods.brand_id == 23){
+            this.bajadesigns.push(prods)
+          }
+          if(prods.brand_id == 24){
+            this.bikemaster.push(prods)
+          }
+          if(prods.brand_id == 25){
+            this.motodemic.push(prods)
+          }
+
+          //sort by rating
 
           if(prods.rating >= 1){
             this.rate1.push(prods)

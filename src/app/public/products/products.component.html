@@ -109,12 +109,144 @@
                    Spidi
                 </label>
             </div>
+            <div class="checkbox">
+              <label>
+                  <input type="radio" name="brand" value="n1" (click)="sortBrand('augi')" [checked]="radioCheck4">
+
+                 Augi
+              </label>
+          </div>
+          <div class="checkbox">
+            <label>
+                <input type="radio" name="brand" value="n1" (click)="sortBrand('ixon')" [checked]="radioCheck4">
+
+               Ixon
+            </label>
+        </div>
+        <div class="checkbox">
+          <label>
+              <input type="radio" name="brand" value="n1" (click)="sortBrand('bikelift')" [checked]="radioCheck4">
+
+             Bike Lift
+          </label>
+      </div>
+      <div class="checkbox">
+        <label>
+            <input type="radio" name="brand" value="n1" (click)="sortBrand('stopandgo')" [checked]="radioCheck4">
+
+           Stop&Go
+        </label>
+    </div>
+    <div class="checkbox">
+      <label>
+          <input type="radio" name="brand" value="n1" (click)="sortBrand('mitas')" [checked]="radioCheck4">
+
+         Mitas
+      </label>
+  </div>
+  <div class="checkbox">
+    <label>
+        <input type="radio" name="brand" value="n1" (click)="sortBrand('ebc')" [checked]="radioCheck4">
+
+       EBC Brakes
+    </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('brembo')" [checked]="radioCheck4">
+
+     Brembo
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('galfer')" [checked]="radioCheck4">
+
+     Galfer
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('rekluse')" [checked]="radioCheck4">
+
+     Rekluse
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('pmachine')" [checked]="radioCheck4">
+
+     Performance Machine
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('aness')" [checked]="radioCheck4">
+
+     Arlen Ness
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('cwerkes')" [checked]="radioCheck4">
+
+     Competition Werkes
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('cyclevision')" [checked]="radioCheck4">
+
+     Cycle Vision
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('baja')" [checked]="radioCheck4">
+
+     Baja Designs
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('bikemaster')" [checked]="radioCheck4">
+
+     Bike Master
+  </label>
+</div>
+<div class="checkbox">
+  <label>
+      <input type="radio" name="brand" value="n1" (click)="sortBrand('motodemic')" [checked]="radioCheck4">
+
+    Motodemic
+  </label>
+</div>
+
                     </div>
+
+                    <div class="pb-1 mt-4">
+                      <p style="font-weight: bold;">Sort by Price Range</p>
+                      <hr>
+                   </div>
+
+                    <form>
+                      <div class="row mb-4">
+                        <div class="col-sm-10">
+                          <label for="minprice" class="col-sm-2 col-form-label">Minimum</label>
+                          <input type="number" id="minprice" class="form-control" placeholder="&#8369;">
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-sm-10">
+                          <label for="maxprice"  class="col col-sm-2 col-form-label">Maximum</label>
+                          <input type="text" id="maxprice" class="form-control" placeholder="&#8369;">
+                        </div>
+                      </div>
+                    </form>
 
                     <div class="pb-1">
                         <p style="font-weight: bold;">Sort Products by Rating</p>
                         <hr>
-                        </div>
+                    </div>
 
                     <div class="col-sm-12">
 
@@ -139,11 +271,6 @@
                             <pre><a class="button" (click)="sortRate(1)"><b>{{ratingOne}} Stars</b></a></pre>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
 
                       <!--  sidefilter-->
