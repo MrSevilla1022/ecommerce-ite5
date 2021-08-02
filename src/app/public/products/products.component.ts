@@ -15,9 +15,11 @@ export class ProductsComponent implements OnInit {
  products:any[] = []
  allprod:any[] = []
   helmet:any[] = []
+  gloves:any[] = []
   headlight:any[] = []
  category_title:any
  @ViewChild('content') content: any ;
+
   constructor(public ds: ServiceService,private modalService: NgbModal,private router:Router) { }
   cart:any = []
   checkCart:any =[]
@@ -180,6 +182,14 @@ export class ProductsComponent implements OnInit {
       this.radioCheck3 = false
       this.radioCheck4 = false
     }
+    if(cat == "gloves"){
+      this.products = this.gloves
+      this.category = "Gloves"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
     if(cat == "all"){
       this.products = this.allprod
       this.category = "All"
@@ -204,6 +214,30 @@ export class ProductsComponent implements OnInit {
     }
     if(brand == "sealight"){
       this.products = this.sealight
+      this.category = "All"
+    }
+    if(brand == "biltwell"){
+      this.products = this.biltwell
+      this.category = "All"
+    }
+    if(brand == "hjc"){
+      this.products = this.HJC
+      this.category = "All"
+    }
+    if(brand == "nexx"){
+      this.products = this.nexx
+      this.category = "All"
+    }
+    if(brand == "shark"){
+      this.products = this.shark
+      this.category = "All"
+    }
+    if(brand == "zeus"){
+      this.products = this.zeus
+      this.category = "All"
+    }
+    if(brand == "spidi"){
+      this.products = this.spidi
       this.category = "All"
     }
   }
@@ -260,6 +294,12 @@ export class ProductsComponent implements OnInit {
   evo:any[] = []
   nitro:any[] = []
   sealight:any = []
+  biltwell:any = []
+  shark:any = []
+  HJC:any = []
+  nexx:any = []
+  zeus: any = []
+  spidi: any = []
   getProducts(){
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
       console.log(data.payload);
@@ -275,6 +315,10 @@ export class ProductsComponent implements OnInit {
             this.headlight.push(prods)
           }
 
+          if(prods.category_id == 3){
+            this.gloves.push(prods)
+          }
+
           //SORT BRAND
           if(prods.brand_id == 1){
             this.nitro.push(prods)
@@ -284,6 +328,24 @@ export class ProductsComponent implements OnInit {
           }
           if(prods.brand_id == 3){
             this.sealight.push(prods)
+          }
+          if(prods.brand_id == 4){
+            this.biltwell.push(prods)
+          }
+          if(prods.brand_id == 5){
+            this.HJC.push(prods)
+          }
+          if(prods.brand_id == 6){
+            this.nexx.push(prods)
+          }
+          if(prods.brand_id == 7){
+            this.shark.push(prods)
+          }
+          if(prods.brand_id == 8){
+            this.zeus.push(prods)
+          }
+          if(prods.brand_id == 9){
+            this.spidi.push(prods)
           }
 
           if(prods.rating >= 1){

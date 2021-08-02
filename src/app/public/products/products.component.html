@@ -23,7 +23,7 @@
                                 <button ngbDropdownItem (click)="sortCateg('all')">All</button>
                                 <button ngbDropdownItem (click)="sortCateg('helmet')">Helmets</button>
                                 <button ngbDropdownItem >Jackets</button>
-                                <button ngbDropdownItem>Gloves</button>
+                                <button ngbDropdownItem (click)="sortCateg('gloves')">Gloves</button>
                                 <button ngbDropdownItem>Seats</button>
                                 <button ngbDropdownItem>Tires</button>
                                 <button ngbDropdownItem>Brakes</button>
@@ -42,31 +42,73 @@
                         <div class="checkbox">
                           <label>
                               <input type="radio" name="brand" value="sealight" (click)="sortBrand('all')" [checked]="radioCheck">
-                              <span class="cr"><i class="cr-icon fa fa-check" ></i></span>
+
                               All
                           </label>
                         </div>
                         <div class="checkbox">
                             <label>
                                 <input type="radio" name="brand" value="sealight" (click)="sortBrand('sealight')" [checked]="radioCheck2">
-                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                
                                 Sealight
                             </label>
                         </div>
                         <div class="checkbox">
                             <label>
                                 <input type="radio" name="brand" value="evo" (click)="sortBrand('evo')" [checked]="radioCheck3">
-                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                
                                 Evo
                             </label>
                         </div>
                         <div class="checkbox">
                             <label>
                                 <input type="radio" name="brand" value="n1" (click)="sortBrand('n1')" [checked]="radioCheck4">
-                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                
                                 Nitro
                             </label>
                         </div>
+                        <div class="checkbox">
+                          <label>
+                              <input type="radio" name="brand" value="n1" (click)="sortBrand('biltwell')" [checked]="radioCheck4">
+                              
+                              Biltwell
+                          </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                            <input type="radio" name="brand" value="n1" (click)="sortBrand('hjc')" [checked]="radioCheck4">
+                            
+                           HJC
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                          <input type="radio" name="brand" value="n1" (click)="sortBrand('nexx')" [checked]="radioCheck4">
+                          
+                         NEXX
+                      </label>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                        <input type="radio" name="brand" value="n1" (click)="sortBrand('shark')" [checked]="radioCheck4">
+                        
+                       Shark
+                    </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                      <input type="radio" name="brand" value="n1" (click)="sortBrand('zeus')" [checked]="radioCheck4">
+                      
+                     Zeus
+                  </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                    <input type="radio" name="brand" value="n1" (click)="sortBrand('spidi')" [checked]="radioCheck4">
+                    
+                   Spidi
+                </label>
+            </div>
                     </div>
 
                     <div class="pb-1">
