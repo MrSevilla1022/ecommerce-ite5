@@ -86,7 +86,7 @@
                             <p class="total_amt">Total</p>
                             <p class="total_amt">₱<span id="totalamt">{{total}}.00</span></p>
                         </div>
-                        <div class="checkoutbtn_div">
+                        <div class="checkoutbtn_div" *ngIf="cart.length != 0">
                             <button type="button" class="btn btn-lg btn-block checkout_btn" routerLink="/user/checkout">Proceed to Checkout</button>
                         </div>
                     </div>

@@ -13,25 +13,79 @@
     <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Item</th>
       <th scope="col">Status</th>
       <th scope="col">Amount</th>
-      <th scope="col">Time and Date</th>
+      <th scope="col">Date Checked out </th>
+      <th scope="col">Date Delivered </th>
+      <th scope="col">Action </th>
     </tr>
     </thead>
     <tbody>
      <tr *ngFor="let transaction of transactionRec">
 
-      <td>{{ transaction.transaction_id }}</td>
+      <td>{{ transaction.transaction_no }}</td>
+
       <td>
-        <img src={{transaction.transactionuct_img}} class="mr-2" style="width: 20px">
+        <span *ngIf="transaction.deliver_st == 1">
+          Delivered
+        </span>
+        <span *ngIf="transaction.deliver_st == 0">
+          Checked Out
+        </span>
 
       </td>
-      <td>{{ transaction.cart_id }}</td>
-      <td>{{ transaction.transactionuct_desc }}</td>
-      <td>{{ transaction.price }}</td>
+      <td>&#8369;{{ transaction.payment }}</td>
+<!-- {{ trans.checkout_time | date:'longDate'}} -->
+      <td>{{ transaction.checkout_time | date:'longDate' }}</td>
+      <td>
+        <span *ngIf="transaction.received_time != null">
+          {{ transaction.received_time | date:'longDate' }}
+        </span>
+        <span *ngIf="transaction.received_time == null">
+          Not yet delivered
+        </span>
+      </td>
+      <td>
+        <button type="button" class="btn btn-outline-dark my-5" (click)="open(content)">View</button>
+        <!--Modal for adding products-->
+      <div >
+        <ng-template #content let-c="close" let-d="dismiss" >
+          <div *ngFor="let order of orders">
+            <div *ngIf="order.transaction_no == transaction.transaction_no">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Transaction</h4>
 
-    </tr> 
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >
+              <div >
+              <!--Adding of products starts here-->
+                    <div class="form-group" >
+                      <img class="img card-img-top embed-responsive-item" style="width: 30%; height: 30%;" src={{order.product_img}} alt="Card image cap">
+                      <h5 class="card-title" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{order.product_name}}</h5>
+                      <ngb-rating [max]="5" [readonly]="true" [(rate)]="order.rating"></ngb-rating>
+                      <p class="card-text" style="color: orange;"><span>&#8369;</span>{{order.price}}</p>
+
+                  </div>
+
+              <!--adding of product ends here-->
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-outline-dark" (click)="addWish(hel)" (click)="d('Cross click')"><i class="bi bi-plus-circle"></i> Add to wishlist</button>
+              <button  type="button" class="btn btn-warning" (click)="addToCart(hel)" (click)="d('Cross click')"><i class="bi bi-cart" ></i> {{addCartBtn}}</button> -->
+            </div>
+          </div>
+        </div>
+        </div>
+        </ng-template>
+      </div>
+        <!--Modal for adding products ends here-->
+      </td>
+
+
+    </tr>
     </tbody>
   </table>
   <!--Transaction table ends here-->

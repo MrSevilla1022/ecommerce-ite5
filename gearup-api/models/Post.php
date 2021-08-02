@@ -26,7 +26,7 @@
 			return $this->sendPayload($data, $remarks, $filter_data, $code);
 		}
 
-		
+
 		public function pullUser($table, $filter_data) {
 
 			$this->sql = "SELECT * FROM $table";
@@ -59,6 +59,21 @@
 			return $this->sendPayload($data, $remarks, $filter_data, $code);
 		}
 
+    public function sales($table, $filter_data) {
+
+			$this->sql = "SELECT SUM(sold) as sales FROM $table";
+
+			$data = array(); $code = 0; $msg= ""; $remarks = "";
+			try {
+				if ($res = $this->pdo->query($this->sql)->fetchAll()) {
+					foreach ($res as $rec) { array_push($data, $rec);}
+					$res = null; $code = 200; $msg = "Successfully retrieved the requested records"; $remarks = "success";
+				}
+			} catch (\PDOException $e) {
+				$msg = $e->getMessage(); $code = 401; $remarks = "failed";
+			}
+			return $this->sendPayload($data, $remarks, $filter_data, $code);
+		}
 
     public function wish($table, $filter_data) {
 
@@ -105,10 +120,10 @@
 
     public function checkOrders($table, $filter_data) {
 
-			$this->sql = "SELECT * FROM $table INNER JOIN tbl_products ON tbl_cart.product_id=tbl_products.product_id" ;
+			$this->sql = "SELECT * FROM $table INNER JOIN tbl_products ON tbl_cart.product_id=tbl_products.product_id WHERE  tbl_cart.checkout_st = 1" ;
 
       if($filter_data != null && $table == "tbl_cart") {
-				$this->sql .= " WHERE  tbl_cart.checkout_st = 1 AND tbl_cart.deliver_st = 0 AND tbl_cart.user_id=$filter_data";
+				$this->sql .= " AND tbl_cart.deliver_st = 0 AND tbl_cart.user_id=$filter_data";
 			}
 
 
@@ -142,7 +157,7 @@
 		}
   public function transactions($table, $filter_data) {
 
-    $this->sql = "SELECT DISTINCT transaction_no, payment, checkout_time,user_id,deliver_st FROM tbl_cart" ;
+    $this->sql = "SELECT DISTINCT checkout_st,checkout_time,received_time,deliver_st,payment,transaction_no FROM tbl_cart" ;
 
 
     $data = array(); $code = 0; $msg= ""; $remarks = "";

@@ -41,7 +41,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             echo json_encode($post->pullUser('tbl_user', null), JSON_PRETTY_PRINT);
           }
           break;
-      
+
           case 'TransTable':
             if (count($req) > 1) {
               echo json_encode($post->pullUser('tbl_transactions', $req[1]), JSON_PRETTY_PRINT);
@@ -117,6 +117,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($gm->exec_query('tbl_' . $req[0], $req[1]), JSON_PRETTY_PRINT);
         } else {
           echo json_encode($gm->exec_query('tbl_' . $req[0], null), JSON_PRETTY_PRINT);
+        }
+        break;
+      case 'sales':
+        if (count($req) > 1) {
+          echo json_encode($post->sales('tbl_products', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($post->sales('tbl_products', null), JSON_PRETTY_PRINT);
         }
         break;
 
