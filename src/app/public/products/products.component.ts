@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   gloves:any[] = []
   headlight:any[] = []
  category_title:any
+ searchkey:any
  @ViewChild('content') content: any ;
 
   constructor(public ds: ServiceService,private modalService: NgbModal,private router:Router) { }
@@ -43,6 +44,16 @@ export class ProductsComponent implements OnInit {
       this.cart = data.payload
       this.checkCart = data.payload
     })
+  }
+
+  search(){
+    if(this.searchkey == ""){
+      this.products = this.allprod
+    }else{
+      this.products = this.products.filter(res =>{
+        return res.product_name.toLocaleLowerCase().match(this.searchkey.toLocaleLowerCase())
+      })
+    }
   }
   toWish:any = {}
   wish:any[]=[]

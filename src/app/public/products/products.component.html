@@ -49,63 +49,63 @@
                         <div class="checkbox">
                             <label>
                                 <input type="radio" name="brand" value="sealight" (click)="sortBrand('sealight')" [checked]="radioCheck2">
-                                
+
                                 Sealight
                             </label>
                         </div>
                         <div class="checkbox">
                             <label>
                                 <input type="radio" name="brand" value="evo" (click)="sortBrand('evo')" [checked]="radioCheck3">
-                                
+
                                 Evo
                             </label>
                         </div>
                         <div class="checkbox">
                             <label>
                                 <input type="radio" name="brand" value="n1" (click)="sortBrand('n1')" [checked]="radioCheck4">
-                                
+
                                 Nitro
                             </label>
                         </div>
                         <div class="checkbox">
                           <label>
                               <input type="radio" name="brand" value="n1" (click)="sortBrand('biltwell')" [checked]="radioCheck4">
-                              
+
                               Biltwell
                           </label>
                       </div>
                       <div class="checkbox">
                         <label>
                             <input type="radio" name="brand" value="n1" (click)="sortBrand('hjc')" [checked]="radioCheck4">
-                            
+
                            HJC
                         </label>
                     </div>
                     <div class="checkbox">
                       <label>
                           <input type="radio" name="brand" value="n1" (click)="sortBrand('nexx')" [checked]="radioCheck4">
-                          
+
                          NEXX
                       </label>
                   </div>
                   <div class="checkbox">
                     <label>
                         <input type="radio" name="brand" value="n1" (click)="sortBrand('shark')" [checked]="radioCheck4">
-                        
+
                        Shark
                     </label>
                 </div>
                 <div class="checkbox">
                   <label>
                       <input type="radio" name="brand" value="n1" (click)="sortBrand('zeus')" [checked]="radioCheck4">
-                      
+
                      Zeus
                   </label>
               </div>
               <div class="checkbox">
                 <label>
                     <input type="radio" name="brand" value="n1" (click)="sortBrand('spidi')" [checked]="radioCheck4">
-                    
+
                    Spidi
                 </label>
             </div>
@@ -174,7 +174,7 @@
                                       </div>
                                      <!--Search-->
                                     <div class="input-group mb-3 mt-1">
-                                      <input type="text" class="form-control searchbarclass" placeholder="Search..." aria-label="Search Bar" aria-describedby="basic-addon2">
+                                      <input type="text" class="form-control searchbarclass" [(ngModel)]="searchkey" (ngModelChange)="search()" placeholder="Search..." aria-label="Search Bar" aria-describedby="basic-addon2">
                                       <div class="input-group-append">
                                         <span class="input-group-text bg-dark text-light" id="basic-addon2">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
