@@ -26,6 +26,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
           echo json_encode($gm->exec_query('tbl_' . $req[0], null), JSON_PRETTY_PRINT);
         }
         break;
+      case 'adminLog':
+        if (count($req) > 1) {
+          echo json_encode($post->adminLog('tbl_admin', $req[1]), JSON_PRETTY_PRINT);
+        } else {
+          echo json_encode($post->adminLog('tbl_admin', null), JSON_PRETTY_PRINT);
+        }
+        break;
       case 'checkUser':
         if (count($req) > 1) {
           echo json_encode($post->checkUser('tbl_user', $req[1]), JSON_PRETTY_PRINT);

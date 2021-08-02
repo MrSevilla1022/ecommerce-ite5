@@ -7,30 +7,28 @@
                     <div class="row justify-content-center">
                         <div class="col">
                             <div class="form-block">
-                                <div class="row justify-content-center px-3 mb-3"> 
+                                <div class="row justify-content-center px-3 mb-3">
                                     <img id="logo" src="assets/logo.png" style="height: auto; width: 270px;"> </div>
                                 <div class="mb-4">
                                     <h3 style="text-align: center;"><strong>Administrator Login</strong></h3>
                                 </div>
 
-                                <form action="#" method="post">
                                     <div class="form-group first">
                                         <label class="form-control-label text-muted">Username</label>
-                                        <input type="text" class="form-control" id="username">
+                                        <input type="text" class="form-control" [(ngModel)]="uname" id="username">
                                     </div>
 
                                     <div class="form-group last mb-4">
                                         <label class="form-control-label text-muted">Password</label>
-                                        <input type="password" class="form-control" id="password">
+                                        <input type="password" class="form-control" [(ngModel)]="pword" id="password">
                                     </div>
 
                                     <div class="mb-4">
                                         <span><a href="#" class="forgot-pass">Forgot Password</a></span>
                                     </div>
 
-                                    <input type="submit" routerLink="/admin/dashboard" value="Log In" class="btn btn-pill text-white btn-block btn-primary">
+                                    <input type="submit" (click)="login()" value="Log In" class="btn btn-pill text-white btn-block btn-primary">
 
-                                </form>
                             </div>
                         </div>
                     </div>
