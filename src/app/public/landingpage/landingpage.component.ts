@@ -223,6 +223,7 @@ export class LandingpageComponent implements OnInit {
   headlight:any[] = []
   boots:any[] = []
   lightings:any[] = []
+  brakes:any[] = []
 
   getProducts(){
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
@@ -247,6 +248,11 @@ export class LandingpageComponent implements OnInit {
         if(this.lightings.length < 4){
           if(prods.category_id == 11){
             this.lightings.push(prods)
+          }
+        }
+        if(this.brakes.length < 4){
+          if(prods.category_id == 10){
+            this.brakes.push(prods)
           }
         }
       }
