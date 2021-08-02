@@ -12,11 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ProductsComponent implements OnInit {
  category_id:any
- products:any[] = []
- allprod:any[] = []
-  helmet:any[] = []
-  gloves:any[] = []
-  headlight:any[] = []
+
  category_title:any
  searchkey:any
  @ViewChild('content') content: any ;
@@ -178,6 +174,22 @@ export class ProductsComponent implements OnInit {
   radioCheck3 = false
   radioCheck4 = false
   radioCheck5 = false
+
+  products:any[] = []
+  allprod:any[] = []
+  helmet:any[] = []
+  gloves:any[] = []
+  headlight:any[] = []
+  protection:any[] = []
+  airfilter:any[] = []
+  exhaust:any[] = []
+  lightings:any[] = []
+  brakes:any[] = []
+  tires:any[] = []
+  accessories:any[] = []
+  boots:any[] = []
+  pants:any[] = []
+
   sortCateg(cat:any){
     if(cat == "helmet"){
       this.products = this.helmet
@@ -206,6 +218,78 @@ export class ProductsComponent implements OnInit {
     if(cat == "all"){
       this.products = this.allprod
       this.category = "All"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "protection"){
+      this.products = this.protection
+      this.category = "protection"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "pants"){
+      this.products = this.pants
+      this.category = "pants"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "boots"){
+      this.products = this.boots
+      this.category = "boots"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "brakes"){
+      this.products = this.brakes
+      this.category = "brakes"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "lightings"){
+      this.products = this.lightings
+      this.category = "lightings"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "accesories"){
+      this.products = this.accessories
+      this.category = "accesories"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "tires"){
+      this.products = this.tires
+      this.category = "tires"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "exhaust"){
+      this.products = this.exhaust
+      this.category = "exhaust"
+      this.radioCheck = false
+      this.radioCheck2 = false
+      this.radioCheck3 = false
+      this.radioCheck4 = false
+    }
+    if(cat == "airfilter"){
+      this.products = this.airfilter
+      this.category = "airfilter"
       this.radioCheck = false
       this.radioCheck2 = false
       this.radioCheck3 = false
@@ -414,6 +498,36 @@ export class ProductsComponent implements OnInit {
 
           if(prods.category_id == 3){
             this.gloves.push(prods)
+          }
+          if(prods.category_id == 4){
+            this.pants.push(prods)
+          }
+          if(prods.category_id == 4){
+            this.protection.push(prods)
+          }
+          if(prods.category_id == 5){
+            this.boots.push(prods)
+          }
+          if(prods.category_id == 7){
+            this.protection.push(prods)
+          }
+          if(prods.category_id == 8){
+            this.accessories.push(prods)
+          }
+          if(prods.category_id == 9){
+            this.tires.push(prods)
+          }
+          if(prods.category_id == 10){
+            this.brakes.push(prods)
+          }
+          if(prods.category_id == 11){
+            this.lightings.push(prods)
+          }
+          if(prods.category_id == 12){
+            this.exhaust.push(prods)
+          }
+          if(prods.category_id == 13){
+            this.airfilter.push(prods)
           }
 
           //SORT BRAND

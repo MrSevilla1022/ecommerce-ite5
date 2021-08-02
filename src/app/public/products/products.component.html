@@ -22,13 +22,17 @@
                               <div class="dropdown-menu" ngbDropdownMenu>
                                 <button ngbDropdownItem (click)="sortCateg('all')">All</button>
                                 <button ngbDropdownItem (click)="sortCateg('helmet')">Helmets</button>
-                                <button ngbDropdownItem >Jackets</button>
+                                <button ngbDropdownItem (click)="sortCateg('protection')">Protection</button>
                                 <button ngbDropdownItem (click)="sortCateg('gloves')">Gloves</button>
-                                <button ngbDropdownItem>Seats</button>
-                                <button ngbDropdownItem>Tires</button>
-                                <button ngbDropdownItem>Brakes</button>
+                                <button ngbDropdownItem (click)="sortCateg('pants')">Pants</button>
+                                <button ngbDropdownItem (click)="sortCateg('boots')">Boots</button>
+                                <button ngbDropdownItem (click)="sortCateg('brakes')">Brakes</button>
                                 <button ngbDropdownItem (click)="sortCateg('hl')">Headlights</button>
-                                <button ngbDropdownItem>Cleaner</button>
+                                <button ngbDropdownItem (click)="sortCateg('lightings')">Lightings</button>
+                                <button ngbDropdownItem (click)="sortCateg('accesories')">Accessories</button>
+                                <button ngbDropdownItem (click)="sortCateg('tires')">Tires</button>
+                                <button ngbDropdownItem (click)="sortCateg('exhaust')">Exhaust</button>
+                                <button ngbDropdownItem (click)="sortCateg('airfilter')">Air Filter</button>
                               </div>
                             </div>
                           </div>

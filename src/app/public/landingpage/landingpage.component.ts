@@ -231,7 +231,7 @@ export class LandingpageComponent implements OnInit {
           }
         }
         if(this.headlight.length < 4){
-          if(prods.category_id == 2){
+          if(prods.category_id == 3){
             this.headlight.push(prods)
           }
         }
