@@ -26,7 +26,7 @@ export class AddproductComponent implements OnInit {
      config.keyboard = false;
    }
 
-  product = new Products(0,0,'','','',0,0);
+  product:any={}
   branding = new Branding('');
   categories = new Categories('');
 
@@ -47,12 +47,17 @@ export class AddproductComponent implements OnInit {
     this.getTypes();
     this.getBrands();
     this.getProducts();
-  }
 
-  getProducts(){
+  }
+  lastId:any
+  async getProducts(){
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
       console.log(data.payload);
       this.products = data.payload
+      for(let prod of this.products){
+        this.lastId = prod.product_id
+      }
+      console.log(this.lastId)
     })
   }
 
@@ -64,7 +69,6 @@ export class AddproductComponent implements OnInit {
     this.modalService.open(branding);
   }
 
-
   openPtype(ptype:any){
     this.modalService.open(ptype);
   }
@@ -75,7 +79,6 @@ export class AddproductComponent implements OnInit {
     this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
       console.log(data.payload);
       this.products = data.payload
-
       }
     )
   }
@@ -100,8 +103,6 @@ export class AddproductComponent implements OnInit {
     })
   }
 
-
-
   UploadBrand(){
     this.branding.brand = this.brandname;
     this.ds.sendApiRequest("addBrand/", this.branding)
@@ -118,7 +119,7 @@ export class AddproductComponent implements OnInit {
       })
   }
 
-  
+
   UploadCategory(){
     this.categories.category = this.prodcategory;
     this.ds.sendApiRequest("addCategory/", this.categories)
@@ -134,11 +135,12 @@ export class AddproductComponent implements OnInit {
         timer: 1500
       })
   }
-  
+
 
 
   toUpload:any = {};
-  upload(){
+  async upload(){
+
     this.product.product_img = this.imgSrc
     this.product.category_id = this.type
     this.product.brand_id = this.brand
@@ -146,12 +148,19 @@ export class AddproductComponent implements OnInit {
     this.product.product_desc = this.pdesc
     this.product.price = this.price
     this.product.stock_avail = this.quantity
-    console.log(this.product)
 
     this.ds.sendApiRequest("addProduct/", this.product)
           .subscribe((result: any)=>{
             console.log(result);
+            this.ds.sendApiRequest("products/", null ).subscribe((data: any) => {
+
+              this.products = data.payload
+              console.log("New products");
+              console.log(this.products );
+            })
         });
+
+
       console.log(this.product)
       Swal.fire({
         position: 'center',
@@ -160,6 +169,10 @@ export class AddproductComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       })
+      // this.lastId++
+      // this.product.product_id = this.lastId
+      // this.products.push(this.product)
+
   }
 
   imgSrc: string = "../../assets/gear.png"
